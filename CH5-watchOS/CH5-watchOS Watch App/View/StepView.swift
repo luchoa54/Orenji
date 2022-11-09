@@ -9,24 +9,22 @@ import SwiftUI
 
 struct StepView: View {
     @State var counter: Int = 0
-    @State var countTo: Int = 3
     @State private var timerStarted = false
+    @Binding var skincare: DailySkinCare
+    @Binding var passoAtual: Int
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     var body: some View {
         ZStack {
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                Spacer(minLength: 50)
+            VStack (spacing: 25){
+                Spacer()
                 ZStack {
-                    Pulsation()
                     TrackView()
-                    Label(counter: $counter, countTo: $countTo)
-                    Outline(counter: $counter, countTo: $countTo, timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: self.skincare.duracaoPasso[passoAtual - 1])
+                    Outline(counter: $counter, countTo: self.skincare.duracaoPasso[passoAtual - 1], timePaused: $timerStarted)
                 }
-                Spacer(minLength: 25)
                 ZStack{
                     if !completed(){
                         if timerStarted == false{
@@ -35,7 +33,7 @@ struct StepView: View {
                             }) {
                                 Text("Iniciar")
                                     .foregroundColor(Color.black)
-                            }.background(Color.buttonColor)
+                            }.background(Color.purpleColor)
                                 .cornerRadius(50)
                         }else {
                             Button(action: {
@@ -43,39 +41,49 @@ struct StepView: View {
                             }) {
                                 Text("Pausar")
                                     .foregroundColor(Color.black)
-                            }.background(Color.labelColor)
+                            }.background(Color.gray)
                                 .cornerRadius(50)
                         }
                     }else {
-                        NavigationLink(destination: FinishView()) {
-                            Text("Finish")
-                                .foregroundColor(Color.black)
-                        }.background(Color.buttonColor)
-                            .cornerRadius(50)
+                        if(self.passoAtual == skincare.qtPassos){
+                            NavigationLink(destination: FinishView(skincare: $skincare)) {
+                                Text("Finish")
+                                    .foregroundColor(Color.black)
+                                
+                            }.background(Color.purpleColor)
+                                .cornerRadius(50)
+                        }else {
+                            NavigationLink(destination: ContentView(skincare: $skincare, passoAtual: self.passoAtual + 1)) {
+                                Text("Finish")
+                                    .foregroundColor(Color.black)
+                                
+                            }.background(Color.purpleColor)
+                                .cornerRadius(50)
+                        }
                     }
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < self.countTo && timerStarted != false{
+            if self.counter < self.skincare.duracaoPasso[passoAtual - 1] && timerStarted != false{
                 self.counter += 1
             }
-        }.navigationTitle("Limpeza")
+        }.navigationTitle("\(skincare.instrucao[passoAtual - 1])")
     }
     func completed() -> Bool {
-        return counter / countTo == 1
+        return counter / self.skincare.duracaoPasso[passoAtual - 1] == 1
     }
 }
 
-
 struct Label: View {
     @Binding var counter: Int
-    @Binding var countTo: Int
+    @State var countTo: Int
+    
     var body: some View {
         ZStack {
             Text(counterToMinutes())
                 .font(.system(size: 25))
                 .fontWeight(.heavy)
-                .colorInvert()
+                
         }
     }
     
@@ -91,17 +99,17 @@ struct Label: View {
 struct Outline: View {
     var percentage: CGFloat = 0
     @Binding var counter: Int
-    @Binding var countTo: Int
+    @State var countTo: Int
     @Binding var timePaused: Bool
     var pauseColor: [Color] = [Color.purpleColor]
-    var runColor: [Color] = [Color.trackColor]
+    var runColor: [Color] = [Color.purpleColor]
     
     var body: some View{
         ZStack{
             if timePaused == false {
                 Circle()
                     .fill(Color.clear)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 90, height: 90)
                     .overlay(
                         Circle()
                             .trim(from: 0, to: progress())
@@ -111,7 +119,7 @@ struct Outline: View {
             }else {
                 Circle()
                     .fill(Color.clear)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 90, height: 90)
                     .overlay(
                         Circle()
                             .trim(from: 0, to: progress())
@@ -132,8 +140,8 @@ struct TrackView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.pulseColor)
-                .frame(width: 80, height: 80)
+                .fill(Color.clear)
+                .frame(width: 90, height: 90)
                 .overlay(
                     Circle()
                         .stroke(style: StrokeStyle(lineWidth: 10))
@@ -150,7 +158,7 @@ struct Pulsation: View {
         ZStack {
             Circle()
                 .fill(Color.pulseColor)
-                .frame(width: 80, height: 80)
+                .frame(width: 90, height: 90)
                 .scaleEffect(pulsate ? 1.4: 1.1)
                 .animation(Animation.easeInOut(duration: 1.1).repeatForever(autoreverses: true), value: UUID())
                 .onAppear {
@@ -183,6 +191,6 @@ struct Clock: View {
 
 struct StepView_Previews: PreviewProvider {
     static var previews: some View {
-        StepView()
+        StepView(skincare: .constant(DailySkinCare.sampleData[0]), passoAtual: .constant(1))
     }
 }

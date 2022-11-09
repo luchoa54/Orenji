@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct CH5_watchOS_Watch_AppApp: App {
+    @State private var skincare = DailySkinCare.sampleData
+    
     var body: some Scene {
         WindowGroup {
-            ViewController()
+            NavigationView{
+                ViewController()
+                    .navigationTitle("App")
+                    .navigationBarTitleDisplayMode(.inline)
+                    
+            }
         }
     }
 }

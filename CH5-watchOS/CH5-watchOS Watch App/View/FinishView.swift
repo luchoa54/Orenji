@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FinishView: View {
+    @Binding var skincare: DailySkinCare
     
     var body: some View {
         VStack {
@@ -15,11 +16,13 @@ struct FinishView: View {
             Circle()
                 .overlay(
                     Text("Asset Feliz :)").colorInvert())
-            NavigationLink(destination: ViewController()){
+            NavigationLink(destination: ViewController().navigationTitle("App")
+                .navigationBarTitleDisplayMode(.inline)){
                 Text("OK")
                     .foregroundColor(Color.black)
-            }.background(Color.buttonColor)
+            }.background(Color.purpleColor)
                 .cornerRadius(50)
+            
         }.navigationBarHidden(false)
             .navigationTitle("Concluído")
             .edgesIgnoringSafeArea(.bottom)
@@ -28,6 +31,6 @@ struct FinishView: View {
 
 struct FinishView_Previews: PreviewProvider {
     static var previews: some View {
-        FinishView()
+        FinishView(skincare: .constant(DailySkinCare.sampleData[0]))
     }
 }

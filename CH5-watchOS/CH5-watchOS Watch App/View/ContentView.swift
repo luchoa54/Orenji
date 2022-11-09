@@ -8,22 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @Binding var skincare: DailySkinCare
+    @State var passoAtual: Int = 1
     @State var percentage: CGFloat = 0
+    @State var backButtonStatus: Bool = false
     
     var body: some View {
         VStack {
-            Text("Passo 1/4")
+            Rectangle()
+                .frame(width: 80, height: 25)
+                .foregroundColor(Color.backgroundColor)
+                .cornerRadius(10)
+                .overlay(
+                    Text("Passo \(passoAtual) / \(skincare.qtPassos)")
+                )
+            Text("\(skincare.titulo[passoAtual - 1])")
             Circle()
                 .overlay(
                     Text("Asset").colorInvert())
-            NavigationLink(destination: StepView()){
+            NavigationLink(destination: StepView(skincare: $skincare, passoAtual: $passoAtual)){
                 Text("Start")
                     .foregroundColor(Color.black)
-            }.background(Color.buttonColor)
+            }.background(Color.purpleColor)
                 .cornerRadius(50)
-        }.navigationBarHidden(false)
-            .navigationTitle("App")
+        }.navigationBarBackButtonHidden(backButtonStatus)
+            .navigationTitle("\(skincare.turno)")
             .edgesIgnoringSafeArea(.bottom)
     }
 }
@@ -31,6 +40,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(skincare: .constant(DailySkinCare.sampleData[0]))
     }
 }
+
+
