@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		665B7FA2291985350023B012 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665B7FA1291985350023B012 /* StepView.swift */; };
 		66705B21291AA5AA004378C2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B20291AA5AA004378C2 /* FinishView.swift */; };
-		66705B23291AAD57004378C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B22291AAD57004378C2 /* ViewController.swift */; };
+		66705B23291AAD57004378C2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B22291AAD57004378C2 /* ListView.swift */; };
 		6676EF2A291A8763003A9B49 /* Color+customColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6676EF28291A7FBC003A9B49 /* Color+customColor.swift */; };
 		667DA0DA291BCB6C00DC6746 /* DailySkinCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667DA0D9291BCB6C00DC6746 /* DailySkinCare.swift */; };
 		667DA0DC291BD51700DC6746 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667DA0DB291BD51700DC6746 /* CardView.swift */; };
@@ -51,7 +51,7 @@
 /* Begin PBXFileReference section */
 		665B7FA1291985350023B012 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		66705B20291AA5AA004378C2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
-		66705B22291AAD57004378C2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66705B22291AAD57004378C2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		6676EF28291A7FBC003A9B49 /* Color+customColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+customColor.swift"; sourceTree = "<group>"; };
 		667DA0D9291BCB6C00DC6746 /* DailySkinCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailySkinCare.swift; sourceTree = "<group>"; };
 		667DA0DB291BD51700DC6746 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 		66705B26291AAD8C004378C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				66705B22291AAD57004378C2 /* ListView.swift */,
 				66D6EF3129193E8200408FE2 /* ContentView.swift */,
+				667DA0DB291BD51700DC6746 /* CardView.swift */,
 				665B7FA1291985350023B012 /* StepView.swift */,
 				66705B20291AA5AA004378C2 /* FinishView.swift */,
-				66705B22291AAD57004378C2 /* ViewController.swift */,
-				667DA0DB291BD51700DC6746 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66705B23291AAD57004378C2 /* ViewController.swift in Sources */,
+				66705B23291AAD57004378C2 /* ListView.swift in Sources */,
 				66D6EF3229193E8200408FE2 /* ContentView.swift in Sources */,
 				66705B21291AA5AA004378C2 /* FinishView.swift in Sources */,
 				66D6EF3029193E8200408FE2 /* CH5_watchOSApp.swift in Sources */,

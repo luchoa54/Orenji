@@ -14,6 +14,7 @@ struct StepView: View {
     @Binding var passoAtual: Int
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         ZStack {
             Color.black
@@ -67,8 +68,9 @@ struct StepView: View {
             if self.counter < self.skincare.duracaoPasso[passoAtual - 1] && timerStarted != false{
                 self.counter += 1
             }
-        }.navigationTitle("\(skincare.instrucao[passoAtual - 1])")
+        }
     }
+    
     func completed() -> Bool {
         return counter / self.skincare.duracaoPasso[passoAtual - 1] == 1
     }

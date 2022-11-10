@@ -31,9 +31,7 @@ struct ContentView: View {
                     .foregroundColor(Color.black)
             }.background(Color.purpleColor)
                 .cornerRadius(50)
-        }.navigationBarBackButtonHidden(backButtonStatus)
-            .navigationTitle("\(skincare.turno)")
-            .edgesIgnoringSafeArea(.bottom)
+        }
     }
 }
 

@@ -16,7 +16,7 @@ struct FinishView: View {
             Circle()
                 .overlay(
                     Text("Asset Feliz :)").colorInvert())
-            NavigationLink(destination: ViewController().navigationTitle("App")
+            NavigationLink(destination: ListView(skincare: .constant(DailySkinCare.sampleData)).navigationTitle("App")
                 .navigationBarTitleDisplayMode(.inline)){
                 Text("OK")
                     .foregroundColor(Color.black)

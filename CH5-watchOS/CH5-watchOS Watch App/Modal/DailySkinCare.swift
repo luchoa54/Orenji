@@ -25,6 +25,28 @@ struct DailySkinCare: Identifiable {
         self.qtPassos = qtPassos
         self.horario = horario
     }
+    
+    struct Data {
+        var turno = ""
+        var titulo = [""]
+        var instrucao = [""]
+        var duracaoPasso = [10]
+        var qtPassos = 3
+        var horario = 30
+    }
+    
+    var data: Data {
+        Data(turno: turno, titulo: titulo, instrucao: instrucao, duracaoPasso: duracaoPasso, qtPassos: qtPassos, horario: horario)
+    }
+    
+    mutating func update(from data: Data){
+        turno = data.turno
+        titulo = data.titulo
+        instrucao = data.instrucao
+        duracaoPasso = data.duracaoPasso
+        qtPassos = data.qtPassos
+        horario = data.horario
+    }
 }
 
 

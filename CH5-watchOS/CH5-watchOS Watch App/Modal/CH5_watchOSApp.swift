@@ -14,10 +14,8 @@ struct CH5_watchOS_Watch_AppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ViewController()
-                    .navigationTitle("App")
-                    .navigationBarTitleDisplayMode(.inline)
-                    
+                ListView(skincare: $skincare)
+                    .navigationBarTitle("App").navigationBarTitleDisplayMode(.inline)
             }
         }
     }
