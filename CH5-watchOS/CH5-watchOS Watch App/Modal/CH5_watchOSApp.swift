@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct CH5_watchOS_Watch_AppApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ViewController()
+                    .navigationBarTitle("App")
+                    .navigationBarTitleDisplayMode(.inline)
+            }
         }
     }
 }
