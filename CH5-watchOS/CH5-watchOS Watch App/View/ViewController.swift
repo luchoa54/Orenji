@@ -13,7 +13,11 @@ struct ViewController: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         VStack{
-            Text("\(tempo)")
+            if tempo >= "06:00" && tempo < "06:30" {
+                ListView()
+            }else {
+                OrangeView()
+            }
         }.onReceive(timer){ timer in
             tempo = getTime()
         }
@@ -21,7 +25,7 @@ struct ViewController: View {
     
     func getTime() -> String {
         let formatter = DateFormatter()
-        formatter.timeStyle = .full
+        formatter.timeStyle = .short
         let dateString = formatter.string(from: Date())
         return dateString
     }
