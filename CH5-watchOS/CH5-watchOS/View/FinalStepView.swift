@@ -52,7 +52,7 @@ struct FinalStepView: View {
 //                .cornerRadius(12)
 //            }
 //            else {
-            NavigationLink(destination: ContentView(routine: .constant(RoutineInfo.datas))) {
+            NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
                     Text("Finalizar")
                         .foregroundColor(.textButtonStep)
                         .font(.system(size: 17))

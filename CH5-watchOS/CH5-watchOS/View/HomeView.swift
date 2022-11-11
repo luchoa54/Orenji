@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  CH5-watchOS
 //
-//  Created by Luciano Uchoa on 07/11/22.
+//  Created by Ana Kiara Medeiros Braga on 11/11/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     @Binding var routine: [RoutineInfo]
     
     var body: some View {
@@ -66,8 +66,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(routine: .constant(RoutineInfo.datas))
+        HomeView(routine: .constant(RoutineInfo.datas))
     }
 }

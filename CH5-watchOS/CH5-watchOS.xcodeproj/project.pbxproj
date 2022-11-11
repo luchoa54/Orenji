@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */; };
-		66D6EF2029193E8000408FE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF1F29193E8000408FE2 /* ContentView.swift */; };
 		66D6EF2229193E8200408FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2129193E8200408FE2 /* Assets.xcassets */; };
 		66D6EF2529193E8200408FE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */; };
 		66D6EF2B29193E8200408FE2 /* CH5-watchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -26,6 +25,7 @@
 		BD558D50291D399400527F98 /* FinalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D4F291D399400527F98 /* FinalStepView.swift */; };
 		BD558D52291D401600527F98 /* TimerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D51291D401600527F98 /* TimerStepView.swift */; };
 		BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A3291E49B9009CCA7A /* CardView.swift */; };
+		BD9FD4A6291E79C9009CCA7A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A5291E79C9009CCA7A /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,6 @@
 /* Begin PBXFileReference section */
 		66D6EF1A29193E8000408FE2 /* CH5-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH5_watchOSApp.swift; sourceTree = "<group>"; };
-		66D6EF1F29193E8000408FE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66D6EF2129193E8200408FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +72,7 @@
 		BD558D4F291D399400527F98 /* FinalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepView.swift; sourceTree = "<group>"; };
 		BD558D51291D401600527F98 /* TimerStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStepView.swift; sourceTree = "<group>"; };
 		BD9FD4A3291E49B9009CCA7A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BD9FD4A5291E79C9009CCA7A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +167,7 @@
 			children = (
 				BD9FD4A3291E49B9009CCA7A /* CardView.swift */,
 				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
-				66D6EF1F29193E8000408FE2 /* ContentView.swift */,
+				BD9FD4A5291E79C9009CCA7A /* HomeView.swift */,
 				BD06688C29194E4700B4F1B0 /* StepByStepView.swift */,
 				BD558D51291D401600527F98 /* TimerStepView.swift */,
 				BD558D4F291D399400527F98 /* FinalStepView.swift */,
@@ -287,9 +287,9 @@
 			files = (
 				BD06688B29194DD400B4F1B0 /* ViewController.swift in Sources */,
 				BD06688D29194E4700B4F1B0 /* StepByStepView.swift in Sources */,
+				BD9FD4A6291E79C9009CCA7A /* HomeView.swift in Sources */,
 				BD066898291C0FF000B4F1B0 /* RoutineInfo.swift in Sources */,
 				BD066896291A9AA500B4F1B0 /* Color+customColors.swift in Sources */,
-				66D6EF2029193E8000408FE2 /* ContentView.swift in Sources */,
 				BD06688F291953FB00B4F1B0 /* StepButton.swift in Sources */,
 				BD558D52291D401600527F98 /* TimerStepView.swift in Sources */,
 				BD066891291955B000B4F1B0 /* StepTitle.swift in Sources */,
