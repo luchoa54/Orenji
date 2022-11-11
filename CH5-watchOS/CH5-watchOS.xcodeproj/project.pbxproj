@@ -25,7 +25,8 @@
 		BD558D50291D399400527F98 /* FinalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D4F291D399400527F98 /* FinalStepView.swift */; };
 		BD558D52291D401600527F98 /* TimerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D51291D401600527F98 /* TimerStepView.swift */; };
 		BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A3291E49B9009CCA7A /* CardView.swift */; };
-		BD9FD4A8291E7C29009CCA7A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A7291E7C29009CCA7A /* HomeView.swift */; };
+		BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75F8291E7E1500244465 /* HomeView.swift */; };
+		BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75FA291E7E4200244465 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		BD558D4F291D399400527F98 /* FinalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepView.swift; sourceTree = "<group>"; };
 		BD558D51291D401600527F98 /* TimerStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStepView.swift; sourceTree = "<group>"; };
 		BD9FD4A3291E49B9009CCA7A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BDDD75F8291E7E1500244465 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BDDD75FA291E7E4200244465 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,11 +169,11 @@
 			children = (
 				BD9FD4A3291E49B9009CCA7A /* CardView.swift */,
 				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
-				BD9FD4A5291E79C9009CCA7A /* HomeView.swift */,
 				BD06688C29194E4700B4F1B0 /* StepByStepView.swift */,
 				BD558D51291D401600527F98 /* TimerStepView.swift */,
 				BD558D4F291D399400527F98 /* FinalStepView.swift */,
-				BD9FD4A7291E7C29009CCA7A /* HomeView.swift */,
+				BDDD75F8291E7E1500244465 /* HomeView.swift */,
+				BDDD75FA291E7E4200244465 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,6 +297,8 @@
 				BD066891291955B000B4F1B0 /* StepTitle.swift in Sources */,
 				66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */,
 				BD0668932919566C00B4F1B0 /* StepDescription.swift in Sources */,
+				BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */,
+				BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */,
 				BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */,
 				BD558D50291D399400527F98 /* FinalStepView.swift in Sources */,
 			);
