@@ -36,7 +36,7 @@
 
              Spacer()
 
-             Image("assetProvisorio2")
+             Image("mainsad")
 
              Spacer()
 
