@@ -21,7 +21,6 @@ struct StepButton: View {
     //            .background(Color.buttonBackground)
     //            .cornerRadius(12)
 
-        .tint(Color.buttonBackground)
         .buttonStyle(.borderedProminent)
         .buttonBorderShape(.roundedRectangle(radius: 12))
         .controlSize(.large)

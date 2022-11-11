@@ -12,7 +12,7 @@ struct ViewController : View {
     var body: some View {
         
         NavigationView {
-            ContentView(routine: .constant(RoutineInfo.datas[0]))
+            ContentView(routine: .constant(RoutineInfo.datas))
         }
     }
 }

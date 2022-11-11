@@ -18,26 +18,26 @@ struct StepByStepView: View {
             HStack {
                 StepTitle(text: "Passo \(currentStep)")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(.textCurrentStep)
         
-                Text("/  \(routine.numberSteps)")
+                Text("/ \(routine.numberSteps)")
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundColor(.grayTextColor)
+                    .foregroundColor(.textNextStep)
             }
             .padding([.horizontal], 16)
             .padding([.vertical], 8)
-            .background(Color.grayColor)
+            .background(Color.stepTextBackground)
             .cornerRadius(8)
                         
             ZStack {
                 VStack (spacing: 12){
                     Text("\(routine.titleStep[currentStep - 1])")
-                        .foregroundColor(.white)
+                        .foregroundColor(.titleColor)
                         .font(.callout)
                         .fontWeight(.bold)
                         //.padding([.bottom], 12)
                     Text("\(routine.descriptionStep[currentStep - 1])")
-                        .foregroundColor(.descriptionForeground)
+                        .foregroundColor(.descriptionColor)
                         .multilineTextAlignment(.center)
                         .font(.body)
                 }
@@ -51,28 +51,27 @@ struct StepByStepView: View {
             
             Spacer()
 
-            if(self.currentStep == routine.numberSteps) {
-                NavigationLink(destination: FinalStepView()) {
-                    Text("Finalizar")
-                        .foregroundColor(.grayColor)
-                        .font(.system(size: 17))
-                        .padding([.horizontal], 148)
-                        .padding([.vertical], 14)
-                }
-                .background(Color.greenColor)
-                .cornerRadius(12)
-            }
-            else {
-                NavigationLink(destination: StepByStepView(routine: $routine, currentStep: self.currentStep + 1)) {
+//            if(self.currentStep == routine.numberSteps) {
+//                NavigationLink(destination: FinalStepView()) {
+//                    Text("Finalizar")
+//                        .foregroundColor(.textButtonStep)
+//                        .font(.system(size: 17))
+//                        .padding([.horizontal], 148)
+//                        .padding([.vertical], 14)
+//                }
+//                .background(Color.purpleColor)
+//                .cornerRadius(12)
+//            }
+//            else {
+                NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep)) {
                     Text("Iniciar")
-                        .foregroundColor(.grayColor)
+                        .foregroundColor(.textButtonStep)
                         .font(.system(size: 17))
-                        .padding([.horizontal], 148)
-                        .padding([.vertical], 14)
+                        .frame(width: 350, height: 52)
                 }
-                .background(Color.greenColor)
+                .background(Color.purpleColor)
                 .cornerRadius(12)
-            }
+            //}
         }
         .navigationTitle("\(routine.shift)")
         .ignoresSafeArea(.all)
