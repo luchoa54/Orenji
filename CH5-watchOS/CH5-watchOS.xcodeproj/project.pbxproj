@@ -16,7 +16,6 @@
 		667FAEB4291D91FC0062A2F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FAEB3291D91FC0062A2F4 /* ViewController.swift */; };
 		667FAEB6291D94720062A2F4 /* OrangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FAEB5291D94720062A2F4 /* OrangeView.swift */; };
 		66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */; };
-		66D6EF2029193E8000408FE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF1F29193E8000408FE2 /* ContentView.swift */; };
 		66D6EF2229193E8200408FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2129193E8200408FE2 /* Assets.xcassets */; };
 		66D6EF2529193E8200408FE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */; };
 		66D6EF2B29193E8200408FE2 /* CH5-watchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -24,6 +23,18 @@
 		66D6EF3229193E8200408FE2 /* StepGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF3129193E8200408FE2 /* StepGuideView.swift */; };
 		66D6EF3429193E8300408FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF3329193E8300408FE2 /* Assets.xcassets */; };
 		66D6EF3729193E8300408FE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF3629193E8300408FE2 /* Preview Assets.xcassets */; };
+		BD06688B29194DD400B4F1B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06688A29194DD400B4F1B0 /* ViewController.swift */; };
+		BD06688D29194E4700B4F1B0 /* StepByStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06688C29194E4700B4F1B0 /* StepByStepView.swift */; };
+		BD06688F291953FB00B4F1B0 /* StepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD06688E291953FB00B4F1B0 /* StepButton.swift */; };
+		BD066891291955B000B4F1B0 /* StepTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD066890291955B000B4F1B0 /* StepTitle.swift */; };
+		BD0668932919566C00B4F1B0 /* StepDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0668922919566C00B4F1B0 /* StepDescription.swift */; };
+		BD066896291A9AA500B4F1B0 /* Color+customColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD066895291A9AA500B4F1B0 /* Color+customColors.swift */; };
+		BD066898291C0FF000B4F1B0 /* RoutineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */; };
+		BD558D50291D399400527F98 /* FinalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D4F291D399400527F98 /* FinalStepView.swift */; };
+		BD558D52291D401600527F98 /* TimerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D51291D401600527F98 /* TimerStepView.swift */; };
+		BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A3291E49B9009CCA7A /* CardView.swift */; };
+		BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75F8291E7E1500244465 /* HomeView.swift */; };
+		BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75FA291E7E4200244465 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +72,6 @@
 		667FAEB5291D94720062A2F4 /* OrangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeView.swift; sourceTree = "<group>"; };
 		66D6EF1A29193E8000408FE2 /* CH5-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH5_watchOSApp.swift; sourceTree = "<group>"; };
-		66D6EF1F29193E8000408FE2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66D6EF2129193E8200408FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +79,18 @@
 		66D6EF3129193E8200408FE2 /* StepGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepGuideView.swift; sourceTree = "<group>"; };
 		66D6EF3329193E8300408FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D6EF3629193E8300408FE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD06688A29194DD400B4F1B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BD06688C29194E4700B4F1B0 /* StepByStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepView.swift; sourceTree = "<group>"; };
+		BD06688E291953FB00B4F1B0 /* StepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepButton.swift; sourceTree = "<group>"; };
+		BD066890291955B000B4F1B0 /* StepTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepTitle.swift; sourceTree = "<group>"; };
+		BD0668922919566C00B4F1B0 /* StepDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDescription.swift; sourceTree = "<group>"; };
+		BD066895291A9AA500B4F1B0 /* Color+customColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+customColors.swift"; sourceTree = "<group>"; };
+		BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineInfo.swift; sourceTree = "<group>"; };
+		BD558D4F291D399400527F98 /* FinalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepView.swift; sourceTree = "<group>"; };
+		BD558D51291D401600527F98 /* TimerStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStepView.swift; sourceTree = "<group>"; };
+		BD9FD4A3291E49B9009CCA7A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BDDD75F8291E7E1500244465 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BDDD75FA291E7E4200244465 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,9 +163,10 @@
 		66D6EF1C29193E8000408FE2 /* CH5-watchOS */ = {
 			isa = PBXGroup;
 			children = (
-				66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */,
-				66D6EF1F29193E8000408FE2 /* ContentView.swift */,
+				BD06688829194CA600B4F1B0 /* Model */,
+				BD06688929194CB300B4F1B0 /* View */,
 				66D6EF2129193E8200408FE2 /* Assets.xcassets */,
+				BD066894291A9A6B00B4F1B0 /* Extensions */,
 				66D6EF2329193E8200408FE2 /* Preview Content */,
 			);
 			path = "CH5-watchOS";
@@ -175,6 +198,40 @@
 				66D6EF3629193E8300408FE2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD06688829194CA600B4F1B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */,
+				BD06688E291953FB00B4F1B0 /* StepButton.swift */,
+				BD066890291955B000B4F1B0 /* StepTitle.swift */,
+				BD0668922919566C00B4F1B0 /* StepDescription.swift */,
+				BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD06688929194CB300B4F1B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BD9FD4A3291E49B9009CCA7A /* CardView.swift */,
+				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
+				BD06688C29194E4700B4F1B0 /* StepByStepView.swift */,
+				BD558D51291D401600527F98 /* TimerStepView.swift */,
+				BD558D4F291D399400527F98 /* FinalStepView.swift */,
+				BDDD75F8291E7E1500244465 /* HomeView.swift */,
+				BDDD75FA291E7E4200244465 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BD066894291A9A6B00B4F1B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD066895291A9AA500B4F1B0 /* Color+customColors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,8 +336,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D6EF2029193E8000408FE2 /* ContentView.swift in Sources */,
+				BD06688B29194DD400B4F1B0 /* ViewController.swift in Sources */,
+				BD06688D29194E4700B4F1B0 /* StepByStepView.swift in Sources */,
+				BD066898291C0FF000B4F1B0 /* RoutineInfo.swift in Sources */,
+				BD066896291A9AA500B4F1B0 /* Color+customColors.swift in Sources */,
+				BD06688F291953FB00B4F1B0 /* StepButton.swift in Sources */,
+				BD558D52291D401600527F98 /* TimerStepView.swift in Sources */,
+				BD066891291955B000B4F1B0 /* StepTitle.swift in Sources */,
 				66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */,
+				BD0668932919566C00B4F1B0 /* StepDescription.swift in Sources */,
+				BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */,
+				BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */,
+				BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */,
+				BD558D50291D399400527F98 /* FinalStepView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +497,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
@@ -459,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
@@ -491,7 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
@@ -524,7 +592,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YJ63V5QRP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";

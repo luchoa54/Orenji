@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  CH5-watchOS
+//  CH5-watchOS Watch App
 //
 //  Created by Luciano Uchoa on 07/11/22.
 //
@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @State var percentage: CGFloat = 0
-    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+            Text("Hello, worldi!")
+        }
+        .padding()
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
