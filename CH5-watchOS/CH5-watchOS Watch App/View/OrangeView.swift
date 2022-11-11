@@ -10,7 +10,9 @@ import SwiftUI
 struct OrangeView: View {
     var body: some View {
         VStack {
-            Image("faceSad")
+            Image("mainsad")
+                .resizable()
+                .frame(width: 90, height: 104)
                 .padding()
             Text("Próxima rotina \nmarcada para noite")
                 .multilineTextAlignment(.center)

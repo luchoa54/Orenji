@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ViewController: View {
-    @State var tempo: String = ""
     
+    @State var tempo: String = ""
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
-        VStack{
-            if tempo >= "06:00" && tempo < "06:30" {
+        NavigationView{
+            if tempo >= "06:00" && tempo < "12:38" {
                 ListView()
             }else {
                 OrangeView()

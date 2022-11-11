@@ -14,11 +14,11 @@ struct StepGuideView: View {
     
     var body: some View {
         VStack {
+            Spacer(minLength: 25)
             Rectangle()
                 .frame(width: 67, height: 19)
                 .foregroundColor(.backgroundColor)
                 .cornerRadius(8)
-                .padding()
                 .overlay(
             Text("Passo 1/3")
                 .font(.system(size: 11, weight: .semibold))

@@ -12,11 +12,7 @@ struct CH5_watchOS_Watch_AppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView{
-                ViewController()
-                    .navigationBarTitle("App")
-                    .navigationBarTitleDisplayMode(.inline)
-            }
+            ViewController()
         }
     }
 }

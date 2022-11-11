@@ -14,9 +14,9 @@ struct ListView: View {
                 Spacer(minLength: 30)
                 Text("Suas rotinas")
                     .frame(maxWidth: .infinity,alignment: .leading)
-                Image("faceSad")
+                Image("mainsad")
                     .resizable()
-                    .frame(width: 80, height: 80, alignment: .center)
+                    .frame(width: 68, height: 79, alignment: .center)
                 NavigationLink(destination: StepGuideView()){
                     CardView()
                         .frame(height: 74)
