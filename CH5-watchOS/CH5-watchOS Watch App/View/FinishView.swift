@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FinishView: View {
-    @Binding var skincare: DailySkinCare
     
     var body: some View {
         VStack {
@@ -16,8 +15,10 @@ struct FinishView: View {
             Circle()
                 .overlay(
                     Text("Asset Feliz :)").colorInvert())
-            NavigationLink(destination: ListView(skincare: .constant(DailySkinCare.sampleData)).navigationTitle("App")
-                .navigationBarTitleDisplayMode(.inline)){
+            NavigationLink(destination: ListView()
+                .navigationTitle("App")
+                .navigationBarTitleDisplayMode(.inline)
+            ){
                 Text("OK")
                     .foregroundColor(Color.black)
             }.background(Color.purpleColor)
@@ -31,6 +32,6 @@ struct FinishView: View {
 
 struct FinishView_Previews: PreviewProvider {
     static var previews: some View {
-        FinishView(skincare: .constant(DailySkinCare.sampleData[0]))
+        FinishView()
     }
 }

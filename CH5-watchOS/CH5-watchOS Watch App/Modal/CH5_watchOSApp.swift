@@ -9,13 +9,13 @@ import SwiftUI
 
 @main
 struct CH5_watchOS_Watch_AppApp: App {
-    @State private var skincare = DailySkinCare.sampleData
     
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ListView(skincare: $skincare)
-                    .navigationBarTitle("App").navigationBarTitleDisplayMode(.inline)
+                ViewController()
+                    .navigationBarTitle("App")
+                    .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

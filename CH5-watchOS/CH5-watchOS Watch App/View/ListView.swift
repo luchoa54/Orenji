@@ -8,28 +8,30 @@
 import SwiftUI
 
 struct ListView: View {
-    @Binding var skincare: [DailySkinCare]
-    
     var body: some View {
         NavigationView{
-            VStack(alignment: .leading){
+            VStack(){
+                Spacer(minLength: 30)
                 Text("Suas rotinas")
-                List{
-                    ForEach($skincare) { $skincare in
-                        NavigationLink(destination: ContentView(skincare: $skincare)) {
-                            CardView(skincare: skincare)
-                                .frame(height: 74)
-                        }
-                    }
-                }.listStyle(CarouselListStyle())
+                    .frame(maxWidth: .infinity,alignment: .leading)
+                Image("faceSad")
+                    .resizable()
+                    .frame(width: 80, height: 80, alignment: .center)
+                NavigationLink(destination: StepGuideView()){
+                    CardView()
+                        .frame(height: 74)
+                }.frame(width: 154, height: 58)
+                
+                    
             }
         }.navigationBarBackButtonHidden(true)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(skincare: .constant(DailySkinCare.sampleData))
+        ListView()
     }
 }
 

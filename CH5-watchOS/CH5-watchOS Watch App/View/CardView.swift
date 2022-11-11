@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
-    let skincare: DailySkinCare
     
     var body: some View {
         HStack {
             VStack(alignment: .leading){
-                Text("\(skincare.turno)")
+                Text("Manhã")
                     .font(.headline)
-                Text("\(skincare.qtPassos) passos")
+                Text("3 passos")
                     .font(.caption)
             }
             Spacer()
@@ -27,8 +26,7 @@ struct CardView: View {
 }
 
 struct CardView_Previews: PreviewProvider {
-    static var skincare = DailySkinCare.sampleData[0]
     static var previews: some View {
-        CardView(skincare: skincare)
+        CardView()
     }
 }

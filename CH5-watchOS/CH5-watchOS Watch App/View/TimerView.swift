@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct StepView: View {
+struct TimerView: View {
     @State var counter: Int = 0
     @State private var timerStarted = false
-    @Binding var skincare: DailySkinCare
     @Binding var passoAtual: Int
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -23,8 +22,8 @@ struct StepView: View {
                 Spacer()
                 ZStack {
                     TrackView()
-                    Label(counter: $counter, countTo: self.skincare.duracaoPasso[passoAtual - 1])
-                    Outline(counter: $counter, countTo: self.skincare.duracaoPasso[passoAtual - 1], timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: 3)
+                    Outline(counter: $counter, countTo: 3, timePaused: $timerStarted)
                 }
                 ZStack{
                     if !completed(){
@@ -46,15 +45,15 @@ struct StepView: View {
                                 .cornerRadius(50)
                         }
                     }else {
-                        if(self.passoAtual == skincare.qtPassos){
-                            NavigationLink(destination: FinishView(skincare: $skincare)) {
+                        if(self.passoAtual == 3){
+                            NavigationLink(destination: FinishView()) {
                                 Text("Finish")
                                     .foregroundColor(Color.black)
                                 
                             }.background(Color.purpleColor)
                                 .cornerRadius(50)
                         }else {
-                            NavigationLink(destination: ContentView(skincare: $skincare, passoAtual: self.passoAtual + 1)) {
+                            NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1)) {
                                 Text("Finish")
                                     .foregroundColor(Color.black)
                                 
@@ -65,14 +64,14 @@ struct StepView: View {
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < self.skincare.duracaoPasso[passoAtual - 1] && timerStarted != false{
+            if self.counter < 3 && timerStarted != false{
                 self.counter += 1
             }
         }
     }
     
     func completed() -> Bool {
-        return counter / self.skincare.duracaoPasso[passoAtual - 1] == 1
+        return counter / 3 == 1
     }
 }
 
@@ -191,8 +190,8 @@ struct Clock: View {
     }
 }
 
-struct StepView_Previews: PreviewProvider {
+struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        StepView(skincare: .constant(DailySkinCare.sampleData[0]), passoAtual: .constant(1))
+        TimerView(passoAtual: .constant(1))
     }
 }
