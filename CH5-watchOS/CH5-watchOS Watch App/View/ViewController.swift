@@ -14,12 +14,16 @@ struct ViewController: View {
     
     var body: some View {
         NavigationView{
-            if tempo >= "06:00" && tempo < "12:38" {
+            if tempo >= "06:00" && tempo < "23:59" {
                 ListView()
             }else {
                 OrangeView()
             }
-        }.onReceive(timer){ timer in
+        }.navigationBarBackButtonHidden(true)
+        .onReceive(timer){ timer in
+            tempo = getTime()
+        }
+        .onAppear(){
             tempo = getTime()
         }
     }

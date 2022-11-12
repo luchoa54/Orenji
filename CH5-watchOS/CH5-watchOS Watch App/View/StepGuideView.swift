@@ -20,19 +20,21 @@ struct StepGuideView: View {
                 .foregroundColor(.backgroundColor)
                 .cornerRadius(8)
                 .overlay(
-            Text("Passo 1/3")
+            Text("Passo \(passoAtual) / 3")
                 .font(.system(size: 11, weight: .semibold))
             )
             Text("Limpeza do Rosto")
                 .font(.system(size: 11,weight: .semibold))
-            Image("faceWash")
+            Image("wash")
+                .resizable()
                 .frame(width: 80, height: 72)
             Spacer()
             NavigationLink(destination: TimerView(passoAtual: $passoAtual)){
-                Text("Start")
+                Text("Iniciar")
             }.background(Color.purpleColor)
                 .cornerRadius(50)
-        }
+                .foregroundColor(Color.black)
+        }.navigationTitle("Manhã")
     }
 }
 

@@ -11,11 +11,13 @@ struct FinishView: View {
     
     var body: some View {
         VStack {
-            Text("Rotina Feita!")
-            Circle()
-                .overlay(
-                    Text("Asset Feliz :)").colorInvert())
-            NavigationLink(destination: ListView()
+            Text("Skincare Finalizada!")
+            Spacer()
+            Image("happy")
+                .resizable()
+                .frame(width: 82, height: 78.5, alignment: .center)
+            Spacer()
+            NavigationLink(destination: ViewController()
                 .navigationTitle("App")
                 .navigationBarTitleDisplayMode(.inline)
             ){
@@ -24,8 +26,7 @@ struct FinishView: View {
             }.background(Color.purpleColor)
                 .cornerRadius(50)
             
-        }.navigationBarHidden(false)
-            .navigationTitle("Concluído")
+        }.navigationTitle("Concluído")
             .edgesIgnoringSafeArea(.bottom)
     }
 }

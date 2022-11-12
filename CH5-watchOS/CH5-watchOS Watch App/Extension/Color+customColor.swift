@@ -13,8 +13,7 @@ extension Color {
     }
     static let purpleColor = Color.rgb(r: 184, g: 185, b: 255)
     static let backgroundColor = Color.rgb(r: 30, g: 30, b: 30)
-    static let labelColor = Color.rgb(r: 255, g: 207, b: 184)
-    static let trackColor = Color.rgb(r: 184, g: 242, b: 230)
+    static let timerColor = Color.rgb(r: 43, g: 43, b: 53)
     static let pulseColor = Color.rgb(r: 255, g: 209, b: 250)
-    static let buttonColor = Color.rgb(r: 192, g: 250, b: 173)
+    static let pausedColor = Color.rgb(r: 207, g: 208, b: 227)
 }

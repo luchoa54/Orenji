@@ -19,11 +19,11 @@ struct TimerView: View {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack (spacing: 25){
-                Spacer()
+                Spacer(minLength: 10)
                 ZStack {
                     TrackView()
-                    Label(counter: $counter, countTo: 3)
-                    Outline(counter: $counter, countTo: 3, timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: 10)
+                    Outline(countTo: 10, counter: $counter, timePaused: $timerStarted)
                 }
                 ZStack{
                     if !completed(){
@@ -40,8 +40,8 @@ struct TimerView: View {
                                 self.timerStarted.toggle()
                             }) {
                                 Text("Pausar")
-                                    .foregroundColor(Color.black)
-                            }.background(Color.gray)
+                                    .foregroundColor(Color.white)
+                            }.background(Color.backgroundColor)
                                 .cornerRadius(50)
                         }
                     }else {
@@ -54,7 +54,7 @@ struct TimerView: View {
                                 .cornerRadius(50)
                         }else {
                             NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1)) {
-                                Text("Finish")
+                                Text("Finalizar")
                                     .foregroundColor(Color.black)
                                 
                             }.background(Color.purpleColor)
@@ -64,14 +64,14 @@ struct TimerView: View {
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < 3 && timerStarted != false{
+            if self.counter < 10 && timerStarted != false{
                 self.counter += 1
             }
-        }
+        }.navigationTitle("Limpeza")
     }
     
     func completed() -> Bool {
-        return counter / 3 == 1
+        return counter / 10 == 1
     }
 }
 
@@ -98,11 +98,11 @@ struct Label: View {
 }
 
 struct Outline: View {
-    var percentage: CGFloat = 0
-    @Binding var counter: Int
+   
     @State var countTo: Int
+    @Binding var counter: Int
     @Binding var timePaused: Bool
-    var pauseColor: [Color] = [Color.purpleColor]
+    var pauseColor: [Color] = [Color.pausedColor]
     var runColor: [Color] = [Color.purpleColor]
     
     var body: some View{
@@ -137,7 +137,7 @@ struct Outline: View {
 }
 
 struct TrackView: View {
-    var colors: [Color] = [Color.gray]
+    var colors: [Color] = [Color.timerColor]
     var body: some View {
         ZStack {
             Circle()
