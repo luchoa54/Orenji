@@ -46,7 +46,7 @@ struct StepByStepView: View {
             .padding([.horizontal], 40)
             //.padding([.bottom], 10)
             
-            Image("assetProvisorio")
+            Image("\(routine.imagesSteps[currentStep - 1])")
                 //.padding([.bottom], 175)
             
             Spacer()

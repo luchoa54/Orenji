@@ -57,7 +57,7 @@
              })
          }
          .padding()
-         .background(Color.gray.opacity(0.18))
+         .background(Image("mainbackground").resizable().scaledToFill())
          //.ignoresSafeArea()
          .navigationBarBackButtonHidden()
          //.navigationTitle("App")
