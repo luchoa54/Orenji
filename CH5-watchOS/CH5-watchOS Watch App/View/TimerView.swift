@@ -11,6 +11,7 @@ struct TimerView: View {
     @State var counter: Int = 0
     @State private var timerStarted = false
     @Binding var passoAtual: Int
+    @Binding var rootIsActive : Bool
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -22,8 +23,8 @@ struct TimerView: View {
                 Spacer(minLength: 10)
                 ZStack {
                     TrackView()
-                    Label(counter: $counter, countTo: 10)
-                    Outline(countTo: 10, counter: $counter, timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: 1)
+                    Outline(countTo: 1, counter: $counter, timePaused: $timerStarted)
                 }
                 ZStack{
                     if !completed(){
@@ -46,14 +47,14 @@ struct TimerView: View {
                         }
                     }else {
                         if(self.passoAtual == 3){
-                            NavigationLink(destination: FinishView()) {
+                            NavigationLink(destination: FinishView(shouldPopToRootView: self.$rootIsActive)) {
                                 Text("Finish")
                                     .foregroundColor(Color.black)
                                 
                             }.background(Color.purpleColor)
                                 .cornerRadius(50)
                         }else {
-                            NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1)) {
+                            NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1, rootIsActive: self.$rootIsActive)) {
                                 Text("Finalizar")
                                     .foregroundColor(Color.black)
                                 
@@ -64,14 +65,14 @@ struct TimerView: View {
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < 10 && timerStarted != false{
+            if self.counter < 1 && timerStarted != false{
                 self.counter += 1
             }
         }.navigationTitle("Limpeza")
     }
     
     func completed() -> Bool {
-        return counter / 10 == 1
+        return counter / 1 == 1
     }
 }
 
@@ -192,6 +193,6 @@ struct Clock: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(passoAtual: .constant(1))
+        TimerView(passoAtual: .constant(1), rootIsActive: .constant(false))
     }
 }
