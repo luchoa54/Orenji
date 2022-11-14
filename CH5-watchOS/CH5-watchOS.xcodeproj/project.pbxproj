@@ -183,10 +183,10 @@
 		66D6EF2E29193E8200408FE2 /* CH5-watchOS Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 				66705B27291AAD93004378C2 /* Extension */,
 				66705B26291AAD8C004378C2 /* View */,
 				66705B24291AAD6B004378C2 /* Modal */,
-				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 				66D6EF3529193E8300408FE2 /* Preview Content */,
 			);
 			path = "CH5-watchOS Watch App";

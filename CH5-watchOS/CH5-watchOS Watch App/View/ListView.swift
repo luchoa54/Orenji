@@ -26,6 +26,8 @@ struct ListView: View {
             }
         }.navigationBarBackButtonHidden(true)
             .edgesIgnoringSafeArea(.all)
+            .navigationTitle("App")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
