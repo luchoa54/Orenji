@@ -35,7 +35,7 @@ struct FinalStepView: View {
             .padding([.horizontal], 40)
             //.padding([.bottom], 10)
             
-            Image("assetProvisorio")
+            Image("mainhappy")
                 //.padding([.bottom], 175)
             
             Spacer()

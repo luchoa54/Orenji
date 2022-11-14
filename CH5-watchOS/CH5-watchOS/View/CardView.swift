@@ -14,6 +14,7 @@ struct CardView: View {
             ZStack {
                 Image("\(routine.imageShift)")
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 264, height: 120)
                 
                 ZStack {
