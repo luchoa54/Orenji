@@ -11,6 +11,7 @@ struct StepGuideView: View {
     
     @State var passoAtual: Int = 1
     @State var backButtonStatus: Bool = false
+    @Binding var rootIsActive : Bool
     
     var body: some View {
         VStack {
@@ -29,7 +30,7 @@ struct StepGuideView: View {
                 .resizable()
                 .frame(width: 80, height: 72)
             Spacer()
-            NavigationLink(destination: TimerView(passoAtual: $passoAtual)){
+            NavigationLink(destination: TimerView(passoAtual: $passoAtual, rootIsActive: self.$rootIsActive)){
                 Text("Iniciar")
             }.background(Color.purpleColor)
                 .cornerRadius(50)
@@ -41,7 +42,7 @@ struct StepGuideView: View {
 
 struct StepGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        StepGuideView()
+        StepGuideView(rootIsActive: .constant(false))
     }
 }
 

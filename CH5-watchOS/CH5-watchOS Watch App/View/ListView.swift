@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    @State var isActive : Bool = false
+    
     var body: some View {
         NavigationView{
             VStack(){
@@ -17,7 +20,7 @@ struct ListView: View {
                 Image("mainsad")
                     .resizable()
                     .frame(width: 68, height: 79, alignment: .center)
-                NavigationLink(destination: StepGuideView()){
+                NavigationLink(destination: StepGuideView(rootIsActive: self.$isActive), isActive: self.$isActive){
                     CardView()
                         .frame(height: 74)
                 }.frame(width: 154, height: 58)
