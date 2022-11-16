@@ -22,4 +22,5 @@ extension Color {
     static let textNextStep = Color("textNextStep")
     static let titleCardColor = Color("titleCard")
     static let descriptionCardColor = Color("descriptionCard")
+    
 }
