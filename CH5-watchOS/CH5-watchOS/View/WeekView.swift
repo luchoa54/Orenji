@@ -28,7 +28,6 @@ struct WeekView: View {
         .padding()
         .padding(.trailing)
         .frame(width: 350, height: 100)
-            .background(Color.white)
             .cornerRadius(12)
     }
 }
@@ -47,10 +46,10 @@ struct CircleFieldView: View {
         }) {
             HStack {
                 Circle()
-                    .fill(self.checkState ? Color.purpleColor : Color.gray)
+                    .fill(self.checkState ? Color.purpleColor : Color.init("CircleRepetitionColor"))
                     .overlay(
                         Text("\(name)")
-                            .foregroundColor(self.checkState ? Color.white : Color.black)
+                            .foregroundColor(self.checkState ? Color.white : Color.init("circleLabel"))
                     )
             }
         }

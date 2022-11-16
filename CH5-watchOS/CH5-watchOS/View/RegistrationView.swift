@@ -32,7 +32,9 @@ struct RegistrationView: View {
                         CheckboxFieldView(name: "Vitamina C")
                         CheckboxFieldView(name: "Máscara Facial")
                         WeekView().buttonStyle(.borderless)
+                            .padding(.trailing)
                         Toggle("Rotina Ativa", isOn: $bool)
+                            .tint(Color.purpleColor)
                     } label: {
                         Image(systemName: "sun.max")
                         Text("Manhã")
@@ -51,7 +53,9 @@ struct RegistrationView: View {
                         CheckboxFieldView(name: "Vitamina C")
                         CheckboxFieldView(name: "Máscara Facial")
                         WeekView().buttonStyle(.borderless)
+                            .padding(.trailing)
                         Toggle("Rotina Ativa", isOn: $bool)
+                            .tint(Color.purpleColor)
                     } label: {
                         Image(systemName: "sun.and.horizon")
                         Text("Tarde")
@@ -70,7 +74,9 @@ struct RegistrationView: View {
                         CheckboxFieldView(name: "Vitamina C")
                         CheckboxFieldView(name: "Máscara Facial")
                         WeekView().buttonStyle(.borderless)
-                        Toggle("Rotina Ativa", isOn: $bool)
+                            .padding(.trailing)
+                        Toggle("Habilitar rotina", isOn: $bool)
+                            .tint(Color.purpleColor)
                     } label: {
                         Image(systemName: "moon")
                         Text("Noite")
@@ -108,7 +114,7 @@ struct CheckboxFieldView: View {
                     .resizable()
                     .frame(width: 20, height: 20)
                 Text("\(name)")
-                    .foregroundColor(Color.black)
+                    .foregroundColor(Color.init("blackColor"))
             }
         }
     }
