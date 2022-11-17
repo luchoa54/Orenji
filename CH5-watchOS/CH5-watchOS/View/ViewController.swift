@@ -17,7 +17,7 @@ import SwiftUI
 
 struct ViewController : View {
     @State private var routine = RoutineInfo.datas
-    @AppStorage("HAS ONBOARD") var show = false
+    //@AppStorage("HAS ONBOARD") var show = false
 
 //    @ObservedObject var appState = AppState(hasOnboarded: false)
     var body: some View {
@@ -29,7 +29,7 @@ struct ViewController : View {
         NavigationView {
             
             
-            if show {
+            if isAppAlreadyLaunchedOnce() {
                 HomeView(routine: .constant(RoutineInfo.datas))
             }
             else {
@@ -38,3 +38,15 @@ struct ViewController : View {
         }
     }
 }
+
+func isAppAlreadyLaunchedOnce() -> Bool {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+            print("App already launched")
+            return true
+        } else {
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
+    }
