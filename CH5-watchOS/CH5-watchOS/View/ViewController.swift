@@ -11,8 +11,12 @@ struct ViewController : View {
     @State private var routine = RoutineInfo.datas
     var body: some View {
         
+//        NavigationView {
+//            HomeView(routine: .constant(RoutineInfo.datas))
+//        }
+        
         NavigationView {
-            HomeView(routine: .constant(RoutineInfo.datas))
+            welcomeView(routine: .constant(RoutineInfo.datas))
         }
     }
 }

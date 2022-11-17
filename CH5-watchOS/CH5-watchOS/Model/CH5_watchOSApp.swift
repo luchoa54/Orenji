@@ -12,7 +12,7 @@ struct CH5_watchOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            welcomeView()
+            ViewController()
         }
     }
 }
