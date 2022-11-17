@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Settings {
-    static let firstOrangeName = "firstName"
+    static let firstOrangeName = "isAppAlreadyLaunchedOnce"
 }
 
 struct welcomeView: View {
