@@ -10,6 +10,8 @@ import SwiftUI
 struct welcomeView: View {
     
     @State private var orangeName: String = "laranjito"
+    @Binding var routine: [RoutineInfo]
+
     var body: some View {
         VStack {
             
@@ -45,16 +47,14 @@ struct welcomeView: View {
             
             Spacer()
             
-            Button(action: {
-                //
-            }) {
-                Text("Vamos lá!")
-                    .foregroundColor(.textButtonStep)
-                    .font(.system(size: 17))
-                    .frame(width: 350, height: 52)
-            }
-            .background(Color.purpleColor)
-            .cornerRadius(12)
+            NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
+                    Text("Vamos lá!")
+                        .foregroundColor(.textButtonStep)
+                        .font(.system(size: 17))
+                        .frame(width: 350, height: 52)
+                }
+                .background(Color.purpleColor)
+                .cornerRadius(12)
 
             
         }
@@ -66,6 +66,6 @@ struct welcomeView: View {
 
 struct welcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        welcomeView()
+        welcomeView(routine: .constant(RoutineInfo.datas))
     }
 }
