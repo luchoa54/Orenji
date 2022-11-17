@@ -12,6 +12,7 @@ struct TimerView: View {
     @State private var timerStarted = false
     @Binding var passoAtual: Int
     @Binding var rootIsActive : Bool
+    @Binding var routine : RoutineInfo
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -46,7 +47,7 @@ struct TimerView: View {
                                 .cornerRadius(50)
                         }
                     }else {
-                        if(self.passoAtual == 3){
+                        if(self.passoAtual == routine.numberSteps){
                             NavigationLink(destination: FinishView(shouldPopToRootView: self.$rootIsActive)) {
                                 Text("Finish")
                                     .foregroundColor(Color.black)
@@ -54,7 +55,7 @@ struct TimerView: View {
                             }.background(Color.purpleColor)
                                 .cornerRadius(50)
                         }else {
-                            NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1, rootIsActive: self.$rootIsActive)) {
+                            NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1, rootIsActive: self.$rootIsActive, routine: $routine)) {
                                 Text("Finalizar")
                                     .foregroundColor(Color.black)
                                 
@@ -193,6 +194,6 @@ struct Clock: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(passoAtual: .constant(1), rootIsActive: .constant(false))
+        TimerView(passoAtual: .constant(1), rootIsActive: .constant(false), routine: .constant(RoutineInfo.datas[0]))
     }
 }

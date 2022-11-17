@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66253F8F2926694400CF7E65 /* RoutineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */; };
 		66493D16292519140024F704 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D15292519140024F704 /* RegistrationView.swift */; };
 		66493D1829253BD80024F704 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D1729253BD80024F704 /* WeekView.swift */; };
 		665B7FA2291985350023B012 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665B7FA1291985350023B012 /* TimerView.swift */; };
@@ -368,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66253F8F2926694400CF7E65 /* RoutineInfo.swift in Sources */,
 				667FAEB6291D94720062A2F4 /* OrangeView.swift in Sources */,
 				66705B23291AAD57004378C2 /* ListView.swift in Sources */,
 				66D6EF3229193E8200408FE2 /* StepGuideView.swift in Sources */,

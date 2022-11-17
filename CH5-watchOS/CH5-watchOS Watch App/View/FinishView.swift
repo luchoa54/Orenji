@@ -10,7 +10,8 @@ import SwiftUI
 struct FinishView: View {
     
     @Binding var shouldPopToRootView : Bool
-    
+    @AppStorage("Orange")  var orangeImage = "mainsad"
+    @AppStorage("fezRotina") var fezRotina = false
     var body: some View {
         VStack {
             Text("Skincare Finalizada!")
@@ -19,7 +20,7 @@ struct FinishView: View {
                 .resizable()
                 .frame(width: 82, height: 78.5, alignment: .center)
             Spacer()
-            Button(action: {self.shouldPopToRootView = false}){
+            Button(action: {self.shouldPopToRootView = false;  orangeImage = "mainhappy"; fezRotina = true}){
                 Text("OK")
                     .foregroundColor(Color.black)
             }.background(Color.purpleColor)
