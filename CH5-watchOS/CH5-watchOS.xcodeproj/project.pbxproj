@@ -150,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				66D6EF1C29193E8000408FE2 /* CH5-watchOS */,
+				66D6EF2129193E8200408FE2 /* Assets.xcassets */,
 				66D6EF2E29193E8200408FE2 /* CH5-watchOS Watch App */,
 				66D6EF1B29193E8000408FE2 /* Products */,
 			);
@@ -169,7 +170,6 @@
 			children = (
 				BD06688829194CA600B4F1B0 /* Model */,
 				BD06688929194CB300B4F1B0 /* View */,
-				66D6EF2129193E8200408FE2 /* Assets.xcassets */,
 				BD066894291A9A6B00B4F1B0 /* Extensions */,
 				66D6EF2329193E8200408FE2 /* Preview Content */,
 			);
@@ -187,11 +187,11 @@
 		66D6EF2E29193E8200408FE2 /* CH5-watchOS Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 				66705B27291AAD93004378C2 /* Extension */,
 				66705B26291AAD8C004378C2 /* View */,
 				66705B24291AAD6B004378C2 /* Modal */,
 				66D6EF3529193E8300408FE2 /* Preview Content */,
+				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 			);
 			path = "CH5-watchOS Watch App";
 			sourceTree = "<group>";

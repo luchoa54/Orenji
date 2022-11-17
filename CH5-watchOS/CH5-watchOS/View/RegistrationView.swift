@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    
     @State private var bool = true
     
     var body: some View {
@@ -33,7 +34,7 @@ struct RegistrationView: View {
                         CheckboxFieldView(name: "Máscara Facial")
                         WeekView().buttonStyle(.borderless)
                             .padding(.trailing)
-                        Toggle("Rotina Ativa", isOn: $bool)
+                        Toggle("Habilitar Rotina", isOn: $bool)
                             .tint(Color.purpleColor)
                     } label: {
                         Image(systemName: "sun.max")
@@ -54,7 +55,7 @@ struct RegistrationView: View {
                         CheckboxFieldView(name: "Máscara Facial")
                         WeekView().buttonStyle(.borderless)
                             .padding(.trailing)
-                        Toggle("Rotina Ativa", isOn: $bool)
+                        Toggle("Habilitar Rotina", isOn: $bool)
                             .tint(Color.purpleColor)
                     } label: {
                         Image(systemName: "sun.and.horizon")
