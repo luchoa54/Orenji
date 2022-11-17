@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		66493D16292519140024F704 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D15292519140024F704 /* RegistrationView.swift */; };
+		66493D1829253BD80024F704 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D1729253BD80024F704 /* WeekView.swift */; };
 		665B7FA2291985350023B012 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665B7FA1291985350023B012 /* TimerView.swift */; };
 		66705B21291AA5AA004378C2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B20291AA5AA004378C2 /* FinishView.swift */; };
 		66705B23291AAD57004378C2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B22291AAD57004378C2 /* ListView.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		66493D15292519140024F704 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		66493D1729253BD80024F704 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		665B7FA1291985350023B012 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		66705B20291AA5AA004378C2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		66705B22291AAD57004378C2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				66D6EF1C29193E8000408FE2 /* CH5-watchOS */,
+				66D6EF2129193E8200408FE2 /* Assets.xcassets */,
 				66D6EF2E29193E8200408FE2 /* CH5-watchOS Watch App */,
 				66D6EF1B29193E8000408FE2 /* Products */,
 			);
@@ -167,7 +172,6 @@
 			children = (
 				BD06688829194CA600B4F1B0 /* Model */,
 				BD06688929194CB300B4F1B0 /* View */,
-				66D6EF2129193E8200408FE2 /* Assets.xcassets */,
 				BD066894291A9A6B00B4F1B0 /* Extensions */,
 				66D6EF2329193E8200408FE2 /* Preview Content */,
 			);
@@ -185,11 +189,11 @@
 		66D6EF2E29193E8200408FE2 /* CH5-watchOS Watch App */ = {
 			isa = PBXGroup;
 			children = (
-				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 				66705B27291AAD93004378C2 /* Extension */,
 				66705B26291AAD8C004378C2 /* View */,
 				66705B24291AAD6B004378C2 /* Modal */,
 				66D6EF3529193E8300408FE2 /* Preview Content */,
+				66D6EF3329193E8300408FE2 /* Assets.xcassets */,
 			);
 			path = "CH5-watchOS Watch App";
 			sourceTree = "<group>";
@@ -225,6 +229,8 @@
 				BD558D4F291D399400527F98 /* FinalStepView.swift */,
 				BDDD75F8291E7E1500244465 /* HomeView.swift */,
 				BDDD75FA291E7E4200244465 /* ContentView.swift */,
+				66493D15292519140024F704 /* RegistrationView.swift */,
+				66493D1729253BD80024F704 /* WeekView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,8 +349,10 @@
 				BDBB535729251872005318A8 /* welcomeView.swift in Sources */,
 				BD06688D29194E4700B4F1B0 /* StepByStepView.swift in Sources */,
 				BD066898291C0FF000B4F1B0 /* RoutineInfo.swift in Sources */,
+				66493D16292519140024F704 /* RegistrationView.swift in Sources */,
 				BD066896291A9AA500B4F1B0 /* Color+customColors.swift in Sources */,
 				BD06688F291953FB00B4F1B0 /* StepButton.swift in Sources */,
+				66493D1829253BD80024F704 /* WeekView.swift in Sources */,
 				BD558D52291D401600527F98 /* TimerStepView.swift in Sources */,
 				BD066891291955B000B4F1B0 /* StepTitle.swift in Sources */,
 				66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */,
