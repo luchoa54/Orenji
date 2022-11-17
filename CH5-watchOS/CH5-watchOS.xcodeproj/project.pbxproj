@@ -33,6 +33,7 @@
 		BD558D50291D399400527F98 /* FinalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D4F291D399400527F98 /* FinalStepView.swift */; };
 		BD558D52291D401600527F98 /* TimerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D51291D401600527F98 /* TimerStepView.swift */; };
 		BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A3291E49B9009CCA7A /* CardView.swift */; };
+		BDBB535729251872005318A8 /* welcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB535629251872005318A8 /* welcomeView.swift */; };
 		BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75F8291E7E1500244465 /* HomeView.swift */; };
 		BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75FA291E7E4200244465 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		BD558D4F291D399400527F98 /* FinalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepView.swift; sourceTree = "<group>"; };
 		BD558D51291D401600527F98 /* TimerStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStepView.swift; sourceTree = "<group>"; };
 		BD9FD4A3291E49B9009CCA7A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BDBB535629251872005318A8 /* welcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeView.swift; sourceTree = "<group>"; };
 		BDDD75F8291E7E1500244465 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BDDD75FA291E7E4200244465 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +217,7 @@
 		BD06688929194CB300B4F1B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BDBB535629251872005318A8 /* welcomeView.swift */,
 				BD9FD4A3291E49B9009CCA7A /* CardView.swift */,
 				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
 				BD06688C29194E4700B4F1B0 /* StepByStepView.swift */,
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD06688B29194DD400B4F1B0 /* ViewController.swift in Sources */,
+				BDBB535729251872005318A8 /* welcomeView.swift in Sources */,
 				BD06688D29194E4700B4F1B0 /* StepByStepView.swift in Sources */,
 				BD066898291C0FF000B4F1B0 /* RoutineInfo.swift in Sources */,
 				BD066896291A9AA500B4F1B0 /* Color+customColors.swift in Sources */,

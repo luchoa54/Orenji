@@ -22,4 +22,9 @@ extension Color {
     static let textNextStep = Color("textNextStep")
     static let titleCardColor = Color("titleCard")
     static let descriptionCardColor = Color("descriptionCard")
+    static let orangeText = Color("orangeText")
+    static let orangeLabelBackground = Color("orangeLabel")
+    static let orangeBorder = Color("orangeBorder")
+    static let orangeNameBackground = Color("orangeNameBackground")
+    static let welcomeBackground = Color("welcomeBackground")
 }

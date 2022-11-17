@@ -11,6 +11,7 @@ struct FinalStepView: View {
     //let routine: RoutineInfo
     @Binding var routine: RoutineInfo
     @State var currentStep: Int = 1
+    @State var completedRoutine: Bool
 
     var body: some View {
         
@@ -71,6 +72,6 @@ struct FinalStepView: View {
 
 struct FinalStepView_Previews: PreviewProvider {
     static var previews: some View {
-        FinalStepView(routine: .constant(RoutineInfo.datas[0]))
+        FinalStepView(routine: .constant(RoutineInfo.datas[0]), completedRoutine: true)
     }
 }

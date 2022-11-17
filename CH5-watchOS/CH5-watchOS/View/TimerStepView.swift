@@ -16,7 +16,7 @@ struct TimerStepView: View {
     @State var counter: Int = 0
     @Binding var routine: RoutineInfo
     @Binding var currentStep: Int
-    var countTo: Int = 4 //4 minutes 120 - 2minutes
+    var countTo: Int = 2 //4 minutes 120 - 2minutes
          
         var body: some View {
             VStack{
@@ -82,7 +82,7 @@ struct TimerStepView: View {
                     }
                     else {
                         if(self.currentStep == routine.numberSteps){
-                            NavigationLink(destination: FinalStepView(routine: $routine)) {
+                            NavigationLink(destination: FinalStepView(routine: $routine, completedRoutine: false)) {
                                 Text("Finish")
                                     .foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))

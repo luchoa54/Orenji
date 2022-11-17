@@ -20,7 +20,7 @@ struct CardView: View {
                 ZStack {
                     Rectangle()
                         .frame(width: 264, height: 56)
-                    .foregroundColor(.white)
+                    .foregroundColor(.cardBackground)
                     
                     HStack {
                         VStack (alignment: .leading) {
@@ -46,6 +46,7 @@ struct CardView: View {
                     .frame(width: 240, height: 40)
                 }
                 .padding([.top], 64)
+                
             }
             
         }
