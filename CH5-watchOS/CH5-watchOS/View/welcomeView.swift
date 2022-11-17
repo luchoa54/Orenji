@@ -15,8 +15,9 @@ struct welcomeView: View {
     
 //    @State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
     @AppStorage(Settings.firstOrangeName) var orangeName = ""
+    @AppStorage("HAS ONBOARD") var show = false
     
-    @EnvironmentObject var appState: AppState
+//    @EnvironmentObject var appState: AppState
     @Binding var routine: RoutineInfo
     
     var body: some View {
@@ -56,7 +57,7 @@ struct welcomeView: View {
             
             Button {
                 UserDefaults.standard.set(orangeName, forKey: "TEXT_KEY")
-                appState.hasOnboarded = true
+                show = true
                 
             } label: {
                 NavigationLink(destination: RegistrationView(routine: $routine)) {

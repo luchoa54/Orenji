@@ -9,8 +9,6 @@
 
  struct HomeView: View {
      @Binding var routine: [RoutineInfo]
-     @EnvironmentObject var appState: AppState
-
 
      var body: some View {
          VStack {

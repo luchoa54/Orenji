@@ -10,8 +10,9 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var bool = true
-    @EnvironmentObject var appState: AppState
+//    @EnvironmentObject var appState: AppState
     @Binding var routine: RoutineInfo
+    @AppStorage("HAS ONBOARD") var show = false
 
     var body: some View {
         
@@ -89,7 +90,8 @@ struct RegistrationView: View {
             }
             
             Button {
-                appState.hasOnboarded = true
+//                appState.hasOnboarded = true
+                show = true
                 
             } label: {
                 NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {

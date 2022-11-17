@@ -221,9 +221,9 @@
 		BD06688929194CB300B4F1B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
 				BDBB535629251872005318A8 /* welcomeView.swift */,
 				BD9FD4A3291E49B9009CCA7A /* CardView.swift */,
-				BD06688A29194DD400B4F1B0 /* ViewController.swift */,
 				BD06688C29194E4700B4F1B0 /* StepByStepView.swift */,
 				BD558D51291D401600527F98 /* TimerStepView.swift */,
 				BD558D4F291D399400527F98 /* FinalStepView.swift */,
