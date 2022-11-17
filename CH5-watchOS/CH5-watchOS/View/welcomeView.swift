@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+struct Settings {
+    static let firstOrangeName = "firstName"
+}
+
 struct welcomeView: View {
     
-    @State private var orangeName: String = "laranjito"
-    @Binding var routine: [RoutineInfo]
-
+//    @State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
+    @AppStorage(Settings.firstOrangeName) var orangeName = ""
+    
+    @EnvironmentObject var appState: AppState
+    @Binding var routine: RoutineInfo
+    
     var body: some View {
         VStack {
             
@@ -47,15 +54,21 @@ struct welcomeView: View {
             
             Spacer()
             
-            NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
-                    Text("Vamos lá!")
-                        .foregroundColor(.textButtonStep)
-                        .font(.system(size: 17))
-                        .frame(width: 350, height: 52)
-                }
-                .background(Color.purpleColor)
-                .cornerRadius(12)
-
+            Button {
+                UserDefaults.standard.set(orangeName, forKey: "TEXT_KEY")
+                appState.hasOnboarded = true
+                
+            } label: {
+                NavigationLink(destination: RegistrationView(routine: $routine)) {
+                        Text("Vamos lá!")
+                            .foregroundColor(.textButtonStep)
+                            .font(.system(size: 17))
+                            .frame(width: 350, height: 52)
+                    
+                    }
+                    .background(Color.purpleColor)
+                    .cornerRadius(12)
+            }
             
         }
         .padding()
@@ -66,6 +79,6 @@ struct welcomeView: View {
 
 struct welcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        welcomeView(routine: .constant(RoutineInfo.datas))
+        welcomeView(routine: .constant(RoutineInfo.datas[0]))
     }
 }

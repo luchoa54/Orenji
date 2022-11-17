@@ -10,7 +10,9 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var bool = true
-    
+    @EnvironmentObject var appState: AppState
+    @Binding var routine: RoutineInfo
+
     var body: some View {
         
         VStack{
@@ -85,15 +87,27 @@ struct RegistrationView: View {
                     }
                 }
             }
-            Button("Concluído"){
-                print("Concluído")
-            }.frame(width: 350, height: 52)
-                .background(Color.purpleColor)
-                .cornerRadius(12)
-                .foregroundColor(Color.white)
+            
+            Button {
+                appState.hasOnboarded = true
+                
+            } label: {
+                NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
+                        Text("Concluído")
+                            .font(.system(size: 17))
+                            .frame(width: 350, height: 52)
+                    
+                    }
+                    .frame(width: 350, height: 52)
+                    .background(Color.purpleColor)
+                    .cornerRadius(12)
+                    .foregroundColor(Color.white)
+            }
+            
         }.scrollContentBackground(.hidden)
             .background(Color.init("backgroundListColor"))
             .formStyle(.automatic )
+            .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -123,6 +137,6 @@ struct CheckboxFieldView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView(routine: .constant(RoutineInfo.datas[0]))
     }
 }
