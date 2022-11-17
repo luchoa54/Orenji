@@ -7,8 +7,19 @@
 
 import SwiftUI
 
+//class AppState: ObservableObject {
+//    @Published var hasOnboarded: Bool
+//
+//    init(hasOnboarded: Bool) {
+//        self.hasOnboarded = hasOnboarded
+//    }
+//}
+
 struct ViewController : View {
     @State private var routine = RoutineInfo.datas
+    @AppStorage("HAS ONBOARD") var show = false
+
+//    @ObservedObject var appState = AppState(hasOnboarded: false)
     var body: some View {
         
 //        NavigationView {
@@ -16,7 +27,14 @@ struct ViewController : View {
 //        }
         
         NavigationView {
-            welcomeView(routine: .constant(RoutineInfo.datas))
+            
+            
+            if show {
+                HomeView(routine: .constant(RoutineInfo.datas))
+            }
+            else {
+                welcomeView(routine: .constant(RoutineInfo.datas[0]))
+            }
         }
     }
 }
