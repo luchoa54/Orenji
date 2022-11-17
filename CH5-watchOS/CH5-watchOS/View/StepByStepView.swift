@@ -63,7 +63,7 @@ struct StepByStepView: View {
 //                .cornerRadius(12)
 //            }
 //            else {
-                NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep)) {
+            NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep)) {
                     Text("Iniciar")
                         .foregroundColor(.textButtonStep)
                         .font(.system(size: 17))

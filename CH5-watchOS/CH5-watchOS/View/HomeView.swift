@@ -9,9 +9,14 @@
 
  struct HomeView: View {
      @Binding var routine: [RoutineInfo]
+     @State var orangeName = UserDefaults.standard.string(forKey: "laranjito")
+//     @AppStorage("rotina concluida") var routineDone = false
+     @AppStorage("orange") var assetOrange = "mainsad"
+     @AppStorage("fezRotina") var fezRotina = false
 
      var body: some View {
          VStack {
+
              HStack {
                  Text("Vamos cuidar da sua pele?")
                      .font(.system(size: 24))
@@ -36,7 +41,7 @@
 
              Spacer()
              
-             Text("Laranjitcho está com a pele bem maltrada.\n Que tal iniciar sua rotina de skincare?")
+             Text("\(orangeName ?? "Laranjito") está com a pele bem maltrada. Que tal iniciar sua rotina de skincare?")
                  .padding()
                  .padding(.horizontal)
                  .multilineTextAlignment(.center)
@@ -48,7 +53,7 @@
              
              Spacer()
 
-             Image("mainsad")
+             Image("\(assetOrange)")
 
              Spacer()
 

@@ -7,18 +7,11 @@
 
 import SwiftUI
 
-struct Settings {
-    static let firstOrangeName = "isAppAlreadyLaunchedOnce"
-}
-
 struct welcomeView: View {
     
 //    @State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
-    @AppStorage(Settings.firstOrangeName) var orangeName = ""
-    @AppStorage("HAS ONBOARD") var show = false
-    
-//    @EnvironmentObject var appState: AppState
-    @Binding var routine: RoutineInfo
+    @AppStorage("laranjito") var orangeName = ""
+    //@Binding var routine: RoutineInfo
     
     var body: some View {
         VStack {
@@ -44,6 +37,7 @@ struct welcomeView: View {
                             
                 TextField("Qual meu nome?", text: $orangeName)
                     .padding()
+                    .foregroundColor(.titleColor)
                     .background(Color.orangeNameBackground)
                     .cornerRadius(12)
             }
@@ -56,11 +50,10 @@ struct welcomeView: View {
             Spacer()
             
             Button {
-                UserDefaults.standard.set(orangeName, forKey: "TEXT_KEY")
-                show = true
+//                UserDefaults.standard.set(orangeName, forKey: "laranjito")
                 
             } label: {
-                NavigationLink(destination: RegistrationView(routine: $routine)) {
+                NavigationLink(destination: RegistrationView()) {
                         Text("Vamos lá!")
                             .foregroundColor(.textButtonStep)
                             .font(.system(size: 17))
@@ -80,6 +73,6 @@ struct welcomeView: View {
 
 struct welcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        welcomeView(routine: .constant(RoutineInfo.datas[0]))
+        welcomeView()
     }
 }

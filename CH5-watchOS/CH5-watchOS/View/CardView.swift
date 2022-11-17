@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CardView: View {
     @Binding var routine: RoutineInfo
+    @AppStorage("rotina concluida") var completedRoutine = false
+
     var body: some View {
         VStack {
             ZStack {
@@ -28,9 +30,16 @@ struct CardView: View {
                                 .font(.system(size: 16))
                                 .fontWeight(.bold)
                                 .foregroundColor(.titleCardColor)
-                            Text("Possui \(routine.numberSteps) passos")
-                                .font(.system(size: 13))
-                                .foregroundColor(.descriptionCardColor)
+                            
+                            if completedRoutine {
+                                Text("Rotina concluída")
+                            }
+                            else {
+                                Text("Possui \(routine.numberSteps) passos")
+                                    .font(.system(size: 13))
+                                    .foregroundColor(.descriptionCardColor)
+                            }
+                            
                         }
                         
                         Spacer()

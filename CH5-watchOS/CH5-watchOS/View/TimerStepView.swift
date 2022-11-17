@@ -82,7 +82,7 @@ struct TimerStepView: View {
                     }
                     else {
                         if(self.currentStep == routine.numberSteps){
-                            NavigationLink(destination: FinalStepView(routine: $routine, completedRoutine: false)) {
+                            NavigationLink(destination: FinalStepView(routine: $routine)) {
                                 Text("Finish")
                                     .foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))
