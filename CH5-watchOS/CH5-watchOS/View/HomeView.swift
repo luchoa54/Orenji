@@ -21,19 +21,31 @@
                  
                  Spacer()
 
-                 Button {
-
-                 } label: {
-                     Image(systemName: "plus.app.fill")
-                         .resizable()
-                         .foregroundColor(.purpleColor)
-                         .frame(width: 48, height: 44)
-                         //.padding([.horizontal], 31)
-
-                 }
+//                 Button {
+//
+//                 } label: {
+//                     Image(systemName: "plus.app.fill")
+//                         .resizable()
+//                         .foregroundColor(.purpleColor)
+//                         .frame(width: 48, height: 44)
+//                         //.padding([.horizontal], 31)
+//
+//                 }
 
              }
 
+             Spacer()
+             
+             Text("Laranjitcho está com a pele bem maltrada.\n Que tal iniciar sua rotina de skincare?")
+                 .padding()
+                 .padding(.horizontal)
+                 .multilineTextAlignment(.center)
+                 .font(.system(size: 12))
+                 .foregroundColor(.orangeText)
+                 .background(Color.orangeLabelBackground)
+                 .cornerRadius(12)
+                 .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+             
              Spacer()
 
              Image("mainsad")
