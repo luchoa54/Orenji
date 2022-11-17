@@ -12,6 +12,7 @@ struct StepGuideView: View {
     @State var passoAtual: Int = 1
     @State var backButtonStatus: Bool = false
     @Binding var rootIsActive : Bool
+    @Binding var routine : RoutineInfo
     
     var body: some View {
         VStack {
@@ -21,28 +22,45 @@ struct StepGuideView: View {
                 .foregroundColor(.backgroundColor)
                 .cornerRadius(8)
                 .overlay(
-            Text("Passo \(passoAtual) / 3")
+                    Text("Passo \(passoAtual) / \(routine.numberSteps)")
                 .font(.system(size: 11, weight: .semibold))
             )
-            Text("Limpeza do Rosto")
+            Text("\(routine.titleStep[passoAtual - 1])")
                 .font(.system(size: 11,weight: .semibold))
-            Image("wash")
+            Image("\(stepImage(imageName: routine.titleStep[passoAtual - 1]))")
                 .resizable()
                 .frame(width: 80, height: 72)
             Spacer()
-            NavigationLink(destination: TimerView(passoAtual: $passoAtual, rootIsActive: self.$rootIsActive)){
+            NavigationLink(destination: TimerView(passoAtual: $passoAtual, rootIsActive: self.$rootIsActive, routine: $routine)){
                 Text("Iniciar")
             }.background(Color.purpleColor)
                 .cornerRadius(50)
                 .foregroundColor(Color.black)
         }.navigationTitle("Manhã")
     }
+    
+    func stepImage(imageName: String) -> String{
+        switch imageName {
+        case "Limpeza do rosto":
+            return "wash"
+        case "Hidratação":
+            return "sunscreen"
+        case "Protetor solar":
+            return "sunscreen"
+        case "Vitamina C":
+            return "vitC"
+        case "Serum":
+            return "vitC"
+        default:
+            return "wash"
+        }
+    }
 }
 
 
 struct StepGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        StepGuideView(rootIsActive: .constant(false))
+        StepGuideView(rootIsActive: .constant(false), routine: .constant(RoutineInfo.datas[0]))
     }
 }
 

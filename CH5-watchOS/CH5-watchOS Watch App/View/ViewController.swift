@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct ViewController: View {
+    @State private var routine = RoutineInfo.datas
     
     @State var tempo: String = ""
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationView{
-            if tempo >= "06:00" && tempo < "23:59" {
-                ListView()
-            }else {
-                OrangeView()
+            if  tempo >= "05:00" && tempo < "10:59"{
+                ListView(routine: $routine, shift: 0)
+            }else if tempo >= "13:00" && tempo < "16:59"{
+                ListView(routine: $routine, shift: 1)
+            }else if tempo >= "19:00" && tempo < "23:59"{
+                ListView(routine: $routine, shift: 2)
+            }
+            else {
+                OrangeView(shiftTitle: nextRoutine())
             }
         }.navigationBarBackButtonHidden(true)
         .onReceive(timer){ timer in
@@ -35,6 +41,18 @@ struct ViewController: View {
         return dateString
     }
     
+    func nextRoutine() -> String{
+        
+        if tempo >= "11:00" && tempo < "12:59" {
+            return "Tarde"
+        }else if tempo >= "17:00" && tempo < "18:59"{
+            return "Noite"
+        }else if tempo >= "00:00" && tempo < "04:59"{
+            return "Manhã"
+        }
+        
+        return "Amanhã"
+    }
 }
 
 struct ViewController_Previews: PreviewProvider {
