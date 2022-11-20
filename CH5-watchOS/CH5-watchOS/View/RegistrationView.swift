@@ -96,7 +96,7 @@ struct RegistrationView: View {
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
                     
-                    }
+                }.isDetailLink(false)
                     .frame(width: 350, height: 52)
                     .background(Color.purpleColor)
                     .cornerRadius(12)
