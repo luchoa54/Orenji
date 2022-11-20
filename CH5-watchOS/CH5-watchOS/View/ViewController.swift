@@ -10,18 +10,21 @@ import SwiftUI
 struct ViewController : View {
     @State private var routine = RoutineInfo.datas
 
+    //@StateObject var router = Router()
+    
     var body: some View {
         
         NavigationView {
             
-            
             if isAppAlreadyLaunchedOnce() {
-                HomeView(routine: .constant(RoutineInfo.datas))
+                HomeView(routine: .constant(RoutineInfo.datas), shift: 0)
             }
             else {
                 welcomeView()
             }
+            
         }
+        //.environmentObject(router)
     }
 }
 

@@ -16,6 +16,10 @@ struct TimerStepView: View {
     @State var counter: Int = 0
     @Binding var routine: RoutineInfo
     @Binding var currentStep: Int
+    @AppStorage("rotina concluida") var completedRoutine = false
+    @Binding var rootIsActive : Bool
+
+
     var countTo: Int = 2 //4 minutes 120 - 2minutes
          
         var body: some View {
@@ -82,7 +86,8 @@ struct TimerStepView: View {
                     }
                     else {
                         if(self.currentStep == routine.numberSteps){
-                            NavigationLink(destination: FinalStepView(routine: $routine)) {
+                                                        
+                            NavigationLink(destination: FinalStepView(routine: $routine, shouldPopToRootView: self.$rootIsActive)) {
                                 Text("Finish")
                                     .foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))
@@ -92,7 +97,7 @@ struct TimerStepView: View {
                             .cornerRadius(12)
                         }
                         else {
-                            NavigationLink(destination: StepByStepView(routine: $routine, currentStep: self.currentStep + 1)) {
+                            NavigationLink(destination: StepByStepView(routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
                                 Text("Finish")
                                     .foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))
@@ -144,6 +149,7 @@ struct TimerStepView: View {
 
 struct TimerStepView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerStepView(routine: .constant(RoutineInfo.datas[0]), currentStep: .constant(1))
+        TimerStepView(routine: .constant(RoutineInfo.datas[0]), currentStep: .constant(1), rootIsActive: .constant(false))
+//        TimerStepView(routine: .constant(RoutineInfo.datas[0]), currentStep: .constant(1))
     }
 }

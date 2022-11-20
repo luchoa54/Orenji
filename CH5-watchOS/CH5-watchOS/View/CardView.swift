@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CardView: View {
     @Binding var routine: RoutineInfo
-    @AppStorage("rotina concluida") var completedRoutine = false
+//    @AppStorage("fezRotina") var fezRotina = false
+    //    @State var isActive : Bool = false
 
     var body: some View {
         VStack {
@@ -31,25 +32,25 @@ struct CardView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.titleCardColor)
                             
-                            if completedRoutine {
-                                Text("Rotina concluída")
-                            }
-                            else {
+//                            if fezRotina {
+//                                Text("Rotina concluída")
+//                            }
+//                            else {
                                 Text("Possui \(routine.numberSteps) passos")
                                     .font(.system(size: 13))
                                     .foregroundColor(.descriptionCardColor)
-                            }
+                            //}
                             
                         }
                         
                         Spacer()
                         
-                        NavigationLink(destination: StepByStepView(routine: $routine), label: {
+                        
                             Image(systemName: "play.circle.fill")
                                 .resizable()
                                 .frame(width: 32, height: 32)
                                 .foregroundColor(.purpleColor)
-                        })
+                        
                         
                     }
                     .frame(width: 240, height: 40)

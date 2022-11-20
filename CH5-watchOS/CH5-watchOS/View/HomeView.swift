@@ -13,6 +13,12 @@
 //     @AppStorage("rotina concluida") var routineDone = false
      @AppStorage("orange") var assetOrange = "mainsad"
      @AppStorage("fezRotina") var fezRotina = false
+     @State var isActive : Bool = false
+     @State var shift: Int
+     @State var tempo: String = ""
+     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+     
+
 
      var body: some View {
          VStack {
@@ -64,14 +70,55 @@
                  .padding([.trailing], 204)
 
 
-             ScrollView(.horizontal, showsIndicators: false, content: {
-
+             if  tempo >= "05:00" && tempo < "10:59"{
+                 
                  HStack {
-                     ForEach($routine) { $routine in
-                         CardView(routine: $routine)
+                     NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
+                                 
+                                 CardView(routine: $routine[0])
+                                 
                      }
+                     
+                     Spacer()
                  }
-             })
+
+             }else if tempo >= "13:00" && tempo < "16:59"{
+                 
+                 HStack {
+                     NavigationLink(destination: StepByStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
+                                 
+                                     CardView(routine: $routine[1])
+                        
+                     }
+                     
+                     Spacer()
+                 }
+
+             }else if tempo >= "17:00" && tempo < "23:59"{
+                         
+                 HStack {
+                     NavigationLink(destination: StepByStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
+                                 
+                                     CardView(routine: $routine[2])
+                                 
+                     }
+                     
+                     Spacer()
+                 }
+
+             }
+             else {
+                 
+                 Text("sem rotina")
+
+             }
+                      }
+         .onAppear(){
+             if fezRotina == false {
+                 assetOrange = "mainsad"
+             }else {
+                 assetOrange = "mainhappy"
+             }
          }
          .padding()
          .background(Image("mainbackground").resizable().scaledToFill())
@@ -79,12 +126,25 @@
          .navigationBarBackButtonHidden()
          //.navigationTitle("App")
          //.navigationBarTitleDisplayMode(.inline)
+         .onReceive(timer){ timer in
+             tempo = getTime()
+         }
+         .onAppear(){
+             tempo = getTime()
+         }
          
      }
  }
 
+func getTime() -> String {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .short
+    let dateString = formatter.string(from: Date())
+    return dateString
+}
+
  struct HomeView_Previews: PreviewProvider {
      static var previews: some View {
-         HomeView(routine: .constant(RoutineInfo.datas))
+         HomeView(routine: .constant(RoutineInfo.datas), shift: 0)
      }
  }
