@@ -11,6 +11,7 @@ struct StepByStepView: View {
     //let routine: RoutineInfo
     @Binding var routine: RoutineInfo
     @State var currentStep: Int = 1
+    @Binding var rootIsActive : Bool
 
     var body: some View {
         
@@ -63,7 +64,7 @@ struct StepByStepView: View {
 //                .cornerRadius(12)
 //            }
 //            else {
-                NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep)) {
+            NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep, rootIsActive: self.$rootIsActive)) {
                     Text("Iniciar")
                         .foregroundColor(.textButtonStep)
                         .font(.system(size: 17))
@@ -82,6 +83,7 @@ struct StepByStepView: View {
 struct StepByStepView_Previews: PreviewProvider {
     static var routine = RoutineInfo.datas[0]
     static var previews: some View {
-        StepByStepView(routine: .constant(RoutineInfo.datas[0]))
+        StepByStepView(routine: .constant(RoutineInfo.datas[0]), rootIsActive: .constant(false))
+//        StepByStepView(routine: .constant(RoutineInfo.datas[0]))
     }
 }

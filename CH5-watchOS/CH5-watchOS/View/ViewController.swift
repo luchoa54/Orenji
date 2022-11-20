@@ -7,45 +7,34 @@
 
 import SwiftUI
 
-//class AppState: ObservableObject {
-//    @Published var hasOnboarded: Bool
-//
-//    init(hasOnboarded: Bool) {
-//        self.hasOnboarded = hasOnboarded
-//    }
-//}
-
 struct ViewController : View {
     @State private var routine = RoutineInfo.datas
-    //@AppStorage("HAS ONBOARD") var show = false
 
-//    @ObservedObject var appState = AppState(hasOnboarded: false)
+    //@StateObject var router = Router()
+    
     var body: some View {
-        
-//        NavigationView {
-//            HomeView(routine: .constant(RoutineInfo.datas))
-//        }
         
         NavigationView {
             
-            
             if isAppAlreadyLaunchedOnce() {
-                HomeView(routine: .constant(RoutineInfo.datas))
+                HomeView(routine: .constant(RoutineInfo.datas), shift: 0)
             }
             else {
-                welcomeView(routine: .constant(RoutineInfo.datas[0]))
+                welcomeView()
             }
+            
         }
+        //.environmentObject(router)
     }
 }
 
 func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
+        if let _ = defaults.string(forKey: "laranjito") {
             print("App already launched")
             return true
         } else {
-            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            defaults.set(true, forKey: "laranjito")
             print("App launched first time")
             return false
         }

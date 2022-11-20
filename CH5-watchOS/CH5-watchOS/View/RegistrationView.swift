@@ -11,8 +11,7 @@ struct RegistrationView: View {
     
     @State private var bool = true
 //    @EnvironmentObject var appState: AppState
-    @Binding var routine: RoutineInfo
-    @AppStorage("HAS ONBOARD") var show = false
+    //@Binding var routine: RoutineInfo
 
     var body: some View {
         
@@ -90,11 +89,9 @@ struct RegistrationView: View {
             }
             
             Button {
-//                appState.hasOnboarded = true
-                show = true
-                
+                //
             } label: {
-                NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
+                NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas), shift: 0)) {
                         Text("Concluído")
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
@@ -139,6 +136,6 @@ struct CheckboxFieldView: View {
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(routine: .constant(RoutineInfo.datas[0]))
+        RegistrationView()
     }
 }

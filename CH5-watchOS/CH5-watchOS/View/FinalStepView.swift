@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct FinalStepView: View {
-    //let routine: RoutineInfo
     @Binding var routine: RoutineInfo
-    @State var currentStep: Int = 1
-    @State var completedRoutine: Bool
+
+    //@State var currentStep: Int = 1
+//    @AppStorage("rotina concluida") var completedRoutine = false
+    @AppStorage("orange") var assetOrange = "mainsad"
+    @AppStorage("fezRotina") var fezRotina = false
+    @Binding var shouldPopToRootView : Bool
 
     var body: some View {
         
@@ -53,15 +56,31 @@ struct FinalStepView: View {
 //                .cornerRadius(12)
 //            }
 //            else {
-            NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
-                    Text("Finalizar")
-                        .foregroundColor(.textButtonStep)
-                        .font(.system(size: 17))
-                        .frame(width: 350, height: 52)
-                }
-                .background(Color.purpleColor)
-                .cornerRadius(12)
-            //}
+        
+//            Button(action: {self.shouldPopToRootView = false;  orangeImage = "mainhappy"; fezRotina = true}){
+//                Text("OK")
+//                    .foregroundColor(Color.black)
+//            }.background(Color.purpleColor)
+//                .cornerRadius(50)
+            
+            Button(action: {
+                //completedRoutine = true
+                assetOrange = "mainhappy";
+                self.shouldPopToRootView = false;
+                fezRotina = true
+            }) {
+//                NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas))) {
+                        Text("Finalizar")
+                            .font(.system(size: 17))
+                            .frame(width: 350, height: 52)
+                    
+                    //}
+                    
+            }
+            .frame(width: 350, height: 52)
+            .background(Color.purpleColor)
+            .cornerRadius(12)
+            .foregroundColor(Color.white)
         }
         .navigationTitle("\(routine.shift)")
         .ignoresSafeArea(.all)
@@ -72,6 +91,7 @@ struct FinalStepView: View {
 
 struct FinalStepView_Previews: PreviewProvider {
     static var previews: some View {
-        FinalStepView(routine: .constant(RoutineInfo.datas[0]), completedRoutine: true)
+        FinalStepView(routine: .constant(RoutineInfo.datas[0]), shouldPopToRootView: .constant(false))
+//        FinalStepView(routine: .constant(RoutineInfo.datas[0]))
     }
 }
