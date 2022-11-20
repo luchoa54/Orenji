@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct welcomeView: View {
+struct WelcomeView: View {
     
     //@State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
     @AppStorage("laranjito") var orangeName = ""
@@ -71,8 +71,8 @@ struct welcomeView: View {
     }
 }
 
-struct welcomeView_Previews: PreviewProvider {
+struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        welcomeView()
+        WelcomeView()
     }
 }

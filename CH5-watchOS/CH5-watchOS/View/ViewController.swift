@@ -19,7 +19,7 @@ struct ViewController : View {
                 HomeView(routine: .constant(RoutineInfo.datas), shift: 0)
             }
             else {
-                welcomeView()
+                WelcomeView()
             }
             
         }
