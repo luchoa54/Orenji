@@ -17,10 +17,10 @@ struct RoutineInfo: Identifiable, Hashable {
     var imagesSteps: [String]
     var routineIsActive: Bool
     var weekStatus: [Bool]
-    var stepStatus: [Bool]
+    var stepStatus: [String]
     var notificationStatus: Bool
     
-    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String], routineIsActive: Bool, weekStatus: [Bool], stepStatus: [Bool], notificationStatus: Bool) {
+    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String], routineIsActive: Bool, weekStatus: [Bool], stepStatus: [String], notificationStatus: Bool) {
         self.id = id
         self.shift = shift
         self.numberSteps = numberSteps
@@ -43,7 +43,7 @@ struct RoutineInfo: Identifiable, Hashable {
         var imagesSteps = [""]
         var routineIsActive = false
         var weekStatus = [false, false, false, false, false, false, false]
-        var stepStatus = [false, false, false, false, false, false, false]
+        var stepStatus = [""]
         var notificationStatus = false
     }
     
@@ -90,7 +90,7 @@ extension RoutineInfo {
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
-                   stepStatus: [true, false, true, false, true, false, false],
+                   stepStatus: [""],
                    notificationStatus: false),
         RoutineInfo(shift: "Tarde",
                     numberSteps: 2,
@@ -99,7 +99,7 @@ extension RoutineInfo {
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
-                    stepStatus: [true, false, true, false, false, false, false],
+                    stepStatus: [""],
                    notificationStatus: false),
         RoutineInfo(shift: "Noite",
                     numberSteps: 4,
@@ -108,7 +108,7 @@ extension RoutineInfo {
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
-                    stepStatus: [true, false, true, true, true, false, false],
+                    stepStatus: [""],
                    notificationStatus: false)
     ]
 }

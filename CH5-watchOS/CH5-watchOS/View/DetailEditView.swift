@@ -35,7 +35,7 @@ struct DetailEditView: View {
 
 struct CheckboxFieldView: View {
     
-    @Binding var checkState: Bool
+    @Binding var checkState: String
     @Binding var name: String
     @Binding var steps: Double
     
@@ -49,7 +49,6 @@ struct CheckboxFieldView: View {
             }else {
                 steps -= 1
             }
-            print("State : \(self.checkState)")
         }) {
             HStack {
                 //2. Will update according to state

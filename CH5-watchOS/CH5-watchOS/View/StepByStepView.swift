@@ -11,6 +11,7 @@ struct StepByStepView: View {
     //let routine: RoutineInfo
     @Binding var routine: RoutineInfo
     @State var currentStep: Int = 1
+    @State var indexStep: Int = 0
     @Binding var rootIsActive : Bool
 
     var body: some View {
@@ -32,12 +33,12 @@ struct StepByStepView: View {
                         
             ZStack {
                 VStack (spacing: 12){
-                    Text("\(routine.titleStep[currentStep - 1])")
+                    Text("\(routine.titleStep[indexStep])")
                         .foregroundColor(.titleColor)
                         .font(.callout)
                         .fontWeight(.bold)
                         //.padding([.bottom], 12)
-                    Text("\(routine.descriptionStep[currentStep - 1])")
+                    Text("\(routine.descriptionStep[indexStep])")
                         .foregroundColor(.descriptionColor)
                         .multilineTextAlignment(.center)
                         .font(.body)
@@ -47,7 +48,7 @@ struct StepByStepView: View {
             .padding([.horizontal], 40)
             //.padding([.bottom], 10)
             
-            Image("\(routine.imagesSteps[currentStep - 1])")
+            Image("\(routine.imagesSteps[indexStep])")
                 //.padding([.bottom], 175)
             
             Spacer()
@@ -64,7 +65,7 @@ struct StepByStepView: View {
 //                .cornerRadius(12)
 //            }
 //            else {
-            NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep, rootIsActive: self.$rootIsActive)) {
+            NavigationLink(destination: TimerStepView(routine: $routine, currentStep: self.$currentStep, indexStep: self.$indexStep, rootIsActive: self.$rootIsActive)) {
                     Text("Iniciar")
                         .foregroundColor(.textButtonStep)
                         .font(.system(size: 17))
@@ -77,6 +78,7 @@ struct StepByStepView: View {
         .navigationTitle("\(routine.shift)")
         .ignoresSafeArea(.all)
         .padding()
+        
     }
 }
 

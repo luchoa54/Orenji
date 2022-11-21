@@ -102,7 +102,7 @@
 
                          }
                          else {
-                             CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                             CardView(routine: $routine[1], text: "Possui \(routine[1].numberSteps) passos", colorCompleted: "descriptionCard")
                                  .onAppear(){
                                      assetOrange = "mainsad"
                                  }
@@ -123,7 +123,7 @@
                                  
                          }
                          else {
-                             CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                             CardView(routine: $routine[2], text: "Possui \(routine[2].numberSteps) passos", colorCompleted: "descriptionCard")
                                  .onAppear(){
                                      assetOrange = "mainsad"
                                  }
