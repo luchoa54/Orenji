@@ -69,7 +69,7 @@
                  .padding([.trailing], 204)
 
 
-             if  tempo >= "05:00" && tempo < "10:59"{
+             if  tempo >= "05:00" && tempo <= "10:59"{
                  
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
@@ -89,24 +89,36 @@
                      Spacer()
                  }
 
-             }else if tempo >= "13:00" && tempo < "16:59"{
+             }else if tempo >= "13:00" && tempo <= "16:59"{
                  
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                                  
-                                     CardView(routine: $routine[1])
+                         if fezRotina {
+                             CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
+        
+                         }
+                         else {
+                             CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                         }
                         
                      }
                      
                      Spacer()
                  }
 
-             }else if tempo >= "17:00" && tempo < "23:59"{
+             }else if tempo >= "19:00" && tempo <= "23:59"{
                          
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                                  
-                                     CardView(routine: $routine[2])
+                         if fezRotina {
+                             CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
+        
+                         }
+                         else {
+                             CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                         }
                                  
                      }
                      
@@ -116,7 +128,40 @@
              }
              else {
                  
-                 Text("sem rotina")
+                 if  tempo >= "00:00" && tempo <= "04:59" {
+                     Text("Próxima skincare marcada para manhã.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                 }
+                 else if tempo >= "11:00" && tempo <= "12:59" {
+                     Text("Próxima skincare marcada para tarde.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                 }
+                 else if tempo >= "17:00" && tempo <= "18:59" {
+                     Text("Próxima skincare marcada para noite.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                 }
+                 
 
              }
                       }
