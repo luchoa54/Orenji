@@ -17,7 +17,6 @@
      @State var shift: Int
      @State var tempo: String = ""
      let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-     
 
 
      var body: some View {
@@ -70,36 +69,65 @@
                  .padding([.trailing], 204)
 
 
-             if  tempo >= "05:00" && tempo < "10:59"{
+             if  tempo >= "05:00" && tempo <= "10:59"{
                  
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
-                                 
-                                 CardView(routine: $routine[0])
+                             
+//                         CardView(routine: $routine[0], text: fezRotina ? "Rotina concluída" : "Possui \(routine[0].numberSteps) passos")
+                         
+                         if fezRotina {
+                             CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
+                             
+                         }
+                         else {
+                             CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
+                         }
                                  
                      }
                      
                      Spacer()
                  }
 
-             }else if tempo >= "13:00" && tempo < "16:59"{
+             }else if tempo >= "13:00" && tempo <= "16:59"{
                  
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                                  
-                                     CardView(routine: $routine[1])
+                         if fezRotina {
+                             CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
+
+                         }
+                         else {
+                             CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
+                         }
                         
                      }
                      
                      Spacer()
                  }
 
-             }else if tempo >= "17:00" && tempo < "23:59"{
+             }else if tempo >= "19:00" && tempo <= "23:59"{
                          
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                                  
-                                     CardView(routine: $routine[2])
+                         if fezRotina {
+                             CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
+                                 
+                         }
+                         else {
+                             CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
+                         }
                                  
                      }
                      
@@ -109,17 +137,52 @@
              }
              else {
                  
-                 Text("sem rotina")
+                 if  tempo >= "00:00" && tempo <= "04:59" {
+                     Text("Próxima skincare marcada para manhã.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
+                 }
+                 else if tempo >= "11:00" && tempo <= "12:59" {
+                     Text("Próxima skincare marcada para tarde.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
+                 }
+                 else if tempo >= "17:00" && tempo <= "18:59" {
+                     Text("Próxima skincare marcada para noite.")
+                         .padding()
+                         .padding(.horizontal)
+                         .multilineTextAlignment(.center)
+                         .font(.system(size: 12))
+                         .foregroundColor(.orangeText)
+                         .background(Color.orangeLabelBackground)
+                         .cornerRadius(12)
+                         .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
+                 }
+                 
 
              }
-                      }
-         .onAppear(){
-             if fezRotina == false {
-                 assetOrange = "mainsad"
-             }else {
-                 assetOrange = "mainhappy"
-             }
-         }
+        }
          .padding()
          .background(Image("mainbackground").resizable().scaledToFill())
          //.ignoresSafeArea()

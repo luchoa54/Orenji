@@ -11,6 +11,8 @@ struct CardView: View {
     @Binding var routine: RoutineInfo
 //    @AppStorage("fezRotina") var fezRotina = false
     //    @State var isActive : Bool = false
+    @State var text = ""
+    @State var colorCompleted = ""
 
     var body: some View {
         VStack {
@@ -36,9 +38,12 @@ struct CardView: View {
 //                                Text("Rotina concluída")
 //                            }
 //                            else {
-                                Text("Possui \(routine.numberSteps) passos")
-                                    .font(.system(size: 13))
-                                    .foregroundColor(.descriptionCardColor)
+//                                Text("Possui \(routine.numberSteps) passos")
+//                                    .font(.system(size: 13))
+//                                    .foregroundColor(.descriptionCardColor)
+                            Text(text)
+                                .font(.system(size: 13))
+                                .foregroundColor(Color(colorCompleted))
                             //}
                             
                         }
@@ -69,6 +74,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(routine: .constant(RoutineInfo.datas[0]))
+        CardView(routine: .constant(RoutineInfo.datas[0]), text: "", colorCompleted: "")
     }
 }

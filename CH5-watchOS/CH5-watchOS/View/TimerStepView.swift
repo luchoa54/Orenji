@@ -44,7 +44,7 @@ struct TimerStepView: View {
                                     )
                                 )
                                 .foregroundColor(
-                                    (completed() ? Color.gray : Color.purpleColor)
+                                    (timerRunning ? Color.purpleColor : Color.elipsePaused)
                                 ).animation(
                                     .easeInOut(duration: 0.2)
                                 )
@@ -80,7 +80,7 @@ struct TimerStepView: View {
                                     .font(.system(size: 17))
                                     .frame(width: 350, height: 52)
                             }
-                            .background(Color.purpleColor)
+                            .background(Color.buttonPause)
                             .cornerRadius(12)
                         }
                     }
