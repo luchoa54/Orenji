@@ -10,7 +10,6 @@
 		66253F8F2926694400CF7E65 /* RoutineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */; };
 		66493D16292519140024F704 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D15292519140024F704 /* RegistrationView.swift */; };
 		66493D1829253BD80024F704 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66493D1729253BD80024F704 /* WeekView.swift */; };
-		66526266292C27CE001DA6D5 /* RoutineStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66526265292C27CE001DA6D5 /* RoutineStore.swift */; };
 		665B7FA2291985350023B012 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665B7FA1291985350023B012 /* TimerView.swift */; };
 		66705B21291AA5AA004378C2 /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B20291AA5AA004378C2 /* FinishView.swift */; };
 		66705B23291AAD57004378C2 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66705B22291AAD57004378C2 /* ListView.swift */; };
@@ -71,7 +70,6 @@
 /* Begin PBXFileReference section */
 		66493D15292519140024F704 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		66493D1729253BD80024F704 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
-		66526265292C27CE001DA6D5 /* RoutineStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineStore.swift; sourceTree = "<group>"; };
 		665B7FA1291985350023B012 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		66705B20291AA5AA004378C2 /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		66705B22291AAD57004378C2 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				BD066890291955B000B4F1B0 /* StepTitle.swift */,
 				BD0668922919566C00B4F1B0 /* StepDescription.swift */,
 				BD066897291C0FF000B4F1B0 /* RoutineInfo.swift */,
-				66526265292C27CE001DA6D5 /* RoutineStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 				BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */,
 				BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */,
 				BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */,
-				66526266292C27CE001DA6D5 /* RoutineStore.swift in Sources */,
 				BD558D50291D399400527F98 /* FinalStepView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
