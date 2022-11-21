@@ -17,7 +17,6 @@
      @State var shift: Int
      @State var tempo: String = ""
      let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-     
 
 
      var body: some View {
@@ -74,8 +73,16 @@
                  
                  HStack {
                      NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
-                                 
-                                 CardView(routine: $routine[0])
+                             
+//                         CardView(routine: $routine[0], text: fezRotina ? "Rotina concluída" : "Possui \(routine[0].numberSteps) passos")
+                         
+                         if fezRotina {
+                             CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
+        
+                         }
+                         else {
+                             CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                         }
                                  
                      }
                      
