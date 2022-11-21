@@ -27,4 +27,6 @@ extension Color {
     static let orangeBorder = Color("orangeBorder")
     static let orangeNameBackground = Color("orangeNameBackground")
     static let welcomeBackground = Color("welcomeBackground")
+    static let buttonPause = Color("buttonPause")
+    static let elipsePaused = Color("elipsePaused")
 }
