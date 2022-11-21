@@ -16,10 +16,10 @@ struct ViewController : View {
         
         NavigationView {
             if isAppAlreadyLaunchedOnce() {
-                HomeView(routine: .constant(RoutineInfo.datas), shift: 0)
+                HomeView(routine: $routine, shift: 0)
             }
             else {
-                WelcomeView()
+                WelcomeView(routine: $routine)
             }
             
         }
