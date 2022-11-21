@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct welcomeView: View {
+struct WelcomeView: View {
     
-//    @State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
+    //@State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
     @AppStorage("laranjito") var orangeName = ""
     //@Binding var routine: RoutineInfo
     
@@ -59,7 +59,7 @@ struct welcomeView: View {
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
                     
-                    }
+                }.isDetailLink(false)
                     .background(Color.purpleColor)
                     .cornerRadius(12)
             }
@@ -71,8 +71,8 @@ struct welcomeView: View {
     }
 }
 
-struct welcomeView_Previews: PreviewProvider {
+struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        welcomeView()
+        WelcomeView()
     }
 }
