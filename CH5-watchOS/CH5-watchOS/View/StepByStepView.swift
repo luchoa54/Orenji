@@ -86,8 +86,9 @@ struct StepByStepView: View {
         var stepFound: Bool = false
         
         if indexStep == 0{
+            print("Cu")
             while stepFound == false {
-                if(routine.stepStatus[indexStep + 1] == false && indexStep < 4){
+                if(routine.stepStatus[indexStep] == false && indexStep < 4){
                     self.indexStep += 1
                 }else{
                     stepFound = true
