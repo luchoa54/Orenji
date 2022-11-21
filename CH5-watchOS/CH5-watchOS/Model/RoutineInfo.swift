@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RoutineInfo: Identifiable, Hashable {
+struct RoutineInfo: Identifiable, Hashable , Codable{
     let id: UUID
     var shift: String
     var numberSteps: Int
@@ -85,7 +85,7 @@ extension RoutineInfo {
     [
         RoutineInfo(shift: "Manhã",
                     numberSteps: 3,
-                    titleStep: ["Limpeza do rosto", "Hidratação","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    titleStep: ["Limpeza do rosto", "Hidratação da pele","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
                     imageShift: "morning",
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,
@@ -94,7 +94,7 @@ extension RoutineInfo {
                    notificationStatus: false),
         RoutineInfo(shift: "Tarde",
                     numberSteps: 2,
-                    titleStep: ["Limpeza do rosto", "Hidratação","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    titleStep: ["Limpeza do rosto", "Hidratação da pele","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
                     imageShift: "afternoon",
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,
@@ -103,7 +103,7 @@ extension RoutineInfo {
                    notificationStatus: false),
         RoutineInfo(shift: "Noite",
                     numberSteps: 4,
-                    titleStep: ["Limpeza do rosto", "Hidratação", "Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    titleStep: ["Limpeza do rosto", "Hidratação da pele", "Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
                     imageShift: "night",
                     imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
                     routineIsActive: false,

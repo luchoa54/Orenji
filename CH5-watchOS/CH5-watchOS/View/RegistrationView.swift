@@ -26,7 +26,7 @@ struct RegistrationView: View {
             VStack{
                 ForEach($routine) { $routine in
                     NavigationLink(destination: DetailView(rotinas: $routine)){
-                        CardView(routine: $routine)
+                        CardListView(routine: $routine)
                     }
                 }
             }
@@ -47,7 +47,7 @@ struct RegistrationView: View {
             }
             
         }
-            .background(Color.init("backgroundListColor"))
+            .background(Color.init("cardBackground"))
             .navigationBarBackButtonHidden(true)
     }
 }

@@ -22,7 +22,7 @@ struct DetailView: View {
                 Text("\(rotinas.numberSteps)" as String)
             }
             Section(header: Text("Status da notificação")){
-                if(rotinas.routineIsActive){
+                if(rotinas.notificationStatus){
                     Text("Ativada")
                 }
                 else{

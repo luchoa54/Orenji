@@ -26,7 +26,7 @@ struct DetailEditView: View {
                     .buttonStyle(.borderless)
                 Toggle("Habilitar rotina", isOn: $data.routineIsActive)
             }
-            Section(header: Text("Notificações")){
+            Section(header: Text("Notificações"), footer: Text("Ao habilitar esta opção, você receberá uma notificação no início do turno escolhido")){
                 Toggle("Notificar rotina", isOn: $data.notificationStatus)
             }
         }
