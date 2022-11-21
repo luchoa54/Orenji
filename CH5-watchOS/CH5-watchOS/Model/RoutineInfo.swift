@@ -54,7 +54,7 @@ struct RoutineInfo: Identifiable, Hashable {
     mutating func update(from data: Data){
         shift = data.shift
         numberSteps = Int(data.numberSteps)
-        titleStep = data.imagesSteps
+        titleStep = data.titleStep
         descriptionStep = data.descriptionStep
         imagesSteps = data.imagesSteps
         imageShift = data.imageShift
@@ -68,7 +68,7 @@ struct RoutineInfo: Identifiable, Hashable {
         id = UUID()
         shift = data.shift
         numberSteps = Int(data.numberSteps)
-        titleStep = data.imagesSteps
+        titleStep = data.titleStep
         descriptionStep = data.descriptionStep
         imagesSteps = data.imagesSteps
         imageShift = data.imageShift

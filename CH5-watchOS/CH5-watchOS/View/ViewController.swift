@@ -15,9 +15,12 @@ struct ViewController : View {
     var body: some View {
         
         NavigationView {
-            
+            if isAppAlreadyLaunchedOnce() {
+                HomeView(routine: $routine, shift: 0)
+            }
+            else {
                 WelcomeView(routine: $routine)
-            
+            }
             
         }
         //.environmentObject(router)

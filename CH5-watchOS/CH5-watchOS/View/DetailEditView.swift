@@ -10,17 +10,16 @@ import SwiftUI
 struct DetailEditView: View {
     
     @Binding var data: RoutineInfo.Data
-    @State var notification: Bool = false
     
     var body: some View {
         Form{
             Section(header: Text("Instruções")) {
-                CheckboxFieldView(checkState: $data.stepStatus[0], name: data.titleStep[0], steps: $data.numberSteps)
-                CheckboxFieldView(checkState: $data.stepStatus[1], name: data.titleStep[1], steps: $data.numberSteps)
-                CheckboxFieldView(checkState: $data.stepStatus[2], name: data.titleStep[2], steps: $data.numberSteps)
-                CheckboxFieldView(checkState: $data.stepStatus[3], name: data.titleStep[3], steps: $data.numberSteps)
-                CheckboxFieldView(checkState: $data.stepStatus[4], name: data.titleStep[4], steps: $data.numberSteps)
-                CheckboxFieldView(checkState: $data.stepStatus[5], name: data.titleStep[5], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[0], name: $data.titleStep[0], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[1], name: $data.titleStep[1], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[2], name: $data.titleStep[2], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[3], name: $data.titleStep[3], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[4], name: $data.titleStep[4], steps: $data.numberSteps)
+                CheckboxFieldView(checkState: $data.stepStatus[5], name: $data.titleStep[5], steps: $data.numberSteps)
             }
             Section(header: Text("Rotina")){
                 WeekView(data: $data)
@@ -37,7 +36,7 @@ struct DetailEditView: View {
 struct CheckboxFieldView: View {
     
     @Binding var checkState: Bool
-    @State var name: String
+    @Binding var name: String
     @Binding var steps: Double
     
     var body: some View {
