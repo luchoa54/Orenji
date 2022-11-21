@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    
+    @Binding var routine: [RoutineInfo]
     //@State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
     @AppStorage("laranjito") var orangeName = ""
     //@Binding var routine: RoutineInfo
@@ -53,7 +53,7 @@ struct WelcomeView: View {
 //                UserDefaults.standard.set(orangeName, forKey: "laranjito")
                 
             } label: {
-                NavigationLink(destination: RegistrationView()) {
+                NavigationLink(destination: RegistrationView(routine: $routine)) {
                         Text("Vamos lá!")
                             .foregroundColor(.textButtonStep)
                             .font(.system(size: 17))
@@ -73,6 +73,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(routine: .constant(RoutineInfo.datas))
     }
 }

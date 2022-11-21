@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    
+    @Binding var routine: [RoutineInfo]
     @State private var bool = true
-//    @EnvironmentObject var appState: AppState
+    //@EnvironmentObject var appState: AppState
     //@Binding var routine: RoutineInfo
 
     var body: some View {
@@ -22,76 +22,19 @@ struct RegistrationView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.init("labelColor"))
                 .padding()
-            Form {
-                Section {
-                    Image("Afternoon")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 350, height: 64)
-                    DisclosureGroup {
-                        CheckboxFieldView(name: "Limpeza")
-                        CheckboxFieldView(name: "Hidratação")
-                        CheckboxFieldView(name: "Protetor Solar")
-                        CheckboxFieldView(name: "Vitamina C")
-                        CheckboxFieldView(name: "Máscara Facial")
-                        WeekView().buttonStyle(.borderless)
-                            .padding(.trailing)
-                        Toggle("Habilitar Rotina", isOn: $bool)
-                            .tint(Color.purpleColor)
-                    } label: {
-                        Image(systemName: "sun.max")
-                        Text("Manhã")
-                            .font(.headline)
-                    }
-                }
-                Section {
-                    Image("Morning")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 350, height: 64)
-                    DisclosureGroup {
-                        CheckboxFieldView(name: "Limpeza")
-                        CheckboxFieldView(name: "Hidratação")
-                        CheckboxFieldView(name: "Protetor Solar")
-                        CheckboxFieldView(name: "Vitamina C")
-                        CheckboxFieldView(name: "Máscara Facial")
-                        WeekView().buttonStyle(.borderless)
-                            .padding(.trailing)
-                        Toggle("Habilitar Rotina", isOn: $bool)
-                            .tint(Color.purpleColor)
-                    } label: {
-                        Image(systemName: "sun.and.horizon")
-                        Text("Tarde")
-                            .font(.headline)
-                    }
-                }
-                Section {
-                    Image("Night")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 350, height: 64)
-                    DisclosureGroup {
-                        CheckboxFieldView(name: "Limpeza")
-                        CheckboxFieldView(name: "Hidratação")
-                        CheckboxFieldView(name: "Protetor Solar")
-                        CheckboxFieldView(name: "Vitamina C")
-                        CheckboxFieldView(name: "Máscara Facial")
-                        WeekView().buttonStyle(.borderless)
-                            .padding(.trailing)
-                        Toggle("Habilitar rotina", isOn: $bool)
-                            .tint(Color.purpleColor)
-                    } label: {
-                        Image(systemName: "moon")
-                        Text("Noite")
-                            .font(.headline)
+            Spacer()
+            VStack{
+                ForEach($routine) { $routine in
+                    NavigationLink(destination: DetailView(rotinas: $routine)){
+                        CardView(routine: $routine)
                     }
                 }
             }
-            
+            Spacer()
             Button {
                 //
             } label: {
-                NavigationLink(destination: HomeView(routine: .constant(RoutineInfo.datas), shift: 0)) {
+                NavigationLink(destination: HomeView(routine: .constant(routine), shift: 0)) {
                         Text("Concluído")
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
@@ -103,39 +46,14 @@ struct RegistrationView: View {
                     .foregroundColor(Color.white)
             }
             
-        }.scrollContentBackground(.hidden)
-            .background(Color.init("backgroundListColor"))
-            .formStyle(.automatic )
-            .navigationBarBackButtonHidden(true)
-    }
-}
-
-struct CheckboxFieldView: View {
-    
-    @State var checkState: Bool = false
-    @State var name: String
-    
-    var body: some View {
-        
-        Button(action:{
-            //1. Save state
-            self.checkState = !self.checkState
-            print("State : \(self.checkState)")
-        }) {
-            HStack {
-                //2. Will update according to state
-                Image(self.checkState ? "Selection_on" : "Selection_off")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                Text("\(name)")
-                    .foregroundColor(Color.init("blackColor"))
-            }
         }
+            .background(Color.init("backgroundListColor"))
+            .navigationBarBackButtonHidden(true)
     }
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView(routine: .constant(RoutineInfo.datas))
     }
 }

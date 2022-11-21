@@ -8,33 +8,28 @@
 import SwiftUI
 
 struct WeekView: View {
-    
+    @Binding var data : RoutineInfo.Data
     @State var checkState: Bool = false
     
     var body: some View {
         VStack(alignment: .leading){
-            Text("Repetição")
-                .fontWeight(.bold)
-            HStack(spacing: 10) {
-                CircleFieldView(name: "S")
-                CircleFieldView(name: "T")
-                CircleFieldView(name: "Q")
-                CircleFieldView(name: "Q")
-                CircleFieldView(name: "S")
-                CircleFieldView(name: "S")
-                CircleFieldView(name: "D")
+            HStack() {
+                CircleFieldView(checkState: $data.weekStatus[0], name: "S")
+                CircleFieldView(checkState: $data.weekStatus[1],name: "T")
+                CircleFieldView(checkState: $data.weekStatus[2],name: "Q")
+                CircleFieldView(checkState: $data.weekStatus[3],name: "Q")
+                CircleFieldView(checkState: $data.weekStatus[4],name: "S")
+                CircleFieldView(checkState: $data.weekStatus[5],name: "S")
+                CircleFieldView(checkState: $data.weekStatus[6],name: "D")
             }
         }
-        .padding()
-        .padding(.trailing)
-        .frame(width: 350, height: 100)
             .cornerRadius(12)
     }
 }
 
 struct CircleFieldView: View {
     
-    @State var checkState: Bool = false
+    @Binding var checkState: Bool
     @State var name: String
     
     var body: some View {
@@ -56,8 +51,3 @@ struct CircleFieldView: View {
     }
 }
 
-struct WeekView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeekView()
-    }
-}

@@ -15,8 +15,12 @@ struct RoutineInfo: Identifiable, Hashable {
     var descriptionStep: [String]
     var imageShift: String
     var imagesSteps: [String]
+    var routineIsActive: Bool
+    var weekStatus: [Bool]
+    var stepStatus: [Bool]
+    var notificationStatus: Bool
     
-    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String]) {
+    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String], routineIsActive: Bool, weekStatus: [Bool], stepStatus: [Bool], notificationStatus: Bool) {
         self.id = id
         self.shift = shift
         self.numberSteps = numberSteps
@@ -24,14 +28,87 @@ struct RoutineInfo: Identifiable, Hashable {
         self.descriptionStep = descriptionStep
         self.imageShift = imageShift
         self.imagesSteps = imagesSteps
+        self.routineIsActive = routineIsActive
+        self.weekStatus = weekStatus
+        self.stepStatus = stepStatus
+        self.notificationStatus = notificationStatus
     }
+    
+    struct Data{
+        var shift = ""
+        var numberSteps : Double = 3
+        var titleStep =  [""]
+        var descriptionStep = [""]
+        var imageShift = ""
+        var imagesSteps = [""]
+        var routineIsActive = false
+        var weekStatus = [false, false, false, false, false, false, false]
+        var stepStatus = [false, false, false, false, false, false, false]
+        var notificationStatus = false
+    }
+    
+    var data: Data {
+        Data(shift: shift, numberSteps: Double(numberSteps), titleStep: titleStep, descriptionStep: descriptionStep, imageShift: imageShift, imagesSteps: imagesSteps, routineIsActive: routineIsActive, weekStatus: weekStatus, stepStatus: stepStatus, notificationStatus: notificationStatus)
+    }
+    
+    mutating func update(from data: Data){
+        shift = data.shift
+        numberSteps = Int(data.numberSteps)
+        titleStep = data.imagesSteps
+        descriptionStep = data.descriptionStep
+        imagesSteps = data.imagesSteps
+        imageShift = data.imageShift
+        routineIsActive = data.routineIsActive
+        weekStatus = data.weekStatus
+        stepStatus = data.stepStatus
+        notificationStatus = data.notificationStatus
+    }
+    
+    init(data: Data){
+        id = UUID()
+        shift = data.shift
+        numberSteps = Int(data.numberSteps)
+        titleStep = data.imagesSteps
+        descriptionStep = data.descriptionStep
+        imagesSteps = data.imagesSteps
+        imageShift = data.imageShift
+        routineIsActive = data.routineIsActive
+        weekStatus = data.weekStatus
+        stepStatus = data.stepStatus
+        notificationStatus = data.notificationStatus
+    }
+    
 }
 
 extension RoutineInfo {
     static let datas: [RoutineInfo] =
     [
-        RoutineInfo(shift: "Manhã", numberSteps: 3, titleStep: ["Limpeza do rosto", "Vitamina C", "Protetor solar"], descriptionStep: ["A primeira limpeza do dia é essencial para produtos do dia anterior e é uma ótima maneira de começar o dia.", "A vitamina C é perfeita para dar mais brilho à pele e previne dos sinais de envelhecimento.", "Para manter seu rosto protegido dos raios ultravioleta e dos danos que vem com o excesso deles, o protetor solar ideal é com FPS de 30 ou maior. Não esqueça do pescoço!"], imageShift: "morning", imagesSteps: ["wash", "vitC", "sunscreen"]),
-        RoutineInfo(shift: "Tarde", numberSteps: 2, titleStep: ["Limpeza do rosto", "Protetor solar"], descriptionStep: ["O excesso de produtos pode prejudicar sua pele, opte por sempre fazer uma limpeza antes de reforçar o cuidado com outro produto.", "É sempre bom reforçar o cuidado da sua pele com o protetor solar."], imageShift: "afternoon", imagesSteps: ["wash", "sunscreen"]),
-        RoutineInfo(shift: "Noite", numberSteps: 4, titleStep: ["Limpeza do rosto", "Demaquilante", "Máscara", "Vitamina C"], descriptionStep: ["Hora de tirar todos os produtos da sua pele. Uma boa limpeza antes de dormir faz muito bem.", "O demaquilante reforça a retirada do excesso de produtos. Deixa sua pele limpinha e respirando.", "Calmante? Hidratante? Você escolhe. Utiliza uma máscara facial para dar um tratamento especial pra sua pele.", "A vitamina C também pode ser utilizada a noite e é perfeita para dar mais brilho à pele enquanto dormimos."], imageShift: "night", imagesSteps: ["wash", "vitC", "mask", "vitC"])
+        RoutineInfo(shift: "Manhã",
+                    numberSteps: 3,
+                    titleStep: ["Limpeza do rosto", "Hidratação","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    imageShift: "morning",
+                    imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
+                    routineIsActive: false,
+                    weekStatus: [false, false, false, false, false, false, false],
+                   stepStatus: [true, false, true, false, true, false, false],
+                   notificationStatus: false),
+        RoutineInfo(shift: "Tarde",
+                    numberSteps: 2,
+                    titleStep: ["Limpeza do rosto", "Hidratação","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    imageShift: "afternoon",
+                    imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
+                    routineIsActive: false,
+                    weekStatus: [false, false, false, false, false, false, false],
+                    stepStatus: [true, false, true, false, false, false, false],
+                   notificationStatus: false),
+        RoutineInfo(shift: "Noite",
+                    numberSteps: 4,
+                    titleStep: ["Limpeza do rosto", "Hidratação", "Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
+                    imageShift: "night",
+                    imagesSteps: ["wash", "wash", "vitC","sunscreen","vitC", "mask"],
+                    routineIsActive: false,
+                    weekStatus: [false, false, false, false, false, false, false],
+                    stepStatus: [true, false, true, true, true, false, false],
+                   notificationStatus: false)
     ]
 }
