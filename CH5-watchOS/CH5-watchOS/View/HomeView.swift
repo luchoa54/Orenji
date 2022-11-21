@@ -78,10 +78,13 @@
                          
                          if fezRotina {
                              CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
-        
+                             
                          }
                          else {
                              CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
                          }
                                  
                      }
@@ -96,10 +99,13 @@
                                  
                          if fezRotina {
                              CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
-        
+
                          }
                          else {
                              CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
                          }
                         
                      }
@@ -114,10 +120,13 @@
                                  
                          if fezRotina {
                              CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
-        
+                                 
                          }
                          else {
                              CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                                 .onAppear(){
+                                     assetOrange = "mainsad"
+                                 }
                          }
                                  
                      }
@@ -138,6 +147,9 @@
                          .background(Color.orangeLabelBackground)
                          .cornerRadius(12)
                          .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
                  }
                  else if tempo >= "11:00" && tempo <= "12:59" {
                      Text("Próxima skincare marcada para tarde.")
@@ -149,6 +161,9 @@
                          .background(Color.orangeLabelBackground)
                          .cornerRadius(12)
                          .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
                  }
                  else if tempo >= "17:00" && tempo <= "18:59" {
                      Text("Próxima skincare marcada para noite.")
@@ -160,18 +175,14 @@
                          .background(Color.orangeLabelBackground)
                          .cornerRadius(12)
                          .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.orangeBorder,lineWidth: 1))
+                         .onAppear(){
+                             fezRotina = false
+                         }
                  }
                  
 
              }
-                      }
-         .onAppear(){
-             if fezRotina == false {
-                 assetOrange = "mainsad"
-             }else {
-                 assetOrange = "mainhappy"
-             }
-         }
+        }
          .padding()
          .background(Image("mainbackground").resizable().scaledToFill())
          //.ignoresSafeArea()
