@@ -37,6 +37,7 @@
 		BD558D50291D399400527F98 /* FinalStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D4F291D399400527F98 /* FinalStepView.swift */; };
 		BD558D52291D401600527F98 /* TimerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD558D51291D401600527F98 /* TimerStepView.swift */; };
 		BD9FD4A4291E49B9009CCA7A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FD4A3291E49B9009CCA7A /* CardView.swift */; };
+		BDA2FB28292D202C00C9CBC6 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA2FB27292D202C00C9CBC6 /* HapticManager.swift */; };
 		BDBB535729251872005318A8 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBB535629251872005318A8 /* WelcomeView.swift */; };
 		BDDD75F9291E7E1500244465 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75F8291E7E1500244465 /* HomeView.swift */; };
 		BDDD75FB291E7E4200244465 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDD75FA291E7E4200244465 /* ContentView.swift */; };
@@ -98,6 +99,7 @@
 		BD558D4F291D399400527F98 /* FinalStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStepView.swift; sourceTree = "<group>"; };
 		BD558D51291D401600527F98 /* TimerStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStepView.swift; sourceTree = "<group>"; };
 		BD9FD4A3291E49B9009CCA7A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BDA2FB27292D202C00C9CBC6 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		BDBB535629251872005318A8 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		BDDD75F8291E7E1500244465 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BDDD75FA291E7E4200244465 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				66D6EF2F29193E8200408FE2 /* CH5_watchOSApp.swift */,
 				667DA0D9291BCB6C00DC6746 /* RoutineData.swift */,
+				BDA2FB27292D202C00C9CBC6 /* HapticManager.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				66D6EF3029193E8200408FE2 /* CH5_watchOSApp.swift in Sources */,
 				6676EF2A291A8763003A9B49 /* Color+customColor.swift in Sources */,
 				667DA0DA291BCB6C00DC6746 /* RoutineData.swift in Sources */,
+				BDA2FB28292D202C00C9CBC6 /* HapticManager.swift in Sources */,
 				667DA0DC291BD51700DC6746 /* CardView.swift in Sources */,
 				665B7FA2291985350023B012 /* TimerView.swift in Sources */,
 			);
@@ -517,7 +521,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2VBT66DD5V;
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -547,7 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS Watch App/Preview Content\"";
-				DEVELOPMENT_TEAM = 2VBT66DD5V;
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -579,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 2VBT66DD5V;
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Orenji;
@@ -613,7 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CH5-watchOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 2VBT66DD5V;
+				DEVELOPMENT_TEAM = 4YJ63V5QRP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Orenji;

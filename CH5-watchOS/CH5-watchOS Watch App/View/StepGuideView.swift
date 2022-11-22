@@ -44,7 +44,7 @@ struct StepGuideView: View {
             }.background(Color.purpleColor)
                 .cornerRadius(50)
                 .foregroundColor(Color.black)
-        }.navigationTitle("Manhã")
+        }.navigationTitle("\(routine.shift)")
     }
     
     func stepImage(imageName: String) -> String{

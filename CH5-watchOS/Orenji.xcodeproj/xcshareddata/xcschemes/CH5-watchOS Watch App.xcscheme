@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-               BuildableName = "Orenji Watch App.app"
+               BuildableName = "Orenji.app"
                BlueprintName = "Orenji Watch App"
                ReferencedContainer = "container:Orenji.xcodeproj">
             </BuildableReference>
@@ -59,7 +59,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-            BuildableName = "Orenji Watch App.app"
+            BuildableName = "Orenji.app"
             BlueprintName = "Orenji Watch App"
             ReferencedContainer = "container:Orenji.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-            BuildableName = "Orenji Watch App.app"
+            BuildableName = "Orenji.app"
             BlueprintName = "Orenji Watch App"
             ReferencedContainer = "container:Orenji.xcodeproj">
          </BuildableReference>
