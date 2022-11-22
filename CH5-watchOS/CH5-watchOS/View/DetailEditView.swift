@@ -25,9 +25,11 @@ struct DetailEditView: View {
                 WeekView(data: $data)
                     .buttonStyle(.borderless)
                 Toggle("Habilitar rotina", isOn: $data.routineIsActive)
+                    .tint(Color.purpleColor)
             }
             Section(header: Text("Notificações"), footer: Text("Ao habilitar esta opção, você receberá uma notificação no início do turno escolhido")){
                 Toggle("Notificar rotina", isOn: $data.notificationStatus)
+                    .tint(Color.purpleColor)
             }
         }
     }
@@ -44,10 +46,18 @@ struct CheckboxFieldView: View {
         Button(action:{
             //1. Save state
             self.checkState = !self.checkState
-            if !checkState {
-                steps += 1
+            if #available(iOS 16, *){
+                if !checkState {
+                    steps += 1
+                }else {
+                    steps -= 1
+                }
             }else {
-                steps -= 1
+                if !checkState {
+                    steps -= 1
+                }else {
+                    steps += 1
+                }
             }
             print("State : \(self.checkState)")
         }) {
