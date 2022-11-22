@@ -26,7 +26,7 @@ struct RegistrationView: View {
             VStack{
                 ForEach($routine) { $routine in
                     NavigationLink(destination: DetailView(rotinas: $routine)){
-                        CardView(routine: $routine)
+                        CardListView(routine: $routine)
                     }
                 }
             }
@@ -34,7 +34,7 @@ struct RegistrationView: View {
             Button {
                 //
             } label: {
-                NavigationLink(destination: HomeView(routine: .constant(routine), shift: 0)) {
+                NavigationLink(destination: HomeView(routine: $routine, shift: 0)) {
                         Text("Concluído")
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
@@ -47,7 +47,7 @@ struct RegistrationView: View {
             }
             
         }
-            .background(Color.init("backgroundListColor"))
+            .background(Color.init("cardBackground"))
             .navigationBarBackButtonHidden(true)
     }
 }
