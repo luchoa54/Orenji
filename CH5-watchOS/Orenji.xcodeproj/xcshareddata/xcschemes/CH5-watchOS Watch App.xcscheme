@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-               BuildableName = "CH5-watchOS Watch App.app"
-               BlueprintName = "CH5-watchOS Watch App"
-               ReferencedContainer = "container:CH5-watchOS.xcodeproj">
+               BuildableName = "Orenji Watch App.app"
+               BlueprintName = "Orenji Watch App"
+               ReferencedContainer = "container:Orenji.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "66D6EF1929193E8000408FE2"
-               BuildableName = "CH5-watchOS.app"
-               BlueprintName = "CH5-watchOS"
-               ReferencedContainer = "container:CH5-watchOS.xcodeproj">
+               BuildableName = "Orenji.app"
+               BlueprintName = "Orenji"
+               ReferencedContainer = "container:Orenji.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -59,9 +59,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-            BuildableName = "CH5-watchOS Watch App.app"
-            BlueprintName = "CH5-watchOS Watch App"
-            ReferencedContainer = "container:CH5-watchOS.xcodeproj">
+            BuildableName = "Orenji Watch App.app"
+            BlueprintName = "Orenji Watch App"
+            ReferencedContainer = "container:Orenji.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "66D6EF2929193E8200408FE2"
-            BuildableName = "CH5-watchOS Watch App.app"
-            BlueprintName = "CH5-watchOS Watch App"
-            ReferencedContainer = "container:CH5-watchOS.xcodeproj">
+            BuildableName = "Orenji Watch App.app"
+            BlueprintName = "Orenji Watch App"
+            ReferencedContainer = "container:Orenji.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
