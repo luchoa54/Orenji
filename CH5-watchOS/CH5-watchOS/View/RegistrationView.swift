@@ -35,7 +35,7 @@ struct RegistrationView: View {
                 //
             } label: {
                 NavigationLink(destination: HomeView(routine: $routine, shift: 0)) {
-                        Text("Concluído")
+                        Text("Concluídos")
                             .font(.system(size: 17))
                             .frame(width: 350, height: 52)
                     

@@ -50,7 +50,7 @@ struct DetailView: View {
                                 }
                             }
                             ToolbarItem(placement: .confirmationAction) {
-                                Button("Done") {
+                                Button("Donee") {
                                     isPresentingEditView = false
                                     rotinas.update(from: data)
                                 }
