@@ -23,7 +23,7 @@
 		66D6EF1E29193E8000408FE2 /* CH5_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */; };
 		66D6EF2229193E8200408FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2129193E8200408FE2 /* Assets.xcassets */; };
 		66D6EF2529193E8200408FE2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */; };
-		66D6EF2B29193E8200408FE2 /* CH5-watchOS Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		66D6EF2B29193E8200408FE2 /* Orenji Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 66D6EF2A29193E8200408FE2 /* Orenji Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		66D6EF3029193E8200408FE2 /* CH5_watchOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF2F29193E8200408FE2 /* CH5_watchOSApp.swift */; };
 		66D6EF3229193E8200408FE2 /* StepGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D6EF3129193E8200408FE2 /* StepGuideView.swift */; };
 		66D6EF3429193E8300408FE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66D6EF3329193E8300408FE2 /* Assets.xcassets */; };
@@ -60,7 +60,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				66D6EF2B29193E8200408FE2 /* CH5-watchOS Watch App.app in Embed Watch Content */,
+				66D6EF2B29193E8200408FE2 /* Orenji Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,11 +80,11 @@
 		667FAEB5291D94720062A2F4 /* OrangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeView.swift; sourceTree = "<group>"; };
 		6696BE5F292BACE300397B2C /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 		6696BE61292BB4BC00397B2C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		66D6EF1A29193E8000408FE2 /* CH5-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66D6EF1A29193E8000408FE2 /* Orenji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orenji.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D6EF1D29193E8000408FE2 /* CH5_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH5_watchOSApp.swift; sourceTree = "<group>"; };
 		66D6EF2129193E8200408FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66D6EF2429193E8200408FE2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CH5-watchOS Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66D6EF2A29193E8200408FE2 /* Orenji Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Orenji Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66D6EF2F29193E8200408FE2 /* CH5_watchOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CH5_watchOSApp.swift; sourceTree = "<group>"; };
 		66D6EF3129193E8200408FE2 /* StepGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepGuideView.swift; sourceTree = "<group>"; };
 		66D6EF3329193E8300408FE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 		66D6EF1B29193E8000408FE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66D6EF1A29193E8000408FE2 /* CH5-watchOS.app */,
-				66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */,
+				66D6EF1A29193E8000408FE2 /* Orenji.app */,
+				66D6EF2A29193E8200408FE2 /* Orenji Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,9 +253,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66D6EF1929193E8000408FE2 /* CH5-watchOS */ = {
+		66D6EF1929193E8000408FE2 /* Orenji */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66D6EF3E29193E8300408FE2 /* Build configuration list for PBXNativeTarget "CH5-watchOS" */;
+			buildConfigurationList = 66D6EF3E29193E8300408FE2 /* Build configuration list for PBXNativeTarget "Orenji" */;
 			buildPhases = (
 				66D6EF1629193E8000408FE2 /* Sources */,
 				66D6EF1729193E8000408FE2 /* Frameworks */,
@@ -267,14 +267,14 @@
 			dependencies = (
 				66D6EF2D29193E8200408FE2 /* PBXTargetDependency */,
 			);
-			name = "CH5-watchOS";
+			name = Orenji;
 			productName = "CH5-watchOS";
-			productReference = 66D6EF1A29193E8000408FE2 /* CH5-watchOS.app */;
+			productReference = 66D6EF1A29193E8000408FE2 /* Orenji.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66D6EF2929193E8200408FE2 /* CH5-watchOS Watch App */ = {
+		66D6EF2929193E8200408FE2 /* Orenji Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66D6EF3A29193E8300408FE2 /* Build configuration list for PBXNativeTarget "CH5-watchOS Watch App" */;
+			buildConfigurationList = 66D6EF3A29193E8300408FE2 /* Build configuration list for PBXNativeTarget "Orenji Watch App" */;
 			buildPhases = (
 				66D6EF2629193E8200408FE2 /* Sources */,
 				66D6EF2729193E8200408FE2 /* Frameworks */,
@@ -284,9 +284,9 @@
 			);
 			dependencies = (
 			);
-			name = "CH5-watchOS Watch App";
+			name = "Orenji Watch App";
 			productName = "CH5-watchOS Watch App";
-			productReference = 66D6EF2A29193E8200408FE2 /* CH5-watchOS Watch App.app */;
+			productReference = 66D6EF2A29193E8200408FE2 /* Orenji Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 66D6EF1529193E8000408FE2 /* Build configuration list for PBXProject "CH5-watchOS" */;
+			buildConfigurationList = 66D6EF1529193E8000408FE2 /* Build configuration list for PBXProject "Orenji" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -320,8 +320,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66D6EF1929193E8000408FE2 /* CH5-watchOS */,
-				66D6EF2929193E8200408FE2 /* CH5-watchOS Watch App */,
+				66D6EF1929193E8000408FE2 /* Orenji */,
+				66D6EF2929193E8200408FE2 /* Orenji Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -396,7 +396,7 @@
 /* Begin PBXTargetDependency section */
 		66D6EF2D29193E8200408FE2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66D6EF2929193E8200408FE2 /* CH5-watchOS Watch App */;
+			target = 66D6EF2929193E8200408FE2 /* Orenji Watch App */;
 			targetProxy = 66D6EF2C29193E8200408FE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -524,13 +524,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Academy.CH5-watchOS";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Academy.Orenji;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Academy.CH5-watchOS.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.Orenji.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -554,13 +555,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "Academy.CH5-watchOS";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Academy.Orenji;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Academy.CH5-watchOS.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.Orenji.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -584,7 +586,8 @@
 				DEVELOPMENT_TEAM = 2VBT66DD5V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
+				INFOPLIST_KEY_CFBundleDisplayName = Orenji;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -596,7 +599,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Academy.CH5-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.Orenji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -617,7 +620,8 @@
 				DEVELOPMENT_TEAM = 2VBT66DD5V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "CH5-watchOS";
+				INFOPLIST_KEY_CFBundleDisplayName = Orenji;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -629,7 +633,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Academy.CH5-watchOS";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.Orenji;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -642,7 +646,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66D6EF1529193E8000408FE2 /* Build configuration list for PBXProject "CH5-watchOS" */ = {
+		66D6EF1529193E8000408FE2 /* Build configuration list for PBXProject "Orenji" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66D6EF3829193E8300408FE2 /* Debug */,
@@ -651,7 +655,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66D6EF3A29193E8300408FE2 /* Build configuration list for PBXNativeTarget "CH5-watchOS Watch App" */ = {
+		66D6EF3A29193E8300408FE2 /* Build configuration list for PBXNativeTarget "Orenji Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66D6EF3B29193E8300408FE2 /* Debug */,
@@ -660,7 +664,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66D6EF3E29193E8300408FE2 /* Build configuration list for PBXNativeTarget "CH5-watchOS" */ = {
+		66D6EF3E29193E8300408FE2 /* Build configuration list for PBXNativeTarget "Orenji" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66D6EF3F29193E8300408FE2 /* Debug */,
