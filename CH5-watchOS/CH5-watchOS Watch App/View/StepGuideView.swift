@@ -12,7 +12,7 @@ struct StepGuideView: View {
     @State var passoAtual: Int = 1
     @State var backButtonStatus: Bool = false
     @Binding var rootIsActive : Bool
-    @Binding var routine : RoutineInfo
+    @Binding var routine : RoutineData
     
     var body: some View {
         VStack {
@@ -23,14 +23,22 @@ struct StepGuideView: View {
                 .cornerRadius(8)
                 .overlay(
                     Text("Passo \(passoAtual) / \(routine.numberSteps)")
-                .font(.system(size: 11, weight: .semibold))
-            )
+                        .font(.system(size: 11, weight: .semibold))
+                )
             Text("\(routine.titleStep[passoAtual - 1])")
                 .font(.system(size: 11,weight: .semibold))
-            Image("\(stepImage(imageName: routine.titleStep[passoAtual - 1]))")
-                .resizable()
-                .frame(width: 80, height: 72)
-            Spacer()
+            TabView{
+                Image("\(stepImage(imageName: routine.titleStep[passoAtual - 1]))")
+                    .resizable()
+                    .frame(width: 80, height: 72)
+                
+                Text("\(routine.descriptionStep[passoAtual - 1])")
+                    .font(.system(size: 11))
+                    .multilineTextAlignment(.center)
+                
+            }.frame(width: 80, height: 90)
+                .tabViewStyle(CarouselTabViewStyle())
+            
             NavigationLink(destination: TimerView(passoAtual: $passoAtual, rootIsActive: self.$rootIsActive, routine: $routine)){
                 Text("Iniciar")
             }.background(Color.purpleColor)
@@ -60,7 +68,7 @@ struct StepGuideView: View {
 
 struct StepGuideView_Previews: PreviewProvider {
     static var previews: some View {
-        StepGuideView(rootIsActive: .constant(false), routine: .constant(RoutineInfo.datas[0]))
+        StepGuideView(rootIsActive: .constant(false), routine: .constant(RoutineData.datas[0]))
     }
 }
 

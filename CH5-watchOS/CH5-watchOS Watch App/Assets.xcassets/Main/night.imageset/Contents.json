@@ -77,6 +77,11 @@
       "filename" : "night@3x 2.png",
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "filename" : "night@3x 3.png",
+      "idiom" : "watch",
+      "scale" : "2x"
     }
   ],
   "info" : {

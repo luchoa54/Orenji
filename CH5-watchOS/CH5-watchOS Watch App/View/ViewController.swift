@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ViewController: View {
-    @State private var routine = RoutineInfo.datas
-    
+    @State private var routine = RoutineData.datas
+    @AppStorage("Orange")  var orangeImage = "mainsad"
+    @AppStorage("fezRotina") var fezRotina = false
     @State var tempo: String = ""
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -31,6 +32,10 @@ struct ViewController: View {
         }
         .onAppear(){
             tempo = getTime()
+            fezRotina = false
+            if tempo == "00:01"{
+                orangeImage = "mainsad"
+            }
         }
     }
     

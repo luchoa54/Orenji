@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     
-    @Binding var routine: RoutineInfo
+    @Binding var routine: RoutineData
     
     var body: some View {
         HStack {
@@ -27,8 +27,26 @@ struct CardView: View {
     }
 }
 
+struct CompleteCardView: View {
+    
+    @Binding var routine: RoutineData
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading){
+                Text("\(routine.shift)")
+                    .font(.headline)
+                Text("Rotina Concluída!")
+                    .font(.caption)
+                    .foregroundColor(Color.green)
+            }
+            Spacer()
+        }
+    }
+}
+
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(routine: .constant(RoutineInfo.datas[0]))
+        CardView(routine: .constant(RoutineData.datas[0]))
     }
 }

@@ -12,7 +12,7 @@ struct ListView: View {
     @AppStorage("Orange")  var orangeImage = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
     @State var isActive : Bool = false
-    @Binding var routine: [RoutineInfo]
+    @Binding var routine: [RoutineData]
     @State var shift: Int
     
     var body: some View {
@@ -24,11 +24,14 @@ struct ListView: View {
                 Image("\(orangeImage)")
                     .resizable()
                     .frame(width: 68, height: 79, alignment: .center)
-                NavigationLink(destination: StepGuideView(rootIsActive: self.$isActive, routine: $routine[shift]), isActive: self.$isActive){
-                    CardView(routine: $routine[shift])
-                        .frame(height: 74)
-                }.frame(width: 154, height: 58)
-                
+                if !fezRotina {
+                    NavigationLink(destination: StepGuideView(rootIsActive: self.$isActive, routine: $routine[shift]), isActive: self.$isActive){
+                        CardView(routine: $routine[shift])
+                            .frame(height: 74)
+                    }.frame(width: 154, height: 58)
+                }else {
+                    CompleteCardView(routine: $routine[shift])
+                }
                     
             }
         }.navigationBarBackButtonHidden(true)
@@ -40,7 +43,7 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(routine: .constant(RoutineInfo.datas), shift: 0)
+        ListView(routine: .constant(RoutineData.datas), shift: 0)
     }
 }
 
