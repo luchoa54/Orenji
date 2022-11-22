@@ -24,32 +24,76 @@ struct TimerView: View {
                 Spacer(minLength: 10)
                 ZStack {
                     TrackView()
-                    Label(counter: $counter, countTo: 1)
-                    Outline(countTo: 1, counter: $counter, timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: routine.timeSteps[passoAtual - 1])
+                    Outline(countTo: routine.timeSteps[passoAtual - 1], counter: $counter, timePaused: $timerStarted)
                 }
                 ZStack{
                     if !completed(){
+                        
                         if timerStarted == false{
-                            Button(action: {
-                                self.timerStarted.toggle()
-                            }) {
-                                Text("Iniciar")
-                                    .foregroundColor(Color.black)
-                            }.background(Color.purpleColor)
-                                .cornerRadius(50)
+                            HStack {
+                                Button(action: {
+                                    HapticManager.instance.play(type: .start)
+                                    self.timerStarted.toggle()
+                                }) {
+                                    Text("Iniciar")
+                                        .foregroundColor(Color.black)
+                                }.background(Color.purpleColor)
+                                    .cornerRadius(50)
+                                
+                                if(self.passoAtual == routine.numberSteps){
+                                    NavigationLink(destination: FinishView(shouldPopToRootView: self.$rootIsActive)) {
+                                        Text("Pular")
+                                            .foregroundColor(Color.black)
+                                        
+                                    }.background(Color.purpleColor)
+                                        .cornerRadius(50)
+                                }else {
+                                    NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1, rootIsActive: self.$rootIsActive, routine: $routine)) {
+                                        Text("Pular")
+                                            .foregroundColor(Color.black)
+                                        
+                                    }.background(Color.purpleColor)
+                                        .cornerRadius(50)
+                                }
+
+                            }
+                            
                         }else {
-                            Button(action: {
-                                self.timerStarted.toggle()
-                            }) {
-                                Text("Pausar")
-                                    .foregroundColor(Color.white)
-                            }.background(Color.backgroundColor)
-                                .cornerRadius(50)
+                            
+                            HStack {
+                                Button(action: {
+                                    HapticManager.instance.play(type: .stop)
+                                    self.timerStarted.toggle()
+                                }) {
+                                    Text("Pausar")
+                                        .foregroundColor(Color.white)
+                                }.background(Color.backgroundColor)
+                                    .cornerRadius(50)
+                                
+                                if(self.passoAtual == routine.numberSteps){
+                                    NavigationLink(destination: FinishView(shouldPopToRootView: self.$rootIsActive)) {
+                                        Text("Pular")
+                                            .foregroundColor(Color.black)
+                                        
+                                    }.background(Color.purpleColor)
+                                        .cornerRadius(50)
+                                }else {
+                                    NavigationLink(destination: StepGuideView( passoAtual: self.passoAtual + 1, rootIsActive: self.$rootIsActive, routine: $routine)) {
+                                        Text("Pular")
+                                            .foregroundColor(Color.black)
+                                        
+                                    }.background(Color.purpleColor)
+                                        .cornerRadius(50)
+                                }
+                            }
+                            
                         }
+                        
                     }else {
                         if(self.passoAtual == routine.numberSteps){
                             NavigationLink(destination: FinishView(shouldPopToRootView: self.$rootIsActive)) {
-                                Text("Finish")
+                                Text("Finalizar")
                                     .foregroundColor(Color.black)
                                 
                             }.background(Color.purpleColor)
@@ -66,14 +110,14 @@ struct TimerView: View {
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < 1 && timerStarted != false{
+            if self.counter < routine.timeSteps[passoAtual - 1] && timerStarted != false{
                 self.counter += 1
             }
         }.navigationTitle("Limpeza")
     }
     
     func completed() -> Bool {
-        return counter / 1 == 1
+        return counter / routine.timeSteps[passoAtual - 1] == 1
     }
 }
 
