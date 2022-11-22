@@ -12,7 +12,7 @@ struct TimerView: View {
     @State private var timerStarted = false
     @Binding var passoAtual: Int
     @Binding var rootIsActive : Bool
-    @Binding var routine : RoutineInfo
+    @Binding var routine : RoutineData
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -194,6 +194,6 @@ struct Clock: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView(passoAtual: .constant(1), rootIsActive: .constant(false), routine: .constant(RoutineInfo.datas[0]))
+        TimerView(passoAtual: .constant(1), rootIsActive: .constant(false), routine: .constant(RoutineData.datas[0]))
     }
 }

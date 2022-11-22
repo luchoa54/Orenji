@@ -77,6 +77,11 @@
       "filename" : "mask_dm@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
+    },
+    {
+      "filename" : "mask_dm@2z 1.png",
+      "idiom" : "watch",
+      "scale" : "2x"
     }
   ],
   "info" : {
