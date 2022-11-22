@@ -12,7 +12,8 @@ struct HomeView: View {
     //     @AppStorage("rotina concluida") var routineDone = false
     @AppStorage("orange") var assetOrange = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
-    @State var orangeName = UserDefaults.standard.string(forKey: "laranjito")
+//    @State var orangeName = UserDefaults.standard.string(forKey: "laranjito")
+    @AppStorage("laranjito") var orangeName = ""
     @State var isActive : Bool = false
     @State var shift: Int
     @State var tempo: String = ""
@@ -39,7 +40,7 @@ struct HomeView: View {
                 //                 }
             }
             Spacer()
-            Text("\(orangeName ?? "Laranjito") está com a pele bem maltrada. Que tal iniciar sua rotina de skincare?")
+            Text("\(orangeName) está com a pele bem maltrada. Que tal iniciar sua rotina de skincare?")
                 .padding()
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
@@ -56,8 +57,8 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.titleColor)
                 .padding([.trailing], 204)
-            if  tempo >= "05:00" && tempo <= "10:59"{
-                HStack {
+            if  tempo >= "00:00" && tempo <= "00:11"{
+                
                     if(routine[0].numberSteps > 0){
                         NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
                             //                         CardView(routine: $routine[0], text: fezRotina ? "Rotina concluída" : "Possui \(routine[0].numberSteps) passos")
@@ -66,9 +67,7 @@ struct HomeView: View {
                             }
                             else {
                                 CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                                    .onAppear(){
-                                        assetOrange = "mainsad"
-                                    }
+                                    
                             }
                         }
                     }else {
@@ -83,19 +82,16 @@ struct HomeView: View {
                             )
                     }
                     Spacer()
-                }
-            }else if tempo >= "13:00" && tempo <= "16:59"{
-                HStack {
+                
+            }else if tempo >= "00:14" && tempo <= "16:59"{
                     if(routine[1].numberSteps > 0){
                         NavigationLink(destination: StepByStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                             if fezRotina {
                                 CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
+                                
                             }
                             else {
                                 CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                                    .onAppear(){
-                                        assetOrange = "mainsad"
-                                    }
                             }
                         }
                     }else {
@@ -110,9 +106,9 @@ struct HomeView: View {
                             )
                     }
                     Spacer()
-                }
-            }else if tempo >= "19:00" && tempo <= "23:59"{
-                HStack {
+                
+            }else if tempo >= "19:00" && tempo <= "23:47"{
+                
                     if(routine[2].numberSteps > 0){
                         NavigationLink(destination: StepByStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                             if fezRotina {
@@ -120,9 +116,6 @@ struct HomeView: View {
                             }
                             else {
                                 CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                                    .onAppear(){
-                                        assetOrange = "mainsad"
-                                    }
                             }
                         }
                     }else {
@@ -137,10 +130,10 @@ struct HomeView: View {
                             )
                     }
                     Spacer()
-                }
+                
             }
             else {
-                if  tempo >= "00:00" && tempo <= "04:59" {
+                if  tempo >= "00:12" && tempo <= "00:13" {
                     Text("Próxima skincare marcada para manhã.")
                         .padding()
                         .padding(.horizontal)
@@ -153,6 +146,7 @@ struct HomeView: View {
                         .onAppear(){
                             fezRotina = false
                         }
+                        
                 }
                 else if tempo >= "11:00" && tempo <= "12:59" {
                     Text("Próxima skincare marcada para tarde.")
@@ -182,6 +176,14 @@ struct HomeView: View {
                             fezRotina = false
                         }
                 }
+            }
+        }
+        .onAppear(){
+            if fezRotina {
+                assetOrange = "mainhappy"
+            }
+            else {
+                assetOrange = "mainsad"
             }
         }
         .padding()
