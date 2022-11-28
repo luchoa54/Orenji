@@ -17,6 +17,8 @@ struct HomeView: View {
     @State var isActive : Bool = false
     @State var shift: Int
     @State var tempo: String = ""
+    @State var currentStep: Int = 1
+    @State var indexStep: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -57,10 +59,11 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.titleColor)
                 .padding([.trailing], 204)
+            
             if  tempo >= "00:00" && tempo <= "00:11"{
                 
                     if(routine[0].numberSteps > 0){
-                        NavigationLink(destination: StepByStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
                             //                         CardView(routine: $routine[0], text: fezRotina ? "Rotina concluída" : "Possui \(routine[0].numberSteps) passos")
                             if fezRotina {
                                 CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
@@ -85,7 +88,7 @@ struct HomeView: View {
                 
             }else if tempo >= "00:14" && tempo <= "16:59"{
                     if(routine[1].numberSteps > 0){
-                        NavigationLink(destination: StepByStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                             if fezRotina {
                                 CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
                                 
@@ -110,7 +113,7 @@ struct HomeView: View {
             }else if tempo >= "19:00" && tempo <= "23:47"{
                 
                     if(routine[2].numberSteps > 0){
-                        NavigationLink(destination: StepByStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                             if fezRotina {
                                 CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
                             }
