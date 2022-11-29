@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ViewController : View {
     @State private var routine = RoutineInfo.datas
-
-    //@StateObject var router = Router()
     
     var body: some View {
         
@@ -23,7 +21,7 @@ struct ViewController : View {
             }
             
         }
-        //.environmentObject(router)
+        
     }
 }
 

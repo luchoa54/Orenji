@@ -9,14 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var routine: [RoutineInfo]
-    //     @AppStorage("rotina concluida") var routineDone = false
     @AppStorage("orange") var assetOrange = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
-//    @State var orangeName = UserDefaults.standard.string(forKey: "laranjito")
+
     @AppStorage("laranjito") var orangeName = ""
     @State var isActive : Bool = false
     @State var shift: Int
     @State var tempo: String = ""
+    //@AppStorage("notifica") var isOn = false
+    //@State var notificationManager = NotificationManager()
+
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -26,18 +28,9 @@ struct HomeView: View {
                     .font(.system(size: 24))
                     .fontWeight(.black)
                     .foregroundColor(.titleColor)
-                //.padding([.horizontal], 20)
+                
                 Spacer()
-                //                 Button {
-                //
-                //                 } label: {
-                //                     Image(systemName: "plus.app.fill")
-                //                         .resizable()
-                //                         .foregroundColor(.purpleColor)
-                //                         .frame(width: 48, height: 44)
-                //                         //.padding([.horizontal], 31)
-                //
-                //                 }
+
             }
             Spacer()
             Text("\(orangeName) está com a pele bem maltrada. Que tal iniciar sua rotina de skincare?")
@@ -57,6 +50,27 @@ struct HomeView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.titleColor)
                 .padding([.trailing], 204)
+            
+//            Toggle(isOn: $isOn, label: {
+//                Text("Notificar rotina")
+//                    .onChange(of: isOn){ value in
+//                        NotificationManager.instance.scheduleNotification()
+//                    }
+//            })
+            
+//            //Toggle(isOn: $isOn) {
+//                Button {
+//                    NotificationManager.instance.requestAuthorization()
+//                    
+//                } label: {
+//                    Text("ativar")
+//                }
+//            
+//            Button("notifica") {
+//                NotificationManager.instance.scheduleNotification()
+//            }
+//            //}
+            
             if  tempo >= "00:00" && tempo <= "00:11"{
                 
                     if(routine[0].numberSteps > 0){
@@ -178,6 +192,10 @@ struct HomeView: View {
                 }
             }
         }
+//        .onAppear(){
+//            NotificationManager.instance.requestAuthorization()
+//            UIApplication.shared.applicationIconBadgeNumber = 0 
+//        }
         .onAppear(){
             if fezRotina {
                 assetOrange = "mainhappy"

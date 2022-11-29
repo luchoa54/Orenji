@@ -18,7 +18,7 @@ struct StepByStepView: View {
         
         VStack {
             HStack {
-                StepTitle(text: "Passo \(currentStep)")
+                Text("Passo \(currentStep)")
                     .font(.system(size: 16, weight: .bold))
                     .foregroundColor(.textCurrentStep)
                 
@@ -65,6 +65,7 @@ struct StepByStepView: View {
             //                .cornerRadius(12)
             //            }
             //            else {
+            
             NavigationLink(destination: TimerStepView(indexStep: self.$indexStep, routine: $routine, currentStep: self.$currentStep, rootIsActive: self.$rootIsActive)) {
                 Text("Iniciar")
                     .foregroundColor(.textButtonStep)
@@ -74,14 +75,17 @@ struct StepByStepView: View {
             .background(Color.purpleColor)
             .cornerRadius(12)
             //}
-        }.onAppear(){
+        }
+        .onShake {
+            print("shakeado")
+        }
+        .onAppear(){
             nextStep()
         }
         .navigationTitle("\(routine.shift)")
         .ignoresSafeArea(.all)
         .padding()
     }
-    
     func nextStep(){
         var stepFound: Bool = false
         

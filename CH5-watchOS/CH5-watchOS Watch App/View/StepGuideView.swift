@@ -28,7 +28,7 @@ struct StepGuideView: View {
             Text("\(routine.titleStep[passoAtual - 1])")
                 .font(.system(size: 11,weight: .semibold))
             TabView{
-                Image("\(stepImage(imageName: routine.titleStep[passoAtual - 1]))")
+                Image("\(routine.imagesSteps[passoAtual - 1])")
                     .resizable()
                     .frame(width: 80, height: 72)
                 
