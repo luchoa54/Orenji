@@ -12,6 +12,7 @@ struct RegistrationView: View {
     @State private var bool = true
     //@EnvironmentObject var appState: AppState
     //@Binding var routine: RoutineInfo
+    @State private var isCreatePresented = true
 
     var body: some View {
         
