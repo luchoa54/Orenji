@@ -39,7 +39,6 @@ struct RegistrationView: View {
                     Text("Concluído")
                         .font(.system(size: 17))
                         .frame(width: 350, height: 52)
-                    
                 }
                 .frame(width: 350, height: 52)
                 .background(Color.purpleColor)

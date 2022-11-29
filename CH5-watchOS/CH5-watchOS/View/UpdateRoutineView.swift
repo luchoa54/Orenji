@@ -11,19 +11,38 @@ struct UpdateRoutineView: View {
     @Binding var routine: [RoutineInfo]
     @State private var bool = true
     @AppStorage("fezRotina") var fezRotina = false
+    @AppStorage("laranjito") var orangeName = ""
+    @State private var nomePersonagem = "Laranjito"
     //@EnvironmentObject var appState: AppState
     //@Binding var routine: RoutineInfo
     
     var body: some View {
         
         VStack{
-            Text("Deseja alterar a sua rotina?")
+            Text("Editar")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundColor(Color.init("labelColor"))
                 .padding()
-            Spacer()
+            VStack (spacing: 10){
+                Text("Nome do Personagem")
+                    .font(.system(size: 15))
+                    .foregroundColor(.gray)
+                    .textCase(.uppercase)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                TextField("Qual meu novo nome?", text: $orangeName)
+                    .padding()
+                    .foregroundColor(.titleColor)
+                    .background(Color.orangeNameBackground)
+                    .cornerRadius(12)
+            }.padding()
+            Text("Rotinas")
+                .font(.system(size: 15))
+                .foregroundColor(.gray)
+                .textCase(.uppercase)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading)
             VStack{
                 ForEach($routine) { $routine in
                     NavigationLink(destination: DetailView(rotinas: $routine)){

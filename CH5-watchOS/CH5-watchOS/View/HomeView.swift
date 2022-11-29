@@ -49,8 +49,8 @@ struct HomeView: View {
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .foregroundColor(.titleColor)
-                    .padding([.trailing], 164)
-                Button("Edit"){
+                    .padding([.trailing], 155)
+                Button("Editar"){
                     isPresentingEditView = true
                 }
             }
@@ -70,9 +70,16 @@ struct HomeView: View {
                         .foregroundColor(.white)
                         .cornerRadius(12)
                         .overlay(
-                            Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity, alignment: .center)
+                            HStack{
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(Color.orangeText)
+                                Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.orangeText)
+                                    .fontWeight(.semibold)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .multilineTextAlignment(.center)
+                                }
                         )
                 }
                 Spacer()
@@ -89,14 +96,20 @@ struct HomeView: View {
                 }else {
                     Rectangle()
                         .frame(width: 350, height: 123, alignment: .center)
-                        .foregroundColor(.white)
+                        .foregroundColor(.clear)
                         .cornerRadius(12)
                         .overlay(
-                            Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
-                                .fontWeight(.bold)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .multilineTextAlignment(.center)
-                        )
+                            HStack{
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(Color.orangeText)
+                                Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(Color.orangeText)
+                                    .fontWeight(.semibold)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .multilineTextAlignment(.center)
+                                }
+                            )
                 }
                 Spacer()
             }else if tempo >= "19:00" && tempo <= "23:47"{
@@ -218,7 +231,7 @@ func getTime() -> String {
 
 func getWeekDayByIndex() -> Int {
     let weekday = Calendar.current.component(.weekday, from: Date())
-    return weekday
+    return weekday - 2
 }
 
 struct HomeView_Previews: PreviewProvider {

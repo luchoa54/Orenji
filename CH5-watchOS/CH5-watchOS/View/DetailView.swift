@@ -15,20 +15,31 @@ struct DetailView: View {
     
     var body: some View {
         List{
-            Section(header: Text("Titulo da Rotina")){
-                Text("\(rotinas.shift)")
-            }
             Section(header: Text("Quantidade de Passos")){
                 Text("\(rotinas.numberSteps)" as String)
             }
             Section(header: Text("Status da notificação")){
                 if(rotinas.notificationStatus){
-                    Text("Ativada")
-                        .multilineTextAlignment(.center)
+                    HStack(spacing: 10){
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color.orangeText)
+                        Text("Ativada")
+                            .font(.system(size: 15))
+                            .foregroundColor(Color.orangeText)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                        }
                 }
                 else{
-                    Text("Desativada")
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    HStack(spacing: 10){
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color.orangeText)
+                        Text("Desativada")
+                            .font(.system(size: 15))
+                            .foregroundColor(Color.orangeText)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                        }
                 }
             }
             Section(header: Text("Semana")){

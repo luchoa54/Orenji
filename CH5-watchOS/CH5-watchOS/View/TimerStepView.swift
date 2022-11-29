@@ -84,7 +84,7 @@ struct TimerStepView: View {
                 
                 Clock(counter: counter, countTo: countTo, image: routine.imagesSteps[currentStep - 1])
             }
-            .padding([.top], 80)
+            .padding([.top], 30)
             
             Spacer()
             
