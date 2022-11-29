@@ -59,7 +59,6 @@ struct CheckboxFieldView: View {
                     steps += 1
                 }
             }
-            print("State : \(self.checkState)")
         }) {
             HStack {
                 //2. Will update according to state

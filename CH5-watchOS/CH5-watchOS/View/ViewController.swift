@@ -28,11 +28,9 @@ struct ViewController : View {
 func isAppAlreadyLaunchedOnce() -> Bool {
         let defaults = UserDefaults.standard
         if let _ = defaults.string(forKey: "laranjito") {
-            print("App already launched")
             return true
         } else {
             defaults.set(true, forKey: "laranjito")
-            print("App launched first time")
             return false
         }
     }

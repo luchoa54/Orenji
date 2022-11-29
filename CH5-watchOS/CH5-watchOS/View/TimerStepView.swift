@@ -20,8 +20,6 @@ struct TimerStepView: View {
     @Binding var rootIsActive : Bool
     @AppStorage("rotina concluida") var completedRoutine = false
     
-    var countTo: Int = 2 //4 minutes 120 - 2minutes
-    
     var body: some View {
         VStack{
             HStack {
@@ -82,7 +80,7 @@ struct TimerStepView: View {
                     .padding([.horizontal], 77)
                 
                 
-                Clock(counter: counter, countTo: countTo, image: routine.imagesSteps[currentStep - 1])
+                Clock(counter: counter, countTo: routine.timeStep[indexStep], image: routine.imagesSteps[indexStep])
             }
             .padding([.top], 30)
             
@@ -97,6 +95,7 @@ struct TimerStepView: View {
                             }) {
                                 Text("Iniciar")
                                     .foregroundColor(Color.white)
+                                    .frame(width: 350, height: 52)
                                     .fontWeight(.semibold)
                                     
                             }.foregroundColor(.textButtonStep)
@@ -110,6 +109,7 @@ struct TimerStepView: View {
                                 NavigationLink(destination: FinalStepView(routine: $routine, shouldPopToRootView: self.$rootIsActive)) {
                                     Text("Pular")
                                         .foregroundColor(Color.purpleColor)
+                                        .frame(width: 350, height: 52)
                                         .fontWeight(.semibold)
                                         .overlay(
                                         RoundedRectangle(cornerRadius: 12)
@@ -127,6 +127,7 @@ struct TimerStepView: View {
                                 NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)){
                                     Text("Pular")
                                         .foregroundColor(Color.purpleColor)
+                                        .frame(width: 350, height: 52)
                                         .overlay(
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(lineWidth: 5)
@@ -147,6 +148,7 @@ struct TimerStepView: View {
                             NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
                                 Text("Pular")
                                     .foregroundColor(Color.white)
+                                    .frame(width: 350, height: 52)
                                     .overlay(
                                     RoundedRectangle(cornerRadius: 12)
                                         .stroke(lineWidth: 5)
@@ -208,7 +210,7 @@ struct TimerStepView: View {
             }
             
         }.onReceive(timer) { time in
-            if (self.counter < self.countTo && timerRunning) {
+            if (self.counter < routine.timeStep[indexStep] && timerRunning) {
                 self.counter += 1
             }
         }.onAppear(){
@@ -234,7 +236,7 @@ struct TimerStepView: View {
     }
     
     func progress() -> CGFloat {
-        return (CGFloat(counter) / CGFloat(countTo))
+        return (CGFloat(counter) / CGFloat(routine.timeStep[indexStep]))
     }
 }
 
