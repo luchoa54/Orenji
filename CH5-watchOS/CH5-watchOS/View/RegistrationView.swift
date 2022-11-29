@@ -13,6 +13,7 @@ struct RegistrationView: View {
     @AppStorage("fezRotina") var fezRotina = false
     //@EnvironmentObject var appState: AppState
     //@Binding var routine: RoutineInfo
+    @State private var isCreatePresented = true
     
     var body: some View {
         

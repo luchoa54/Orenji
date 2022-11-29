@@ -16,6 +16,8 @@ struct HomeView: View {
     @State private var isPresentingEditView = false
     @State var isActive : Bool = false
     @State var shift: Int
+    //@AppStorage("notifica") var isOn = false
+        //@State var notificationManager = NotificationManager()
     @State var tempo: String = ""
     @State var dayIndex: Int = 0
     @State var currentStep: Int = 1
@@ -54,6 +56,25 @@ struct HomeView: View {
                     isPresentingEditView = true
                 }
             }
+            //Toggle(isOn: $isOn, label: {
+            //                Text("Notificar rotina")
+            //                    .onChange(of: isOn){ value in
+            //                        NotificationManager.instance.scheduleNotification()
+            //                    }
+            //            })
+                        
+            //            //Toggle(isOn: $isOn) {
+            //                Button {
+            //                    NotificationManager.instance.requestAuthorization()
+            //
+            //                } label: {
+            //                    Text("ativar")
+            //                }
+            //
+            //            Button("notifica") {
+            //                NotificationManager.instance.scheduleNotification()
+            //            }
+            //            //}
             if  tempo >= "00:00" && tempo <= "00:11"{
                 if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
@@ -181,6 +202,10 @@ struct HomeView: View {
                 }
             }
         }
+        //        .onAppear(){
+        //            NotificationManager.instance.requestAuthorization()
+        //            UIApplication.shared.applicationIconBadgeNumber = 0
+        //        }
         .onAppear(){
             if fezRotina {
                 assetOrange = "mainhappy"
