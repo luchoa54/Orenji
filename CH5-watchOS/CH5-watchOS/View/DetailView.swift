@@ -23,10 +23,26 @@ struct DetailView: View {
             }
             Section(header: Text("Status da notificação")){
                 if(rotinas.notificationStatus){
-                    Text("Ativada")
+                    HStack(spacing: 10){
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color.orangeText)
+                        Text("Ativada")
+                            .font(.system(size: 15))
+                            .foregroundColor(Color.orangeText)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                    }
                 }
                 else{
-                    Text("Desativada")
+                    HStack(spacing: 10){
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color.orangeText)
+                        Text("Desativada")
+                            .font(.system(size: 15))
+                            .foregroundColor(Color.orangeText)
+                            .fontWeight(.semibold)
+                            .multilineTextAlignment(.center)
+                    }
                 }
             }
             Section(header: Text("Semana")){

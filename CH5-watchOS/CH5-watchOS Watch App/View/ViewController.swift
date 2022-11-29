@@ -20,7 +20,7 @@ struct ViewController: View {
                 ListView(routine: $routine, shift: 0)
             }else if tempo >= "13:00" && tempo < "16:59"{
                 ListView(routine: $routine, shift: 1)
-            }else if tempo >= "17:00" && tempo < "23:59"{
+            }else if tempo >= "19:00" && tempo < "23:59"{
                 ListView(routine: $routine, shift: 2)
             }
             else {

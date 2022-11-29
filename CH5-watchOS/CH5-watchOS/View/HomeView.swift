@@ -74,7 +74,7 @@ struct HomeView: View {
             //                NotificationManager.instance.scheduleNotification()
             //            }
             //            //}
-            if  tempo >= "00:00" && tempo <= "00:11"{
+            if  tempo >= "05:00" && tempo <= "10:59"{
                 if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -103,7 +103,7 @@ struct HomeView: View {
                         )
                 }
                 Spacer()
-            }else if tempo >= "00:14" && tempo <= "16:59"{
+            }else if tempo >= "13:00" && tempo <= "16:59"{
                 if(routine[1].numberSteps > 0 && routine[1].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -132,7 +132,7 @@ struct HomeView: View {
                             )
                 }
                 Spacer()
-            }else if tempo >= "19:00" && tempo <= "23:47"{
+            }else if tempo >= "19:00" && tempo <= "23:59"{
                 if(routine[2].numberSteps > 0 && routine[2].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -157,7 +157,7 @@ struct HomeView: View {
                 Spacer()
             }
             else {
-                if  tempo >= "00:12" && tempo <= "00:13" {
+                if  tempo >= "00:00" && tempo <= "04:59" {
                     Text("Próxima skincare marcada para manhã.")
                         .padding()
                         .padding(.horizontal)

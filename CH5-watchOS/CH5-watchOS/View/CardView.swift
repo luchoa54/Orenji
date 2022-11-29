@@ -9,76 +9,11 @@ import SwiftUI
 
 struct CardView: View {
     @Binding var routine: RoutineInfo
-//    @AppStorage("fezRotina") var fezRotina = false
+    //    @AppStorage("fezRotina") var fezRotina = false
     //    @State var isActive : Bool = false
     @State var text = ""
     @State var colorCompleted = ""
-
-    var body: some View {
-        VStack {
-            ZStack {
-                Image("\(routine.imageShift)")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 264, height: 120)
-                
-                ZStack {
-                    Rectangle()
-                        .frame(width: 264, height: 56)
-                    .foregroundColor(.cardBackground)
-                    
-                    HStack {
-                        VStack (alignment: .leading) {
-                            Text("\(routine.shift)")
-                                .font(.system(size: 16))
-                                .fontWeight(.bold)
-                                .foregroundColor(.titleCardColor)
-                            
-//                            if fezRotina {
-//                                Text("Rotina concluída")
-//                            }
-//                            else {
-//                                Text("Possui \(routine.numberSteps) passos")
-//                                    .font(.system(size: 13))
-//                                    .foregroundColor(.descriptionCardColor)
-                            Text(text)
-                                .font(.system(size: 13))
-                                .foregroundColor(Color(colorCompleted))
-                            //}
-                            
-                        }
-                        
-                        Spacer()
-                        
-                        
-                            Image(systemName: "play.circle.fill")
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                                .foregroundColor(.purpleColor)
-                        
-                        
-                    }
-                    .frame(width: 240, height: 40)
-                }
-                .padding([.top], 64)
-                
-            }
-            
-        }
-        .cornerRadius(12)
-        .padding(.bottom)
-//        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.white, lineWidth:1))
-//        .padding()
-    }
-}
-
-struct CardListView: View {
-    @Binding var routine: RoutineInfo
-//    @AppStorage("fezRotina") var fezRotina = false
-    //    @State var isActive : Bool = false
-    @State var text = ""
-    @State var colorCompleted = ""
-
+    
     var body: some View {
         VStack {
             ZStack {
@@ -90,7 +25,7 @@ struct CardListView: View {
                 ZStack {
                     Rectangle()
                         .frame(width: 350, height: 56)
-                    .foregroundColor(.cardBackground)
+                        .foregroundColor(.cardBackground)
                     
                     HStack {
                         VStack (alignment: .leading) {
@@ -99,13 +34,13 @@ struct CardListView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(.titleCardColor)
                             
-//                            if fezRotina {
-//                                Text("Rotina concluída")
-//                            }
-//                            else {
-//                                Text("Possui \(routine.numberSteps) passos")
-//                                    .font(.system(size: 13))
-//                                    .foregroundColor(.descriptionCardColor)
+                            //                            if fezRotina {
+                            //                                Text("Rotina concluída")
+                            //                            }
+                            //                            else {
+                            //                                Text("Possui \(routine.numberSteps) passos")
+                            //                                    .font(.system(size: 13))
+                            //                                    .foregroundColor(.descriptionCardColor)
                             Text(text)
                                 .font(.system(size: 13))
                                 .foregroundColor(Color(colorCompleted))
@@ -116,10 +51,10 @@ struct CardListView: View {
                         Spacer()
                         
                         
-                            Image(systemName: "play.circle.fill")
-                                .resizable()
-                                .frame(width: 32, height: 32)
-                                .foregroundColor(.purpleColor)
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.purpleColor)
                         
                         
                     }
@@ -132,8 +67,73 @@ struct CardListView: View {
         }
         .cornerRadius(12)
         .padding(.bottom)
-//        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.white, lineWidth:1))
-//        .padding()
+        //        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.white, lineWidth:1))
+        //        .padding()
+    }
+}
+
+struct CardListView: View {
+    @Binding var routine: RoutineInfo
+    //    @AppStorage("fezRotina") var fezRotina = false
+    //    @State var isActive : Bool = false
+    @State var text = ""
+    @State var colorCompleted = ""
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                Image("\(routine.imageShift)")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 350, height: 112)
+                
+                ZStack {
+                    Rectangle()
+                        .frame(width: 350, height: 56)
+                        .foregroundColor(.cardBackground)
+                    
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text("\(routine.shift)")
+                                .font(.system(size: 16))
+                                .fontWeight(.bold)
+                                .foregroundColor(.titleCardColor)
+                            
+                            //                            if fezRotina {
+                            //                                Text("Rotina concluída")
+                            //                            }
+                            //                            else {
+                            //                                Text("Possui \(routine.numberSteps) passos")
+                            //                                    .font(.system(size: 13))
+                            //                                    .foregroundColor(.descriptionCardColor)
+                            Text(text)
+                                .font(.system(size: 13))
+                                .foregroundColor(Color(colorCompleted))
+                            //}
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        
+                        Image(systemName: "play.circle.fill")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.purpleColor)
+                        
+                        
+                    }
+                    .frame(width: 300, height: 40)
+                }
+                .padding([.top], 64)
+                
+            }
+            
+        }
+        .cornerRadius(12)
+        .padding(.bottom)
+        //        .overlay(RoundedRectangle(cornerRadius: 12).stroke(Color.white, lineWidth:1))
+        //        .padding()
     }
 }
 struct CardView_Previews: PreviewProvider {
