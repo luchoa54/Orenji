@@ -24,9 +24,11 @@ struct DetailView: View {
             Section(header: Text("Status da notificação")){
                 if(rotinas.notificationStatus){
                     Text("Ativada")
+                        .multilineTextAlignment(.center)
                 }
                 else{
                     Text("Desativada")
+                        .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
             Section(header: Text("Semana")){

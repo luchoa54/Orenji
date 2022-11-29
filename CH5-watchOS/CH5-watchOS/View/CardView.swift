@@ -20,11 +20,11 @@ struct CardView: View {
                 Image("\(routine.imageShift)")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 264, height: 120)
+                    .frame(width: 350, height: 123)
                 
                 ZStack {
                     Rectangle()
-                        .frame(width: 264, height: 56)
+                        .frame(width: 350, height: 56)
                     .foregroundColor(.cardBackground)
                     
                     HStack {
@@ -58,7 +58,7 @@ struct CardView: View {
                         
                         
                     }
-                    .frame(width: 240, height: 40)
+                    .frame(width: 300, height: 40)
                 }
                 .padding([.top], 64)
                 
@@ -123,7 +123,7 @@ struct CardListView: View {
                         
                         
                     }
-                    .frame(width: 300, height: 40)
+                    .frame(width: 320, height: 40)
                 }
                 .padding([.top], 64)
                 

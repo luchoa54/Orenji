@@ -37,7 +37,6 @@ struct CircleFieldView: View {
         Button(action:{
             //1. Save state
             self.checkState = !self.checkState
-            print("State S : \(self.checkState)")
         }) {
             HStack {
                 Circle()
@@ -45,6 +44,7 @@ struct CircleFieldView: View {
                     .overlay(
                         Text("\(name)")
                             .foregroundColor(self.checkState ? Color.white : Color.init("circleLabel"))
+                            .fontWeight(.semibold)
                     )
             }
         }

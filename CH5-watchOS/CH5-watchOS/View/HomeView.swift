@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var routine: [RoutineInfo]
-    //     @AppStorage("rotina concluida") var routineDone = false
     @AppStorage("orange") var assetOrange = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
-//    @State var orangeName = UserDefaults.standard.string(forKey: "laranjito")
     @AppStorage("laranjito") var orangeName = ""
+    @Binding var routine: [RoutineInfo]
+    @State private var data = RoutineInfo.Data()
+    @State private var isPresentingEditView = false
     @State var isActive : Bool = false
     @State var shift: Int
     @State var tempo: String = ""
+    @State var dayIndex: Int = 0
     @State var currentStep: Int = 1
     @State var indexStep: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -28,18 +29,7 @@ struct HomeView: View {
                     .font(.system(size: 24))
                     .fontWeight(.black)
                     .foregroundColor(.titleColor)
-                //.padding([.horizontal], 20)
                 Spacer()
-                //                 Button {
-                //
-                //                 } label: {
-                //                     Image(systemName: "plus.app.fill")
-                //                         .resizable()
-                //                         .foregroundColor(.purpleColor)
-                //                         .frame(width: 48, height: 44)
-                //                         //.padding([.horizontal], 31)
-                //
-                //                 }
             }
             Spacer()
             Text("\(orangeName) está com a pele bem maltrada. Que tal iniciar sua rotina de skincare?")
@@ -54,86 +44,84 @@ struct HomeView: View {
             Spacer()
             Image("\(assetOrange)")
             Spacer()
-            Text("Suas atividades")
-                .font(.system(size: 20))
-                .fontWeight(.bold)
-                .foregroundColor(.titleColor)
-                .padding([.trailing], 204)
-            
+            HStack{
+                Text("Suas atividades")
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+                    .foregroundColor(.titleColor)
+                    .padding([.trailing], 164)
+                Button("Edit"){
+                    isPresentingEditView = true
+                }
+            }
             if  tempo >= "00:00" && tempo <= "00:11"{
-                
-                    if(routine[0].numberSteps > 0){
-                        NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
-                            //                         CardView(routine: $routine[0], text: fezRotina ? "Rotina concluída" : "Possui \(routine[0].numberSteps) passos")
-                            if fezRotina {
-                                CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
-                            }
-                            else {
-                                CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                                    
-                            }
+                if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
+                    NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        if fezRotina {
+                            CardView(routine: $routine[0], text: "Rotina concluída", colorCompleted: "greenCompleted")
                         }
-                    }else {
-                        Rectangle()
-                            .frame(width: 264, height: 120, alignment: .center)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                            .overlay(
-                                Text("Você não adicionou nenhum passo nessa rotina!")
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            )
+                        else {
+                            CardView(routine: $routine[0], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
+                        }
                     }
-                    Spacer()
-                
+                }else {
+                    Rectangle()
+                        .frame(width: 264, height: 120, alignment: .center)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .overlay(
+                            Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        )
+                }
+                Spacer()
             }else if tempo >= "00:14" && tempo <= "16:59"{
-                    if(routine[1].numberSteps > 0){
-                        NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
-                            if fezRotina {
-                                CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
-                                
-                            }
-                            else {
-                                CardView(routine: $routine[1], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                            }
+                if(routine[1].numberSteps > 0 && routine[1].weekStatus[dayIndex] == true){
+                    NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        if fezRotina {
+                            CardView(routine: $routine[1], text: "Rotina concluída", colorCompleted: "greenCompleted")
                         }
-                    }else {
-                        Rectangle()
-                            .frame(width: 264, height: 120, alignment: .center)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                            .overlay(
-                                Text("Você não adicionou nenhum passo nessa rotina!")
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            )
+                        else {
+                            CardView(routine: $routine[1], text: "Possui \(routine[1].numberSteps) passos", colorCompleted: "descriptionCard")
+                        }
                     }
-                    Spacer()
-                
+                }else {
+                    Rectangle()
+                        .frame(width: 350, height: 123, alignment: .center)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .overlay(
+                            Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                        )
+                }
+                Spacer()
             }else if tempo >= "19:00" && tempo <= "23:47"{
-                
-                    if(routine[2].numberSteps > 0){
-                        NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
-                            if fezRotina {
-                                CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
-                            }
-                            else {
-                                CardView(routine: $routine[2], text: "Possui \(routine[0].numberSteps) passos", colorCompleted: "descriptionCard")
-                            }
+                if(routine[2].numberSteps > 0 && routine[2].weekStatus[dayIndex] == true){
+                    NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
+                        if fezRotina {
+                            CardView(routine: $routine[2], text: "Rotina concluída", colorCompleted: "greenCompleted")
                         }
-                    }else {
-                        Rectangle()
-                            .frame(width: 264, height: 120, alignment: .center)
-                            .foregroundColor(.white)
-                            .cornerRadius(12)
-                            .overlay(
-                                Text("Você não adicionou nenhum passo nessa rotina!")
-                                    .fontWeight(.bold)
-                                    .frame(maxWidth: .infinity, alignment: .center)
-                            )
+                        else {
+                            CardView(routine: $routine[2], text: "Possui \(routine[2].numberSteps) passos", colorCompleted: "descriptionCard")
+                        }
                     }
-                    Spacer()
-                
+                }else {
+                    Rectangle()
+                        .frame(width: 350, height: 123, alignment: .center)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                        .overlay(
+                            Text("Você não adicionou nenhum passo nessa rotina ou essa rotina está desativada!")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .multilineTextAlignment(.center)
+                        )
+                }
+                Spacer()
             }
             else {
                 if  tempo >= "00:12" && tempo <= "00:13" {
@@ -149,7 +137,6 @@ struct HomeView: View {
                         .onAppear(){
                             fezRotina = false
                         }
-                        
                 }
                 else if tempo >= "11:00" && tempo <= "12:59" {
                     Text("Próxima skincare marcada para tarde.")
@@ -190,16 +177,34 @@ struct HomeView: View {
             }
         }
         .padding()
-        .background(Image("mainbackground").resizable().scaledToFill())
+        .background(Image("mainbackground").resizable().scaledToFill()).padding(.bottom)
         //.ignoresSafeArea()
         .navigationBarBackButtonHidden()
         //.navigationTitle("App")
         //.navigationBarTitleDisplayMode(.inline)
         .onReceive(timer){ timer in
             tempo = getTime()
+            dayIndex = getWeekDayByIndex()
         }
         .onAppear(){
             tempo = getTime()
+            dayIndex = getWeekDayByIndex()
+        }.sheet(isPresented: $isPresentingEditView){
+            NavigationView {
+                UpdateRoutineView(routine: $routine)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancelar") {
+                                isPresentingEditView = false
+                            }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Concluir") {
+                                isPresentingEditView = false
+                            }
+                        }
+                    }
+            }
         }
     }
 }
@@ -209,6 +214,11 @@ func getTime() -> String {
     formatter.timeStyle = .short
     let dateString = formatter.string(from: Date())
     return dateString
+}
+
+func getWeekDayByIndex() -> Int {
+    let weekday = Calendar.current.component(.weekday, from: Date())
+    return weekday
 }
 
 struct HomeView_Previews: PreviewProvider {

@@ -110,6 +110,7 @@ struct TimerStepView: View {
                                 NavigationLink(destination: FinalStepView(routine: $routine, shouldPopToRootView: self.$rootIsActive)) {
                                     Text("Pular")
                                         .foregroundColor(Color.purpleColor)
+                                        .fontWeight(.semibold)
                                         .overlay(
                                         RoundedRectangle(cornerRadius: 12)
                                             .stroke(lineWidth: 5)
@@ -135,6 +136,7 @@ struct TimerStepView: View {
                                     
                                 }.foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))
+                                    .fontWeight(.semibold)
                                     .frame(width: 350, height: 52)
                                     .background(Color.white)
                                     .cornerRadius(12)
@@ -142,7 +144,7 @@ struct TimerStepView: View {
                         }
                     }else {
                         VStack{
-                            NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
+                            NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
                                 Text("Pular")
                                     .foregroundColor(Color.white)
                                     .overlay(
@@ -154,6 +156,7 @@ struct TimerStepView: View {
                                 
                             }.foregroundColor(.textButtonStep)
                                 .font(.system(size: 17))
+                                .fontWeight(.semibold)
                                 .frame(width: 350, height: 52)
                                 .background(Color.purpleColor)
                                 .cornerRadius(12)
@@ -163,6 +166,7 @@ struct TimerStepView: View {
                                 Text("Pausar")
                                     .foregroundColor(.purpleColor)
                                     .font(.system(size: 17))
+                                    .fontWeight(.semibold)
                                     .frame(width: 350, height: 52)
                                     .overlay(
                                     RoundedRectangle(cornerRadius: 12)
@@ -183,15 +187,17 @@ struct TimerStepView: View {
                             Text("Finish")
                                 .foregroundColor(.textButtonStep)
                                 .font(.system(size: 17))
+                                .fontWeight(.semibold)
                                 .frame(width: 350, height: 52)
                         }
                         .background(Color.purpleColor)
                         .cornerRadius(12)
                     }
                     else {
-                        NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
+                        NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
                             Text("Finish")
                                 .foregroundColor(.textButtonStep)
+                                .fontWeight(.semibold)
                                 .font(.system(size: 17))
                                 .frame(width: 350, height: 52)
                         }
@@ -215,12 +221,9 @@ struct TimerStepView: View {
         var stepFound: Bool = false
         
         while stepFound == false {
-            if(routine.stepStatus[indexStep + 1] == false && indexStep < 4){
-                self.indexStep += 1
+            if(routine.stepStatus[indexStep] == false){
+                indexStep += 1
             }else{
-                if indexStep < 5 && routine.stepStatus[indexStep + 1] == true{
-                    self.indexStep += 1
-                }
                 stepFound = true
             }
         }

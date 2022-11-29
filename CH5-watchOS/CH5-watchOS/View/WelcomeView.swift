@@ -10,7 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @Binding var routine: [RoutineInfo]
     //@State var orangeName: String = UserDefaults.standard.string(forKey: "TEXT_KEY") ?? ""
-    @AppStorage("laranjito") var orangeName = ""
+    @AppStorage("laranjito") var orangeName = "Laranjito"
     //@Binding var routine: RoutineInfo
     
     var body: some View {

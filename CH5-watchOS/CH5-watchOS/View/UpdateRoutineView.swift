@@ -1,13 +1,13 @@
 //
-//  RegistrationView.swift
-//  CH5-watchOS
+//  UpdateRoutineView.swift
+//  Orenji
 //
-//  Created by Luciano Uchoa on 16/11/22.
+//  Created by Luciano Uchoa on 29/11/22.
 //
 
 import SwiftUI
 
-struct RegistrationView: View {
+struct UpdateRoutineView: View {
     @Binding var routine: [RoutineInfo]
     @State private var bool = true
     @AppStorage("fezRotina") var fezRotina = false
@@ -17,7 +17,7 @@ struct RegistrationView: View {
     var body: some View {
         
         VStack{
-            Text("Vamos cadastrar a sua rotina")
+            Text("Deseja alterar a sua rotina?")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -32,21 +32,6 @@ struct RegistrationView: View {
                 }
             }
             Spacer()
-            Button {
-                //
-            } label: {
-                NavigationLink(destination: HomeView(routine: $routine, shift: 0)) {
-                    Text("Concluído")
-                        .font(.system(size: 17))
-                        .frame(width: 350, height: 52)
-                    
-                }
-                .frame(width: 350, height: 52)
-                .background(Color.purpleColor)
-                .cornerRadius(12)
-                .foregroundColor(Color.white)
-            }
-            
         }.onAppear(){
             fezRotina = false
         }
@@ -55,8 +40,8 @@ struct RegistrationView: View {
     }
 }
 
-struct RegistrationView_Previews: PreviewProvider {
+struct UpdateRoutineView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(routine: .constant(RoutineInfo.datas))
+        UpdateRoutineView(routine: .constant(RoutineInfo.datas))
     }
 }
