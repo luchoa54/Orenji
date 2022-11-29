@@ -12,11 +12,11 @@ let timer = Timer
     .autoconnect()
 
 struct TimerStepView: View {
-    @State var timerRunning = true
+    @State var timerRunning = false
     @State var counter: Int = 0
-    @Binding var indexStep: Int
+    @State var indexStep: Int = 0
     @Binding var routine: RoutineInfo
-    @Binding var currentStep: Int
+    @State var currentStep: Int = 1
     @Binding var rootIsActive : Bool
     @AppStorage("rotina concluida") var completedRoutine = false
     
@@ -24,9 +24,39 @@ struct TimerStepView: View {
     
     var body: some View {
         VStack{
+            HStack {
+                Text("Passo \(currentStep)")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.textCurrentStep)
+                
+                Text("/ \(routine.numberSteps)")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.textNextStep)
+            }
+            .padding([.horizontal], 16)
+            .padding([.vertical], 8)
+            .background(Color.stepTextBackground)
+            .cornerRadius(8)
+            
+            ZStack {
+                VStack (spacing: 12){
+                    Text("\(routine.titleStep[indexStep])")
+                        .foregroundColor(.titleColor)
+                        .font(.callout)
+                        .fontWeight(.bold)
+                    //.padding([.bottom], 12)
+                    Text("\(routine.descriptionStep[indexStep])")
+                        .foregroundColor(.descriptionColor)
+                        .multilineTextAlignment(.center)
+                        .font(.body)
+                }
+                .padding([.all], 16)
+            }
+            .padding([.horizontal], 40)
             ZStack{
                 Circle()
                     .fill(Color.clear)
+                    .frame(width: 272, height: 272, alignment: .center)
                     .overlay(
                         Circle().stroke(Color.elipse2Timer, lineWidth: 25)
                     )
@@ -52,36 +82,102 @@ struct TimerStepView: View {
                     .padding([.horizontal], 77)
                 
                 
-                Clock(counter: counter, countTo: countTo)
+                Clock(counter: counter, countTo: countTo, image: routine.imagesSteps[currentStep - 1])
             }
-            .padding([.top], 213)
+            .padding([.top], 30)
             
             Spacer()
             
             ZStack{
                 if !completed(){
                     if timerRunning == false {
-                        Button(action: {
-                            self.timerRunning.toggle()
-                        }) {
-                            Text("Retomar")
-                                .foregroundColor(.textButtonStep)
+                        VStack {
+                            Button(action: {
+                                self.timerRunning.toggle()
+                            }) {
+                                Text("Iniciar")
+                                    .foregroundColor(Color.white)
+                                    .fontWeight(.semibold)
+                                    
+                            }.foregroundColor(.textButtonStep)
                                 .font(.system(size: 17))
                                 .frame(width: 350, height: 52)
+                                .background(Color.purpleColor)
+                                .cornerRadius(12)
+                                
+                            
+                            if(self.currentStep == routine.numberSteps){
+                                NavigationLink(destination: FinalStepView(routine: $routine, shouldPopToRootView: self.$rootIsActive)) {
+                                    Text("Pular")
+                                        .foregroundColor(Color.purpleColor)
+                                        .fontWeight(.semibold)
+                                        .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .stroke(lineWidth: 5)
+                                            .frame(width: 350, height: 52)
+                                            .foregroundColor(Color.purpleColor)
+                                        )
+                                    
+                                }.foregroundColor(.textButtonStep)
+                                    .font(.system(size: 17))
+                                    .frame(width: 350, height: 52)
+                                    .background(Color.white)
+                                    .cornerRadius(12)
+                            }else {
+                                NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)){
+                                    Text("Pular")
+                                        .foregroundColor(Color.purpleColor)
+                                        .overlay(
+                                        RoundedRectangle(cornerRadius: 12)
+                                            .stroke(lineWidth: 5)
+                                            .frame(width: 350, height: 52)
+                                            .foregroundColor(Color.purpleColor)
+                                        )
+                                    
+                                }.foregroundColor(.textButtonStep)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.semibold)
+                                    .frame(width: 350, height: 52)
+                                    .background(Color.white)
+                                    .cornerRadius(12)
+                            }
                         }
-                        .background(Color.purpleColor)
-                        .cornerRadius(12)
                     }else {
-                        Button(action: {
-                            self.timerRunning.toggle()
-                        }) {
-                            Text("Pausar")
-                                .foregroundColor(.textButtonStep)
+                        VStack{
+                            NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
+                                Text("Pular")
+                                    .foregroundColor(Color.white)
+                                    .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(lineWidth: 5)
+                                        .frame(width: 350, height: 52)
+                                        .foregroundColor(Color.purpleColor)
+                                    )
+                                
+                            }.foregroundColor(.textButtonStep)
                                 .font(.system(size: 17))
+                                .fontWeight(.semibold)
                                 .frame(width: 350, height: 52)
+                                .background(Color.purpleColor)
+                                .cornerRadius(12)
+                            Button(action: {
+                                self.timerRunning.toggle()
+                            }) {
+                                Text("Pausar")
+                                    .foregroundColor(.purpleColor)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.semibold)
+                                    .frame(width: 350, height: 52)
+                                    .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(lineWidth: 5)
+                                        .frame(width: 350, height: 52)
+                                        .foregroundColor(Color.purpleColor)
+                                    )
+                            }
+                            .background(Color.white)
+                            .cornerRadius(12)
                         }
-                        .background(Color.buttonPause)
-                        .cornerRadius(12)
                     }
                 }
                 else {
@@ -91,15 +187,17 @@ struct TimerStepView: View {
                             Text("Finish")
                                 .foregroundColor(.textButtonStep)
                                 .font(.system(size: 17))
+                                .fontWeight(.semibold)
                                 .frame(width: 350, height: 52)
                         }
                         .background(Color.purpleColor)
                         .cornerRadius(12)
                     }
                     else {
-                        NavigationLink(destination: StepByStepView(routine: $routine, rootIsActive: self.$rootIsActive, currentStep: self.currentStep + 1, indexStep: self.indexStep)) {
+                        NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
                             Text("Finish")
                                 .foregroundColor(.textButtonStep)
+                                .fontWeight(.semibold)
                                 .font(.system(size: 17))
                                 .frame(width: 350, height: 52)
                         }
@@ -123,12 +221,9 @@ struct TimerStepView: View {
         var stepFound: Bool = false
         
         while stepFound == false {
-            if(routine.stepStatus[indexStep + 1] == false && indexStep < 4){
-                self.indexStep += 1
+            if(routine.stepStatus[indexStep] == false){
+                indexStep += 1
             }else{
-                if indexStep < 5 && routine.stepStatus[indexStep + 1] == true{
-                    self.indexStep += 1
-                }
                 stepFound = true
             }
         }
@@ -146,12 +241,13 @@ struct TimerStepView: View {
 struct Clock: View {
     var counter: Int
     var countTo: Int
+    var image: String
     
     var body: some View {
         VStack {
-            Text(counterToMinutes())
-                .font(.title)
-                .fontWeight(.black)
+            Image(image)
+                .resizable()
+                .frame(width: 175, height: 158, alignment: .center)
         }
     }
     
@@ -166,7 +262,7 @@ struct Clock: View {
 
 struct TimerStepView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerStepView(indexStep: .constant(1), routine: .constant(RoutineInfo.datas[0]), currentStep: .constant(1), rootIsActive: .constant(false))
+        TimerStepView(indexStep: 1, routine: .constant(RoutineInfo.datas[0]), currentStep: 1, rootIsActive: .constant(false))
         //        TimerStepView(routine: .constant(RoutineInfo.datas[0]), currentStep: .constant(1))
     }
 }
