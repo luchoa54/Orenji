@@ -28,8 +28,23 @@ struct DetailEditView: View {
                     .tint(Color.purpleColor)
             }
             Section(header: Text("Notificações"), footer: Text("Ao habilitar esta opção, você receberá uma notificação no início do turno escolhido")){
-                Toggle("Notificar rotina", isOn: $data.notificationStatus)
-                    .tint(Color.purpleColor)
+//                Toggle("Notificar rotina", isOn: $data.notificationStatus)
+//                    .tint(Color.purpleColor)
+                Toggle(isOn: $data.notificationStatus, label: {
+                    Text("Notificar rotina")
+                        .onChange(of: data.notificationStatus){ value in
+                            if(data.shift == "Manhã"){
+                                NotificationManager.instance.scheduleNotificationMorning()
+                            }
+                            else if(data.shift == "Tarde"){
+                                NotificationManager.instance.scheduleNotificationAfternoon()
+                            }
+                            else if(data.shift == "Noite"){
+                                NotificationManager.instance.scheduleNotificationNight()
+                            }
+                    }
+                })
+                .tint(Color.purpleColor)
             }
         }
     }

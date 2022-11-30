@@ -65,6 +65,9 @@ struct WelcomeView: View {
             }
             
         }
+        .onAppear(){
+            NotificationManager.instance.requestAuthorization()
+        }
         .padding()
         .background(Color.welcomeBackground)
         .ignoresSafeArea()

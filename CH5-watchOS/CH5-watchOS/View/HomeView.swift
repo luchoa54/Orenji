@@ -16,8 +16,6 @@ struct HomeView: View {
     @State var isActive : Bool = false
     @State var shift: Int
     @State var tempo: String = ""
-    //@AppStorage("notifica") var isOn = false
-    //@State var notificationManager = NotificationManager()
 
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -57,19 +55,6 @@ struct HomeView: View {
 //                        NotificationManager.instance.scheduleNotification()
 //                    }
 //            })
-            
-//            //Toggle(isOn: $isOn) {
-//                Button {
-//                    NotificationManager.instance.requestAuthorization()
-//                    
-//                } label: {
-//                    Text("ativar")
-//                }
-//            
-//            Button("notifica") {
-//                NotificationManager.instance.scheduleNotification()
-//            }
-//            //}
             
             if  tempo >= "00:00" && tempo <= "00:11"{
                 
@@ -194,7 +179,7 @@ struct HomeView: View {
         }
 //        .onAppear(){
 //            NotificationManager.instance.requestAuthorization()
-//            UIApplication.shared.applicationIconBadgeNumber = 0 
+//            UIApplication.shared.applicationIconBadgeNumber = 0
 //        }
         .onAppear(){
             if fezRotina {
