@@ -19,9 +19,8 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
     var weekStatus: [Bool]
     var stepStatus: [Bool]
     var notificationStatus: Bool
-    var notificationTime: [Int:Int]
     
-    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String], routineIsActive: Bool, weekStatus: [Bool], stepStatus: [Bool], notificationStatus: Bool, notificationTime: [Int:Int]) {
+    init(id: UUID = UUID(), shift: String, numberSteps: Int,  titleStep: [String], descriptionStep: [String], imageShift: String, imagesSteps: [String], routineIsActive: Bool, weekStatus: [Bool], stepStatus: [Bool], notificationStatus: Bool) {
         self.id = id
         self.shift = shift
         self.numberSteps = numberSteps
@@ -33,7 +32,6 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         self.weekStatus = weekStatus
         self.stepStatus = stepStatus
         self.notificationStatus = notificationStatus
-        self.notificationTime = notificationTime
     }
     
     struct Data{
@@ -47,11 +45,10 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         var weekStatus = [false, false, false, false, false, false, false]
         var stepStatus = [false, false, false, false, false, false, false]
         var notificationStatus = false
-        var notificationTime = [0:0]
     }
     
     var data: Data {
-        Data(shift: shift, numberSteps: Double(numberSteps), titleStep: titleStep, descriptionStep: descriptionStep, imageShift: imageShift, imagesSteps: imagesSteps, routineIsActive: routineIsActive, weekStatus: weekStatus, stepStatus: stepStatus, notificationStatus: notificationStatus, notificationTime: notificationTime)
+        Data(shift: shift, numberSteps: Double(numberSteps), titleStep: titleStep, descriptionStep: descriptionStep, imageShift: imageShift, imagesSteps: imagesSteps, routineIsActive: routineIsActive, weekStatus: weekStatus, stepStatus: stepStatus, notificationStatus: notificationStatus)
     }
     
     mutating func update(from data: Data){
@@ -65,7 +62,6 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         weekStatus = data.weekStatus
         stepStatus = data.stepStatus
         notificationStatus = data.notificationStatus
-        notificationTime = data.notificationTime
     }
     
     init(data: Data){
@@ -80,7 +76,6 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         weekStatus = data.weekStatus
         stepStatus = data.stepStatus
         notificationStatus = data.notificationStatus
-        notificationTime = data.notificationTime
     }
     
 }
@@ -96,7 +91,7 @@ extension RoutineInfo {
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
                    stepStatus: [true, false, true, false, true, false, false],
-                    notificationStatus: false, notificationTime: [5 : 0]),
+                   notificationStatus: false),
         RoutineInfo(shift: "Tarde",
                     numberSteps: 2,
                     titleStep: ["Limpeza do rosto", "Hidratação da pele","Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
@@ -105,7 +100,7 @@ extension RoutineInfo {
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
                     stepStatus: [true, false, true, false, false, false, false],
-                    notificationStatus: false, notificationTime: [12 : 0]),
+                   notificationStatus: false),
         RoutineInfo(shift: "Noite",
                     numberSteps: 4,
                     titleStep: ["Limpeza do rosto", "Hidratação da pele", "Vitamina C", "Protetor solar", "Sérum", "Máscara Facial"], descriptionStep: ["a","a","a","a","a","a"],
@@ -114,6 +109,6 @@ extension RoutineInfo {
                     routineIsActive: false,
                     weekStatus: [false, false, false, false, false, false, false],
                     stepStatus: [true, false, true, true, true, false, false],
-                    notificationStatus: false, notificationTime: [19 : 0])
+                   notificationStatus: false)
     ]
 }

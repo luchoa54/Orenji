@@ -9,6 +9,7 @@ import Foundation
 import UserNotifications
 
 class NotificationManager {
+    
     static let instance = NotificationManager()
 
     func requestAuthorization() {
@@ -23,7 +24,7 @@ class NotificationManager {
         }
     }
     
-    func scheduleNotificationMorning() {
+    func scheduleNotification() {
         
         let content = UNMutableNotificationContent()
         content.title = "hello"
@@ -32,49 +33,7 @@ class NotificationManager {
         
         var dateComponents = DateComponents()
         dateComponents.hour = 11
-        dateComponents.minute = 28
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
-        let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
-            content: content,
-            trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    func scheduleNotificationAfternoon() {
-        
-        let content = UNMutableNotificationContent()
-        content.title = "hello"
-        content.sound = .default
-        content.badge = 1
-        
-        var dateComponents = DateComponents()
-        dateComponents.hour = 11
-        dateComponents.minute = 28
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        
-        let request = UNNotificationRequest(
-            identifier: UUID().uuidString,
-            content: content,
-            trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request)
-    }
-    
-    func scheduleNotificationNight() {
-        
-        let content = UNMutableNotificationContent()
-        content.title = "hello"
-        content.sound = .default
-        content.badge = 1
-        
-        var dateComponents = DateComponents()
-        dateComponents.hour = 11
-        dateComponents.minute = 28
+        dateComponents.minute = 02
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
