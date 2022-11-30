@@ -20,6 +20,7 @@ struct HomeView: View {
     @State var dayIndex: Int = 0
     @State var currentStep: Int = 1
     @State var indexStep: Int = 0
+    @StateObject var counter = Counter()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //@AppStorage("notifica") var isOn = false
     //@State var notificationManager = NotificationManager()
@@ -31,6 +32,7 @@ struct HomeView: View {
                     .font(.system(size: 24))
                     .fontWeight(.black)
                     .foregroundColor(.titleColor)
+                Text("\(counter.count)")
                 Spacer()
             }
             Spacer()

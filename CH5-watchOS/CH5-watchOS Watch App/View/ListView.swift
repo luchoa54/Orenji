@@ -14,6 +14,7 @@ struct ListView: View {
     @State var isActive : Bool = false
     @Binding var routine: [RoutineData]
     @State var shift: Int
+    @StateObject var counter = Counter()
     
     var body: some View {
         NavigationView{
@@ -21,6 +22,7 @@ struct ListView: View {
                 Spacer(minLength: 30)
                 Text("Suas rotinas")
                     .frame(maxWidth: .infinity,alignment: .leading)
+                Text("\(counter.count)")
                 Image("\(orangeImage)")
                     .resizable()
                     .frame(width: 68, height: 79, alignment: .center)
