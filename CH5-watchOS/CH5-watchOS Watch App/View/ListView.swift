@@ -11,8 +11,8 @@ struct ListView: View {
     
     @AppStorage("Orange")  var orangeImage = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
-    @State var isActive : Bool = false
     @Binding var routine: [RoutineData]
+    @State var isActive : Bool = false
     @State var shift: Int
     @StateObject var counter = Counter()
     
@@ -22,7 +22,6 @@ struct ListView: View {
                 Spacer(minLength: 30)
                 Text("Suas rotinas")
                     .frame(maxWidth: .infinity,alignment: .leading)
-                Text("\(counter.count)")
                 Image("\(orangeImage)")
                     .resizable()
                     .frame(width: 68, height: 79, alignment: .center)

@@ -73,9 +73,7 @@ struct TimerStepView: View {
                             )
                             .foregroundColor(
                                 (timerRunning ? Color.purpleColor : Color.elipsePaused)
-                            ).animation(
-                                .easeInOut(duration: 0.2)
-                            )
+                            ).animation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 1.0), value: UUID())
                     )
                     .padding([.horizontal], 77)
                 
