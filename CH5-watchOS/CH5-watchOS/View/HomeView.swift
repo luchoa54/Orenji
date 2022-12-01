@@ -16,10 +16,11 @@ struct HomeView: View {
     @State private var isPresentingEditView = false
     @State var isActive : Bool = false
     @State var shift: Int
-    @State var tempo: String = ""
+    @State var actualTime: String = ""
     @State var dayIndex: Int = 0
     @State var currentStep: Int = 1
     @State var indexStep: Int = 0
+    @StateObject var counter = Counter()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     //@AppStorage("notifica") var isOn = false
     //@State var notificationManager = NotificationManager()
@@ -74,7 +75,7 @@ struct HomeView: View {
             //                NotificationManager.instance.scheduleNotification()
             //            }
             //            //}
-            if  tempo >= "05:00" && tempo <= "10:59"{
+            if  actualTime >= "05:00" && actualTime <= "10:59"{
                 if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -103,7 +104,7 @@ struct HomeView: View {
                         )
                 }
                 Spacer()
-            }else if tempo >= "13:00" && tempo <= "16:59"{
+            }else if actualTime >= "13:00" && actualTime <= "16:59"{
                 if(routine[1].numberSteps > 0 && routine[1].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -132,7 +133,7 @@ struct HomeView: View {
                             )
                 }
                 Spacer()
-            }else if tempo >= "19:00" && tempo <= "23:59"{
+            }else if actualTime >= "19:00" && actualTime <= "23:59"{
                 if(routine[2].numberSteps > 0 && routine[2].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -157,7 +158,7 @@ struct HomeView: View {
                 Spacer()
             }
             else {
-                if  tempo >= "00:00" && tempo <= "04:59" {
+                if  actualTime >= "00:00" && actualTime <= "04:59" {
                     Text("Próxima skincare marcada para manhã.")
                         .padding()
                         .padding(.horizontal)
@@ -171,7 +172,7 @@ struct HomeView: View {
                             fezRotina = false
                         }
                 }
-                else if tempo >= "11:00" && tempo <= "12:59" {
+                else if actualTime >= "11:00" && actualTime <= "12:59" {
                     Text("Próxima skincare marcada para tarde.")
                         .padding()
                         .padding(.horizontal)
@@ -185,7 +186,7 @@ struct HomeView: View {
                             fezRotina = false
                         }
                 }
-                else if tempo >= "17:00" && tempo <= "18:59" {
+                else if actualTime >= "17:00" && actualTime <= "18:59" {
                     Text("Próxima skincare marcada para noite.")
                         .padding()
                         .padding(.horizontal)
@@ -215,16 +216,13 @@ struct HomeView: View {
         }
         .padding()
         .background(Image("mainbackground").resizable().scaledToFill()).padding(.bottom)
-        //.ignoresSafeArea()
         .navigationBarBackButtonHidden()
-        //.navigationTitle("App")
-        //.navigationBarTitleDisplayMode(.inline)
         .onReceive(timer){ timer in
-            tempo = getTime()
+            actualTime = getTime()
             dayIndex = getWeekDayByIndex()
         }
         .onAppear(){
-            tempo = getTime()
+            actualTime = getTime()
             dayIndex = getWeekDayByIndex()
         }.sheet(isPresented: $isPresentingEditView){
             NavigationView {

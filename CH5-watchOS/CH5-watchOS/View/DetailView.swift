@@ -12,7 +12,7 @@ struct DetailView: View {
     
     @State private var data = RoutineInfo.Data()
     @State private var isPresentingEditView = false
-    
+    @StateObject var counter = Counter()
     var body: some View {
         List{
             Section(header: Text("Titulo da Rotina")){
@@ -69,6 +69,8 @@ struct DetailView: View {
                                 Button("Done") {
                                     isPresentingEditView = false
                                     rotinas.update(from: data)
+                                    counter.increment(rotinas: data)
+                                    
                                 }
                             }
                         }

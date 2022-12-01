@@ -73,9 +73,7 @@ struct TimerStepView: View {
                             )
                             .foregroundColor(
                                 (timerRunning ? Color.purpleColor : Color.elipsePaused)
-                            ).animation(
-                                .easeInOut(duration: 0.2)
-                            )
+                            ).animation(.spring(response: 0.2, dampingFraction: 1.0, blendDuration: 1.0), value: UUID())
                     )
                     .padding([.horizontal], 77)
                 
@@ -121,7 +119,7 @@ struct TimerStepView: View {
                                 }.foregroundColor(.textButtonStep)
                                     .font(.system(size: 17))
                                     .frame(width: 350, height: 52)
-                                    .background(Color.white)
+                                    .background(Color.clear)
                                     .cornerRadius(12)
                             }else {
                                 NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)){
@@ -139,7 +137,7 @@ struct TimerStepView: View {
                                     .font(.system(size: 17))
                                     .fontWeight(.semibold)
                                     .frame(width: 350, height: 52)
-                                    .background(Color.white)
+                                    .background(Color.clear)
                                     .cornerRadius(12)
                             }
                         }
@@ -177,7 +175,7 @@ struct TimerStepView: View {
                                         .foregroundColor(Color.purpleColor)
                                     )
                             }
-                            .background(Color.white)
+                            .background(Color.clear)
                             .cornerRadius(12)
                         }
                     }

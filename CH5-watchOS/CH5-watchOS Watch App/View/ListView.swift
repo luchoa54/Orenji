@@ -11,9 +11,10 @@ struct ListView: View {
     
     @AppStorage("Orange")  var orangeImage = "mainsad"
     @AppStorage("fezRotina") var fezRotina = false
-    @State var isActive : Bool = false
     @Binding var routine: [RoutineData]
+    @State var isActive : Bool = false
     @State var shift: Int
+    @StateObject var counter = Counter()
     
     var body: some View {
         NavigationView{
