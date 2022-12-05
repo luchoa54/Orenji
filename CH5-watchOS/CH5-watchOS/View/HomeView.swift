@@ -12,7 +12,7 @@ struct HomeView: View {
     @AppStorage("fezRotina") var fezRotina = false
     @AppStorage("laranjito") var orangeName = ""
     @Binding var routine: [RoutineInfo]
-    @State private var data = RoutineInfo.Data()
+    @State private var data = RoutineInfo.NewData()
     @State private var isPresentingEditView = false
     @State var isActive : Bool = false
     @State var shift: Int

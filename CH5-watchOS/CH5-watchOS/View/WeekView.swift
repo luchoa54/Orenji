@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeekView: View {
-    @Binding var data : RoutineInfo.Data
+    @Binding var data : RoutineInfo.NewData
     @State var checkState: Bool = false
     
     var body: some View {

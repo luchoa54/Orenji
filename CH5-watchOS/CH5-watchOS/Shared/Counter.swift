@@ -26,12 +26,17 @@ final class Counter: ObservableObject {
             .assign(to: &$count)
     }
     
-    func increment(rotinas: RoutineInfo.Data) {
-        print(rotinas)
+    func increment(rotinas: RoutineInfo) {
+        count = Encode(payload: rotinas)
         session.sendMessage(["count": count], replyHandler: nil) { error in
             print(error.localizedDescription)
         }
     }
     
-   
+    func Encode<T: Encodable>(payload: T) -> Data {
+          let encoder = JSONEncoder()
+          let jsonData = try! JSONEncoder().encode(payload)
+          return jsonData
+      }
+    
 }

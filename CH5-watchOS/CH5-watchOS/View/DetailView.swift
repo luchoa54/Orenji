@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     @Binding var rotinas: RoutineInfo
     
-    @State private var data = RoutineInfo.Data()
+    @State private var data = RoutineInfo.NewData()
     @State private var isPresentingEditView = false
     @StateObject var counter = Counter()
     var body: some View {
@@ -69,8 +69,8 @@ struct DetailView: View {
                                 Button("Done") {
                                     isPresentingEditView = false
                                     rotinas.update(from: data)
-                                    counter.increment(rotinas: data)
-                                    
+                                    counter.increment(rotinas: rotinas)
+                                    print(rotinas)
                                 }
                             }
                         }

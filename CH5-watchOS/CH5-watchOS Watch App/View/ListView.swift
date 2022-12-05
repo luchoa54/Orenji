@@ -17,10 +17,14 @@ struct ListView: View {
     @StateObject var counter = Counter()
     
     var body: some View {
+        let mudancas = Decode(data: counter.count)
+        
         NavigationView{
             VStack(){
+                let _ = print(mudancas.shift)
                 Spacer(minLength: 30)
-                Text("Suas rotinas")
+                Text("Meu Pou")
+               
                     .frame(maxWidth: .infinity,alignment: .leading)
                 Image("\(orangeImage)")
                     .resizable()
@@ -35,10 +39,17 @@ struct ListView: View {
                 }
                     
             }
+            
         }.navigationBarBackButtonHidden(true)
             .edgesIgnoringSafeArea(.all)
             .navigationTitle("App")
             .navigationBarTitleDisplayMode(.inline)
+    }
+    func Decode(data: Data) -> RoutineInfo{
+        let decoder = JSONDecoder()
+        let changes = try? decoder.decode(RoutineInfo.self, from: data)
+        guard let changes = changes else { return RoutineInfo.datas[0] }
+        return changes
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailEditView: View {
     
-    @Binding var data: RoutineInfo.Data
+    @Binding var data: RoutineInfo.NewData
     
     var body: some View {
         Form{

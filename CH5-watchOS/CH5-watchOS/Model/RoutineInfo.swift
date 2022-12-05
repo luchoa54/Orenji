@@ -35,8 +35,8 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         self.notificationStatus = notificationStatus
         self.timeStep = timeStep
     }
-    
-    struct Data{
+
+    struct NewData: Codable{
         var shift = ""
         var numberSteps : Double = 3
         var titleStep =  [""]
@@ -50,11 +50,11 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         var timeStep = [10]
     }
     
-    var data: Data {
-        Data(shift: shift, numberSteps: Double(numberSteps), titleStep: titleStep, descriptionStep: descriptionStep, imageShift: imageShift, imagesSteps: imagesSteps, routineIsActive: routineIsActive, weekStatus: weekStatus, stepStatus: stepStatus, notificationStatus: notificationStatus, timeStep: timeStep)
+    var data: NewData {
+        NewData(shift: shift, numberSteps: Double(numberSteps), titleStep: titleStep, descriptionStep: descriptionStep, imageShift: imageShift, imagesSteps: imagesSteps, routineIsActive: routineIsActive, weekStatus: weekStatus, stepStatus: stepStatus, notificationStatus: notificationStatus, timeStep: timeStep)
     }
     
-    mutating func update(from data: Data){
+    mutating func update(from data: NewData){
         shift = data.shift
         numberSteps = Int(data.numberSteps)
         titleStep = data.titleStep
@@ -68,7 +68,7 @@ struct RoutineInfo: Identifiable, Hashable , Codable{
         timeStep = data.timeStep
     }
     
-    init(data: Data){
+    init(data: NewData){
         id = UUID()
         shift = data.shift
         numberSteps = Int(data.numberSteps)
