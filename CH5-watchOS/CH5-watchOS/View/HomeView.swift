@@ -22,8 +22,6 @@ struct HomeView: View {
     @State var indexStep: Int = 0
     @StateObject var counter = Counter()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    //@AppStorage("notifica") var isOn = false
-    //@State var notificationManager = NotificationManager()
     
     var body: some View {
         VStack {
@@ -57,24 +55,7 @@ struct HomeView: View {
                     isPresentingEditView = true
                 }
             }
-            //            Toggle(isOn: $isOn, label: {
-            //                Text("Notificar rotina")
-            //                    .onChange(of: isOn){ value in
-            //                        NotificationManager.instance.scheduleNotification()
-            //                    }
-            //            })
-            //            //Toggle(isOn: $isOn) {
-            //                Button {
-            //                    NotificationManager.instance.requestAuthorization()
-            //
-            //                } label: {
-            //                    Text("ativar")
-            //                }
-            //
-            //            Button("notifica") {
-            //                NotificationManager.instance.scheduleNotification()
-            //            }
-            //            //}
+            
             if  actualTime >= "05:00" && actualTime <= "10:59"{
                 if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){

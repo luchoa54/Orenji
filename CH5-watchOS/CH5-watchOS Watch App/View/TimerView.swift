@@ -113,11 +113,26 @@ struct TimerView: View {
             if self.counter < routine.timeSteps[passoAtual - 1] && timerStarted != false{
                 self.counter += 1
             }
-        }.navigationTitle("Limpeza")
+        }.onAppear(){
+            nextStep()
+        }
+        .navigationTitle("\(routine.shift)")
     }
     
     func completed() -> Bool {
         return counter / routine.timeSteps[passoAtual - 1] == 1
+    }
+    
+    func nextStep(){
+        var stepFound: Bool = false
+        
+        while stepFound == false {
+            if(routine.stepStatus[passoAtual] == false){
+                passoAtual += 1
+            }else{
+                stepFound = true
+            }
+        }
     }
 }
 

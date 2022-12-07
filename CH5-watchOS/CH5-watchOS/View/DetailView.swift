@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DetailView: View {
     @Binding var rotinas: RoutineInfo
-    
     @State private var data = RoutineInfo.NewData()
     @State private var isPresentingEditView = false
     @StateObject var counter = Counter()
+    
     var body: some View {
         List{
             Section(header: Text("Titulo da Rotina")){
@@ -50,7 +50,7 @@ struct DetailView: View {
             }
         }.navigationTitle(rotinas.shift)
             .toolbar {
-                Button("Edit") {
+                Button("Editar") {
                     isPresentingEditView = true
                     data = rotinas.data
                 }
@@ -70,7 +70,6 @@ struct DetailView: View {
                                     isPresentingEditView = false
                                     rotinas.update(from: data)
                                     counter.increment(rotinas: rotinas)
-                                    print(rotinas)
                                 }
                             }
                         }
@@ -126,8 +125,6 @@ struct StaticWeekView: View{
                     Text("D")
                         .foregroundColor(self.checkState[6] ? Color.white : Color.init("circleLabel"))
                 )
-            
-            
         }
     }
 }

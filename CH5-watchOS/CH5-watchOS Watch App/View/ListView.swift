@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+let timer = Timer
+    .publish(every: 1, on: .main, in: .common)
+    .autoconnect()
+
 struct ListView: View {
     
     @AppStorage("Orange")  var orangeImage = "mainsad"
@@ -21,10 +25,8 @@ struct ListView: View {
         
         NavigationView{
             VStack(){
-                let _ = print(mudancas.shift)
                 Spacer(minLength: 30)
-                Text("Meu Pou")
-               
+                Text("Sua rotina")
                     .frame(maxWidth: .infinity,alignment: .leading)
                 Image("\(orangeImage)")
                     .resizable()
@@ -40,10 +42,20 @@ struct ListView: View {
                     
             }
             
-        }.navigationBarBackButtonHidden(true)
+        }.onReceive(timer) { time in
+            if mudancas.shift == "Manhã"{
+                routine[0].update(from: mudancas.data)
+            }else if mudancas.shift == "Tarde" {
+                routine[1].update(from: mudancas.data)
+            }else {
+                routine[2].update(from: mudancas.data)
+            }
+        }
+        .navigationBarBackButtonHidden(true)
             .edgesIgnoringSafeArea(.all)
             .navigationTitle("App")
             .navigationBarTitleDisplayMode(.inline)
+            
     }
     func Decode(data: Data) -> RoutineInfo{
         let decoder = JSONDecoder()

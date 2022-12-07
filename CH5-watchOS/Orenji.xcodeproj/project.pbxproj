@@ -145,8 +145,8 @@
 				66705B22291AAD57004378C2 /* ListView.swift */,
 				667FAEB5291D94720062A2F4 /* OrangeView.swift */,
 				66D6EF3129193E8200408FE2 /* StepGuideView.swift */,
-				667DA0DB291BD51700DC6746 /* CardView.swift */,
 				665B7FA1291985350023B012 /* TimerView.swift */,
+				667DA0DB291BD51700DC6746 /* CardView.swift */,
 				66705B20291AA5AA004378C2 /* FinishView.swift */,
 			);
 			path = View;
