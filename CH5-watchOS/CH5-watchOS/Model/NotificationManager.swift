@@ -27,13 +27,14 @@ class NotificationManager {
     func scheduleNotification() {
         
         let content = UNMutableNotificationContent()
-        content.title = "hello manha"
+        content.title = "Hora da skincare"
+        content.subtitle = "Acho que o Orenji está precisando cuidar da pele. Vamos lá?"
         content.sound = .default
         content.badge = 1
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 23
-        dateComponents.minute = 32
+        dateComponents.hour = 8
+        dateComponents.minute = 46
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
@@ -48,13 +49,14 @@ class NotificationManager {
     func scheduleNotification2() {
         
         let content = UNMutableNotificationContent()
-        content.title = "hello tarde"
+        content.title = "Orenji te aguarda"
+        content.subtitle = "Orenji está esperando você para cuidar da pele. Vamos lá?"
         content.sound = .default
         content.badge = 1
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 23
-        dateComponents.minute = 33
+        dateComponents.hour = 13
+        dateComponents.minute = 0
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
@@ -69,13 +71,14 @@ class NotificationManager {
     func scheduleNotification3() {
         
         let content = UNMutableNotificationContent()
-        content.title = "hello noite"
+        content.title = "Hora da skincare"
+        content.subtitle = "Acho que o Orenji está precisando cuidar da pele. Vamos lá?"
         content.sound = .default
         content.badge = 1
         
         var dateComponents = DateComponents()
-        dateComponents.hour = 23
-        dateComponents.minute = 34
+        dateComponents.hour = 19
+        dateComponents.minute = 0
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         
