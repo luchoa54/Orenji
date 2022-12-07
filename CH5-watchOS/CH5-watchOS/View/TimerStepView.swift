@@ -122,7 +122,7 @@ struct TimerStepView: View {
                                     .background(Color.clear)
                                     .cornerRadius(12)
                             }else {
-                                NavigationLink(destination: TimerStepView(indexStep: self.indexStep,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)){
+                                NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)){
                                     Text("Pular")
                                         .foregroundColor(Color.purpleColor)
                                         .frame(width: 350, height: 52)
@@ -143,23 +143,43 @@ struct TimerStepView: View {
                         }
                     }else {
                         VStack{
-                            NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
-                                Text("Pular")
-                                    .foregroundColor(Color.white)
-                                    .frame(width: 350, height: 52)
-                                    .overlay(
-                                    RoundedRectangle(cornerRadius: 12)
-                                        .stroke(lineWidth: 5)
+                            if(self.currentStep == routine.numberSteps){
+                                NavigationLink(destination: FinalStepView(routine: $routine, shouldPopToRootView: self.$rootIsActive)) {
+                                    Text("Pular")
+                                        .foregroundColor(Color.white)
                                         .frame(width: 350, height: 52)
-                                        .foregroundColor(Color.purpleColor)
-                                    )
-                                
-                            }.foregroundColor(.textButtonStep)
-                                .font(.system(size: 17))
-                                .fontWeight(.semibold)
-                                .frame(width: 350, height: 52)
-                                .background(Color.purpleColor)
-                                .cornerRadius(12)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(lineWidth: 5)
+                                                .frame(width: 350, height: 52)
+                                                .foregroundColor(Color.purpleColor)
+                                        )
+                                    
+                                }.foregroundColor(.textButtonStep)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.semibold)
+                                    .frame(width: 350, height: 52)
+                                    .background(Color.purpleColor)
+                                    .cornerRadius(12)
+                            }else {
+                                NavigationLink(destination: TimerStepView(indexStep: self.indexStep + 1,routine: $routine, currentStep: self.currentStep + 1, rootIsActive: self.$rootIsActive)) {
+                                    Text("Pular")
+                                        .foregroundColor(Color.white)
+                                        .frame(width: 350, height: 52)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 12)
+                                                .stroke(lineWidth: 5)
+                                                .frame(width: 350, height: 52)
+                                                .foregroundColor(Color.purpleColor)
+                                        )
+                                    
+                                }.foregroundColor(.textButtonStep)
+                                    .font(.system(size: 17))
+                                    .fontWeight(.semibold)
+                                    .frame(width: 350, height: 52)
+                                    .background(Color.purpleColor)
+                                    .cornerRadius(12)
+                            }
                             Button(action: {
                                 self.timerRunning.toggle()
                             }) {
