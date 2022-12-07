@@ -221,7 +221,7 @@ struct TimerStepView: View {
         var stepFound: Bool = false
         
         while stepFound == false {
-            if(routine.stepStatus[indexStep] == false){
+            if(routine.stepStatus[indexStep] == false && indexStep < 6){
                 indexStep += 1
             }else{
                 stepFound = true
