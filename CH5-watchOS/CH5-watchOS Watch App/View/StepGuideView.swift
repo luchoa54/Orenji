@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StepGuideView: View {
     
-    @State var passoAtual: Int = 1
+    @State var passoAtual: Int = 0
     @State var backButtonStatus: Bool = false
     @Binding var rootIsActive : Bool
     @Binding var routine : RoutineData
@@ -22,17 +22,17 @@ struct StepGuideView: View {
                 .foregroundColor(.backgroundColor)
                 .cornerRadius(8)
                 .overlay(
-                    Text("Passo \(passoAtual) / \(routine.numberSteps)")
+                    Text("Passo \(passoAtual + 1) / \(routine.numberSteps)")
                         .font(.system(size: 11, weight: .semibold))
                 )
-            Text("\(routine.titleStep[passoAtual - 1])")
+            Text("\(routine.titleStep[passoAtual])")
                 .font(.system(size: 11,weight: .semibold))
             TabView{
-                Image("\(routine.imagesSteps[passoAtual - 1])")
+                Image("\(routine.imagesSteps[passoAtual])")
                     .resizable()
                     .frame(width: 80, height: 72)
                 
-                Text("\(routine.descriptionStep[passoAtual - 1])")
+                Text("\(routine.descriptionStep[passoAtual])")
                     .font(.system(size: 11))
                     .multilineTextAlignment(.center)
                 

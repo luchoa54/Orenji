@@ -56,7 +56,7 @@ struct HomeView: View {
                 }
             }
             
-            if  actualTime >= "05:00" && actualTime <= "10:59"{
+            if  actualTime >= "05:00" && actualTime <= "10:59" && routine[0].numberSteps > 0{
                 if(routine[0].numberSteps > 0 && routine[0].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[0], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -85,7 +85,7 @@ struct HomeView: View {
                         )
                 }
                 Spacer()
-            }else if actualTime >= "13:00" && actualTime <= "16:59"{
+            }else if actualTime >= "13:00" && actualTime <= "16:59" && routine[1].numberSteps > 0{
                 if(routine[1].numberSteps > 0 && routine[1].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[1], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
@@ -114,7 +114,7 @@ struct HomeView: View {
                             )
                 }
                 Spacer()
-            }else if actualTime >= "19:00" && actualTime <= "23:59"{
+            }else if actualTime >= "19:00" && actualTime <= "23:59" && routine[2].numberSteps > 0{
                 if(routine[2].numberSteps > 0 && routine[2].weekStatus[dayIndex] == true){
                     NavigationLink(destination: TimerStepView(routine: $routine[2], rootIsActive: self.$isActive), isActive: self.$isActive){
                         if fezRotina {
