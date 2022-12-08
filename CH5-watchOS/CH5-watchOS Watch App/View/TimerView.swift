@@ -24,8 +24,8 @@ struct TimerView: View {
                 Spacer(minLength: 10)
                 ZStack {
                     TrackView()
-                    Label(counter: $counter, countTo: routine.timeSteps[passoAtual - 1])
-                    Outline(countTo: routine.timeSteps[passoAtual - 1], counter: $counter, timePaused: $timerStarted)
+                    Label(counter: $counter, countTo: routine.timeSteps[passoAtual])
+                    Outline(countTo: routine.timeSteps[passoAtual], counter: $counter, timePaused: $timerStarted)
                 }
                 ZStack{
                     if !completed(){
@@ -110,7 +110,7 @@ struct TimerView: View {
                 }
             }
         }.onReceive(timer) { timer in
-            if self.counter < routine.timeSteps[passoAtual - 1] && timerStarted != false{
+            if self.counter < routine.timeSteps[passoAtual] && timerStarted != false{
                 self.counter += 1
             }
         }.onAppear(){
@@ -120,7 +120,7 @@ struct TimerView: View {
     }
     
     func completed() -> Bool {
-        return counter / routine.timeSteps[passoAtual - 1] == 1
+        return counter / routine.timeSteps[passoAtual] == 1
     }
     
     func nextStep(){

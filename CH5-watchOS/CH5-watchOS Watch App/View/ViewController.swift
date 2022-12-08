@@ -16,11 +16,11 @@ struct ViewController: View {
     
     var body: some View {
         NavigationView{
-            if  tempo >= "05:00" && tempo < "10:59"{
+            if  tempo >= "05:00" && tempo < "10:59" && routine[0].numberSteps > 0{
                 ListView(routine: $routine, shift: 0)
-            }else if tempo >= "13:00" && tempo < "16:59"{
+            }else if tempo >= "13:00" && tempo < "16:59" && routine[1].numberSteps > 0{
                 ListView(routine: $routine, shift: 1)
-            }else if tempo >= "19:00" && tempo < "23:59"{
+            }else if tempo >= "19:00" && tempo < "23:59" && routine[2].numberSteps > 0{
                 ListView(routine: $routine, shift: 2)
             }
             else {
